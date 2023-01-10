@@ -54,6 +54,7 @@ pyplot.yticks(ticks=axes_nummers, labels=axes_nummers)
 #tonen grid 
 pyplot.minorticks_on() #toon minor gridlines (kan ticks nog uitschakelen -> zie links)
 pyplot.tight_layout()
+pyplot.title("Smart Grid")
 pyplot.show()
 
 
