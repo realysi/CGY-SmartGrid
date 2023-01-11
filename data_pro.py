@@ -1,6 +1,5 @@
 import csv
 from objects import House, Battery
-from functions import total_output
 import argparse
 
 """
@@ -24,47 +23,45 @@ for i in range(1, 4):
 house_link = districten[args.district][0]
 battery_link = districten[args.district][1]
 
-
 #Data van huizen
-output_houses = []  #array of all max-outputs from all the houses
+houses = {}
 
 with open(house_link, mode='r') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
 
-    line_count = 0
+    id_house = 0
     for row in csv_reader:
-        if line_count != 0: #skip eerste line 
-            house = House(int(row[0]), int(row[1]), float(row[2]), line_count)
-            output_houses.append(house.max_output)
-            x = row[0]
-            y = row[1]
-            print(x, y)
-        line_count += 1
+        if id_house != 0: #skip eerste line 
+            house = House(int(row[0]), int(row[1]), float(row[2]), id_house)
+            houses[id_house] = [house.x, house.y, house.max_output] #LATER HIER NOG MEER AAN TOEVOEGEN
+        id_house += 1
     
 #Data van batterijen
+batteries = {}
+
 with open(battery_link, mode='r') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
-    line_count = 0
+    id_battery = 0
     for row in csv_reader:
-        if line_count != 0: #skip eerste line 
-            x1 = row[0]
-            y1 = row[1]
-        line_count += 1
+        if id_battery != 0: #skip eerste line 
+            battery = Battery(int(row[0]), int(row[1]), float(row[2]))
+            batteries[id_battery] = [battery.x, battery.y, battery.capacity]
+        id_battery += 1
+
 
 # Data outputs
-sum_output = total_output(output_houses)
+"""
+Om de data te visualizeren, zal wat data worden gegenereerd in data.txt. 
+Elke keer wanneer data_pro.py zal worden gerund, zal data.txt worden overgeschreven.
+"""
 with open('data.txt', 'w') as a:
-    a.write(f"Total output of houses: {sum_output}")
+    for i in houses:
+        a.write(f"ID:{i} \t {houses[i]} \n")
 
 
 
 """
 Links:
 https://towardsdatascience.com/a-simple-guide-to-command-line-arguments-with-argparse-6824c30ab1c3
-
-https://www.tutorialspoint.com/how-can-i-plot-a-single-point-in-matplotlib-python
-https://www.pythoncharts.com/matplotlib/customizing-grid-matplotlib/
-https://stackoverflow.com/questions/14608483/how-to-add-a-grid-line-at-a-specific-location-in-matplotlib-plot
-
 """
 
