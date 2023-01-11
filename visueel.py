@@ -16,7 +16,7 @@ pyplot.grid(which='major')  #toont major grid
 pyplot.grid(which='minor')  #toont minor grid
 
 #Data van huizen
-with open('/Users/yanickidsinga/Documents/GitHub/CGY-SmartGrid/Huizen&Batterijen/district_1/district-1_houses.csv') as csv_file:
+with open('Huizen&Batterijen/district_1/district-1_houses.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
 
 
@@ -29,7 +29,7 @@ with open('/Users/yanickidsinga/Documents/GitHub/CGY-SmartGrid/Huizen&Batterijen
         line_count += 1
 
 #Data van batterijen
-with open('/Users/yanickidsinga/Documents/GitHub/CGY-SmartGrid/Huizen&Batterijen/district_1/district-1_batteries.csv') as csv_file:
+with open('Huizen&Batterijen/district_1/district-1_batteries.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     line_count = 0
     for row in csv_reader:
