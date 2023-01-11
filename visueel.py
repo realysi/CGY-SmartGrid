@@ -22,15 +22,18 @@ pyplot.grid(which='minor')  #toont minor grid
 with open('Huizen&Batterijen/district_1/district-1_houses.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
 
-
+    houses = []
     line_count = 0
     for row in csv_reader:
         if line_count != 0: #skip eerste line 
+            house = House(row[0], row[1], row[2], line_count)
+            houses.append(house)
             x = row[0]
             y = row[1]
             pyplot.plot(int(x), int(y), marker="p", color="black")
         line_count += 1
 
+    print(houses)
 #Data van batterijen
 with open('Huizen&Batterijen/district_1/district-1_batteries.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
