@@ -3,6 +3,7 @@ from matplotlib import pyplot
 from objects import House, Battery
 
 """
+NOTEEEEE: FILE IS VEROUDERD KWA DATA, MAAR BEVAT NOG WEL BASICS VAN DE GRIDS
 Functie om de data van de csv files in te lezen
 Toekomstige problemen: Lijnen tekenen (vragen begeleider of matplotlib hier wel ideaal voor is)
 Note! Heb veel enters in de code om het zo overzichtelijk mogelijk te houden voor de rest
@@ -35,7 +36,7 @@ with open('Huizen&Batterijen/district_1/district-1_houses.csv', mode='r') as csv
 
 with open('data.txt', 'w') as a:
     a.write(f"{houses}")
-    
+
 #Data van batterijen
 with open('Huizen&Batterijen/district_1/district-1_batteries.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
