@@ -1,3 +1,4 @@
 Python 3.0 or newer
 matplotlib
 pillow
+argparse

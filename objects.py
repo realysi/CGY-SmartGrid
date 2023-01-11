@@ -7,7 +7,7 @@ class House:
         self.connection = False
 
     def __repr__(self) -> str:
-        return f"{self.id}: x={self.x}, y={self.y}, output={self.max_output}, battery={self.connection}"
+        return f"ID: {self.id} x={self.x}, y={self.y}, output={self.max_output}, battery={self.connection}"
 
 class Battery:
     def __init__(self, x, y, capacity):

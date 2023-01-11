@@ -18,11 +18,11 @@ pyplot.ylim(-0.2,51)   #limiet y-as
 pyplot.grid(which='major')  #toont major grid
 pyplot.grid(which='minor')  #toont minor grid
 
+houses = []
 #Data van huizen
-with open('Huizen&Batterijen/district_1/district-1_houses.csv') as csv_file:
+with open('Huizen&Batterijen/district_1/district-1_houses.csv', mode='r') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
 
-    houses = []
     line_count = 0
     for row in csv_reader:
         if line_count != 0: #skip eerste line 
@@ -33,7 +33,9 @@ with open('Huizen&Batterijen/district_1/district-1_houses.csv') as csv_file:
             pyplot.plot(int(x), int(y), marker="p", color="black")
         line_count += 1
 
-    print(houses)
+with open('data.txt', 'w') as a:
+    a.write(f"{houses}")
+    
 #Data van batterijen
 with open('Huizen&Batterijen/district_1/district-1_batteries.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
@@ -61,7 +63,7 @@ pyplot.yticks(ticks=axes_nummers, labels=axes_nummers)
 pyplot.minorticks_on() #toon minor gridlines (kan ticks nog uitschakelen -> zie links)
 pyplot.tight_layout()
 pyplot.title("Smart Grid")
-pyplot.show()
+#pyplot.show()
 
 
 
