@@ -3,19 +3,26 @@ from objects import House, Battery
 from functions import total_output
 import argparse
 
+"""
+argparse uitgelegd:
+voeg na de gebruikelijke "python3 filename" de vlag --disctrict toe met daarachter 1 2 of 3 om aan te geven
+welke dataset van de drie districten je wil verwerken. Met een getal groter dan 3 kom je hier ook door, maarrr
+dan wordt er geen data verwerkt.
+
+pip3 install argparse
+"""
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--district', type=int, required=True, help="Select district 1, 2 or 3")
 args = parser.parse_args()
 
-districten = {}
+districten = {} #dictonary to save the relative paths (both house & battery) for each district
 for i in range(1, 4):
     districten[i] = [f"Huizen&Batterijen/district_{str(i)}/district-{str(i)}_houses.csv", 
     f"Huizen&Batterijen/district_{str(i)}/district-{str(i)}_batteries.csv"]
 
 house_link = districten[args.district][0]
 battery_link = districten[args.district][1]
-
 
 
 #Data van huizen
