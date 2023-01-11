@@ -1,7 +1,6 @@
 import csv
 from matplotlib import pyplot
 
-
 """
 Functie om de data van de csv files in te lezen
 Toekomstige problemen: Lijnen tekenen (vragen begeleider of matplotlib hier wel ideaal voor is)
