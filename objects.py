@@ -9,3 +9,4 @@ class Battery:
         self.x = x
         self.y = y
         self.capacity = capacity
+

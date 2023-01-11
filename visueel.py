@@ -1,5 +1,6 @@
 import csv
 from matplotlib import pyplot
+from objects import House, Battery
 
 """
 Functie om de data van de csv files in te lezen
