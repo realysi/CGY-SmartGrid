@@ -6,6 +6,10 @@ from matplotlib import pyplot
 Functie om de data van de csv files in te lezen
 Toekomstige problemen: Lijnen tekenen (vragen begeleider of matplotlib hier wel ideaal voor is)
 Note! Heb veel enters in de code om het zo overzichtelijk mogelijk te houden voor de rest
+
+Wat nog te doen:
+- Classes voor huizen, batterijen en verbindingen?
+- 
 """
 
 pyplot.xlim(-0.2,51)   #limiet x-as
