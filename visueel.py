@@ -1,5 +1,4 @@
 import csv
-import numpy
 from matplotlib import pyplot
 
 
