@@ -9,17 +9,6 @@ welke dataset van de drie districten je wil verwerken. Met een getal groter dan 
 dan wordt er geen data verwerkt.
 """
 
-"""
-NOTEEEEE: FILE IS VEROUDERD KWA DATA, MAAR BEVAT NOG WEL BASICS VAN DE GRIDS
-Functie om de data van de csv files in te lezen
-Toekomstige problemen: Lijnen tekenen (vragen begeleider of matplotlib hier wel ideaal voor is)
-Note! Heb veel enters in de code om het zo overzichtelijk mogelijk te houden voor de rest
-
-Wat nog te doen:
-- Classes voor huizen, batterijen en verbindingen?
-- 
-"""
-
 plt.xlim(-0.2,51)   #limiet x-as
 plt.ylim(-0.2,51)   #limiet y-as
 
@@ -60,11 +49,11 @@ plt.show()
 
 
 
-
 """
 Links:
 https://www.tutorialspoint.com/how-can-i-plot-a-single-point-in-matplotlib-python
 https://www.pythoncharts.com/matplotlib/customizing-grid-matplotlib/
 https://stackoverflow.com/questions/14608483/how-to-add-a-grid-line-at-a-specific-location-in-matplotlib-plot
+https://stackoverflow.com/questions/7908636/how-to-add-hovering-annotations-to-a-plot
 
 """
