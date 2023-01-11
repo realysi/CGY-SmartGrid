@@ -1,4 +1,5 @@
-Python 3.0 or newer
+Python
+csv
 matplotlib
 pillow
 argparse

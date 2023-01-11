@@ -23,7 +23,8 @@ for i in range(1, 4):
 house_link = districten[args.district][0]
 battery_link = districten[args.district][1]
 
-#Data van huizen
+#Data of houses
+#indexing of dictionary: [0]connection, [1]to_bat, [2]x, [3]y, [4]max_output
 houses = {}
 
 with open(house_link, mode='r') as csv_file:
@@ -33,10 +34,11 @@ with open(house_link, mode='r') as csv_file:
     for row in csv_reader:
         if id_house != 0: #skip eerste line 
             house = House(int(row[0]), int(row[1]), float(row[2]), id_house)
-            houses[id_house] = [house.x, house.y, house.max_output] #LATER HIER NOG MEER AAN TOEVOEGEN
+            houses[id_house] = [house.connection, house.to_bat, house.x, house.y, house.max_output]
         id_house += 1
     
 #Data van batterijen
+#indexing of dictionary: [0]to_houses, [1]capacity, [2]x, [3]y
 batteries = {}
 
 with open(battery_link, mode='r') as csv_file:
@@ -44,8 +46,8 @@ with open(battery_link, mode='r') as csv_file:
     id_battery = 0
     for row in csv_reader:
         if id_battery != 0: #skip eerste line 
-            battery = Battery(int(row[0]), int(row[1]), float(row[2]))
-            batteries[id_battery] = [battery.x, battery.y, battery.capacity]
+            battery = Battery(int(row[0]), int(row[1]), float(row[2]), id_battery)
+            batteries[id_battery] = [battery.to_houses, battery.capacity, battery.x, battery.y]
         id_battery += 1
 
 
@@ -54,9 +56,13 @@ with open(battery_link, mode='r') as csv_file:
 Om de data te visualizeren, zal wat data worden gegenereerd in data.txt. 
 Elke keer wanneer data_pro.py zal worden gerund, zal data.txt worden overgeschreven.
 """
-with open('data.txt', 'w') as a:
+with open('data.txt', 'w') as data:
+    total_output = 0
     for i in houses:
-        a.write(f"ID:{i} \t {houses[i]} \n")
+        total_output += houses[i][4]
+    data.write(f"Sum max_outputs:\t {total_output} \n\n")
+    for i in houses:
+        data.write(f"ID:{i} \t {houses[i]} \n")
 
 
 
