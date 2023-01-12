@@ -54,7 +54,7 @@ with open(battery_link, mode='r') as csv_file:
 # Data outputs
 """
 Om de data te visualizeren, zal wat data worden gegenereerd in data.txt. 
-Elke keer wanneer data_pro.py zal worden gerund, zal data.txt worden overgeschreven.
+Elke keer wanneer data.py zal worden gerund, zal data.txt worden overgeschreven.
 """
 with open('data.txt', 'w') as data:
     total_output = 0
