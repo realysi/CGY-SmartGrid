@@ -12,11 +12,11 @@ pip3 install argparse
 """
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--district', type=int, required=True, help="Select district 1, 2 or 3")
+parser.add_argument('--district', type=int, required=True, help="Select district 1, 2 3 or 4 (test file made by us)")
 args = parser.parse_args()
 
 districten = {} # Dictonary to save the relative paths (both houses & batteries) for each district
-for i in range(1, 4):
+for i in range(1, 5):
     districten[i] = [f"Huizen&Batterijen/district_{str(i)}/district-{str(i)}_houses.csv", 
     f"Huizen&Batterijen/district_{str(i)}/district-{str(i)}_batteries.csv"]
 
@@ -34,7 +34,7 @@ with open(house_link, mode='r') as csv_file:
     for row in csv_reader:
         if id_house != 0: # Skip first line of file
             house = House(int(row[0]), int(row[1]), float(row[2]), id_house)
-            houses[id_house] = [house.connection, house.to_bat, house.x, house.y, house.max_output]
+            houses[house.id] = house
         id_house += 1
     
 # Dictionary containing data of batteries
@@ -47,7 +47,7 @@ with open(battery_link, mode='r') as csv_file:
     for row in csv_reader:
         if id_battery != 0: #skip eerste line 
             battery = Battery(int(row[0]), int(row[1]), float(row[2]), id_battery)
-            batteries[id_battery] = [battery.to_houses, battery.capacity, battery.x, battery.y]
+            batteries[battery.id] = battery
         id_battery += 1
 
 
@@ -59,7 +59,7 @@ Elke keer wanneer data.py zal worden gerund, zal data.txt worden overgeschreven.
 with open('data.txt', 'w') as data:
     total_output = 0
     for i in houses:
-        total_output += houses[i][4]
+        total_output += houses[i].max_output
     data.write(f"Sum max_outputs:\t {total_output} \n\n")
     for i in houses:
         data.write(f"ID:{i} \t {houses[i]} \n")

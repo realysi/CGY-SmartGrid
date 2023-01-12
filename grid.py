@@ -18,15 +18,15 @@ plt.grid(which='minor')  #toont minor grid
 #Data of houses
 #indexing of dictionary: [0]connection, [1]to_bat, [2]x, [3]y, [4]max_output
 for i in houses:
-    x = houses[i][2]
-    y = houses[i][3]
+    x = houses[i].x
+    y = houses[i].y
     plt.plot(int(x), int(y), marker="p", color="black")
 
 #Data van batterijen
 #indexing of dictionary: [0]to_houses, [1]capacity, [2]x, [3]y
 for i in batteries:
-    x = batteries[i][2]
-    y = batteries[i][3]
+    x = batteries[i].x
+    y = batteries[i].y
     plt.plot(int(x), int(y), marker="P", color="red")
 
 axes_nummers = []

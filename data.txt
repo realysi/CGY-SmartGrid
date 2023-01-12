@@ -1,152 +1,152 @@
 Sum max_outputs:	 7499.999999999998 
 
-ID:1 	 [False, False, 34, 47, 53.97543253] 
-ID:2 	 [False, False, 24, 22, 66.13020717] 
-ID:3 	 [False, False, 49, 44, 39.82123377] 
-ID:4 	 [False, False, 19, 38, 46.4333204] 
-ID:5 	 [False, False, 22, 46, 62.43058175] 
-ID:6 	 [False, False, 17, 11, 62.14055349] 
-ID:7 	 [False, False, 19, 4, 52.43116675] 
-ID:8 	 [False, False, 8, 6, 30.48448777] 
-ID:9 	 [False, False, 9, 37, 63.19785578] 
-ID:10 	 [False, False, 16, 38, 65.00367928] 
-ID:11 	 [False, False, 20, 11, 40.20336825] 
-ID:12 	 [False, False, 19, 12, 53.03976583] 
-ID:13 	 [False, False, 33, 0, 39.13247939] 
-ID:14 	 [False, False, 33, 7, 39.45690812] 
-ID:15 	 [False, False, 21, 37, 53.84443114] 
-ID:16 	 [False, False, 37, 28, 60.40913294] 
-ID:17 	 [False, False, 2, 8, 27.78076375] 
-ID:18 	 [False, False, 23, 48, 57.77286486] 
-ID:19 	 [False, False, 28, 23, 38.72179636] 
-ID:20 	 [False, False, 27, 22, 29.92408755] 
-ID:21 	 [False, False, 47, 6, 41.78571625] 
-ID:22 	 [False, False, 38, 22, 59.91115918] 
-ID:23 	 [False, False, 47, 40, 71.42208448] 
-ID:24 	 [False, False, 23, 1, 37.23961036] 
-ID:25 	 [False, False, 18, 37, 70.21473166] 
-ID:26 	 [False, False, 30, 37, 61.05026554] 
-ID:27 	 [False, False, 4, 33, 38.13617191] 
-ID:28 	 [False, False, 16, 48, 29.83002147] 
-ID:29 	 [False, False, 12, 5, 74.15296092] 
-ID:30 	 [False, False, 31, 41, 68.6532457] 
-ID:31 	 [False, False, 50, 35, 54.25835415] 
-ID:32 	 [False, False, 9, 48, 41.7880369] 
-ID:33 	 [False, False, 22, 10, 72.88165705] 
-ID:34 	 [False, False, 26, 30, 62.0133643] 
-ID:35 	 [False, False, 15, 44, 53.08761347] 
-ID:36 	 [False, False, 5, 15, 52.08494864] 
-ID:37 	 [False, False, 21, 50, 38.71047582] 
-ID:38 	 [False, False, 30, 12, 66.05341632] 
-ID:39 	 [False, False, 21, 29, 45.33453242] 
-ID:40 	 [False, False, 37, 23, 51.94608562] 
-ID:41 	 [False, False, 27, 3, 57.11814462] 
-ID:42 	 [False, False, 23, 10, 29.34726889] 
-ID:43 	 [False, False, 13, 27, 37.28002017] 
-ID:44 	 [False, False, 48, 4, 58.90934923] 
-ID:45 	 [False, False, 20, 14, 45.14508246] 
-ID:46 	 [False, False, 11, 4, 44.75870431] 
-ID:47 	 [False, False, 43, 32, 46.63929091] 
-ID:48 	 [False, False, 2, 50, 29.93133051] 
-ID:49 	 [False, False, 30, 2, 60.7690834] 
-ID:50 	 [False, False, 28, 37, 55.74063546] 
-ID:51 	 [False, False, 41, 36, 60.96696147] 
-ID:52 	 [False, False, 4, 3, 45.9393011] 
-ID:53 	 [False, False, 15, 4, 70.02856894] 
-ID:54 	 [False, False, 37, 47, 26.27681146] 
-ID:55 	 [False, False, 8, 3, 31.03872389] 
-ID:56 	 [False, False, 30, 4, 29.51140333] 
-ID:57 	 [False, False, 11, 10, 63.87594515] 
-ID:58 	 [False, False, 4, 38, 28.04976611] 
-ID:59 	 [False, False, 47, 16, 31.4973607] 
-ID:60 	 [False, False, 1, 18, 45.25994244] 
-ID:61 	 [False, False, 30, 16, 49.93687743] 
-ID:62 	 [False, False, 21, 42, 65.6434655] 
-ID:63 	 [False, False, 9, 50, 38.5524821] 
-ID:64 	 [False, False, 0, 16, 48.15325636] 
-ID:65 	 [False, False, 45, 1, 59.63813712] 
-ID:66 	 [False, False, 9, 44, 44.14228862] 
-ID:67 	 [False, False, 44, 27, 28.73871494] 
-ID:68 	 [False, False, 48, 50, 35.97663002] 
-ID:69 	 [False, False, 5, 13, 57.19809379] 
-ID:70 	 [False, False, 46, 42, 66.07952654] 
-ID:71 	 [False, False, 2, 12, 75.8473443] 
-ID:72 	 [False, False, 31, 18, 38.85647001] 
-ID:73 	 [False, False, 45, 24, 31.97506792] 
-ID:74 	 [False, False, 5, 9, 38.37311881] 
-ID:75 	 [False, False, 40, 39, 40.72933179] 
-ID:76 	 [False, False, 3, 9, 53.27408283] 
-ID:77 	 [False, False, 18, 15, 57.15314373] 
-ID:78 	 [False, False, 13, 28, 56.14106998] 
-ID:79 	 [False, False, 50, 3, 60.5787997] 
-ID:80 	 [False, False, 15, 50, 47.17876571] 
-ID:81 	 [False, False, 25, 5, 55.93567156] 
-ID:82 	 [False, False, 25, 40, 67.70113184] 
-ID:83 	 [False, False, 32, 9, 32.56142196] 
-ID:84 	 [False, False, 18, 28, 55.75694271] 
-ID:85 	 [False, False, 43, 14, 59.68412189] 
-ID:86 	 [False, False, 43, 39, 30.57764452] 
-ID:87 	 [False, False, 29, 22, 56.03511409] 
-ID:88 	 [False, False, 21, 27, 38.69411298] 
-ID:89 	 [False, False, 18, 33, 64.25056806] 
-ID:90 	 [False, False, 11, 38, 74.82543524] 
-ID:91 	 [False, False, 16, 41, 34.78697213] 
-ID:92 	 [False, False, 21, 44, 46.65642768] 
-ID:93 	 [False, False, 19, 40, 60.03957103] 
-ID:94 	 [False, False, 37, 35, 29.26065385] 
-ID:95 	 [False, False, 10, 47, 70.68631843] 
-ID:96 	 [False, False, 0, 34, 74.53947279] 
-ID:97 	 [False, False, 10, 39, 46.25506287] 
-ID:98 	 [False, False, 30, 31, 33.30314048] 
-ID:99 	 [False, False, 47, 50, 70.41480105] 
-ID:100 	 [False, False, 39, 43, 39.37298309] 
-ID:101 	 [False, False, 39, 19, 64.25603513] 
-ID:102 	 [False, False, 33, 11, 66.45865072] 
-ID:103 	 [False, False, 24, 18, 38.3766668] 
-ID:104 	 [False, False, 42, 47, 26.65336877] 
-ID:105 	 [False, False, 18, 32, 32.63123071] 
-ID:106 	 [False, False, 5, 37, 68.63304898] 
-ID:107 	 [False, False, 29, 30, 62.33504063] 
-ID:108 	 [False, False, 34, 50, 41.71675352] 
-ID:109 	 [False, False, 44, 33, 51.84271486] 
-ID:110 	 [False, False, 28, 3, 29.90737428] 
-ID:111 	 [False, False, 3, 7, 58.40033018] 
-ID:112 	 [False, False, 7, 25, 38.50460131] 
-ID:113 	 [False, False, 28, 15, 37.81128037] 
-ID:114 	 [False, False, 46, 38, 73.40226925] 
-ID:115 	 [False, False, 38, 21, 33.56390131] 
-ID:116 	 [False, False, 26, 37, 33.96614241] 
-ID:117 	 [False, False, 15, 46, 63.30973309] 
-ID:118 	 [False, False, 39, 35, 26.81272998] 
-ID:119 	 [False, False, 21, 11, 47.29043731] 
-ID:120 	 [False, False, 1, 24, 54.40644245] 
-ID:121 	 [False, False, 20, 3, 67.12368936] 
-ID:122 	 [False, False, 31, 15, 39.85726456] 
-ID:123 	 [False, False, 9, 23, 29.43663895] 
-ID:124 	 [False, False, 42, 40, 41.46231813] 
-ID:125 	 [False, False, 38, 18, 69.53106382] 
-ID:126 	 [False, False, 27, 13, 72.11411933] 
-ID:127 	 [False, False, 34, 8, 41.23924682] 
-ID:128 	 [False, False, 16, 3, 33.61818802] 
-ID:129 	 [False, False, 20, 34, 44.9319234] 
-ID:130 	 [False, False, 38, 24, 50.53984719] 
-ID:131 	 [False, False, 30, 25, 63.13649746] 
-ID:132 	 [False, False, 50, 49, 38.24420236] 
-ID:133 	 [False, False, 24, 30, 76.1538049] 
-ID:134 	 [False, False, 4, 5, 43.28587772] 
-ID:135 	 [False, False, 29, 7, 60.8375359] 
-ID:136 	 [False, False, 36, 41, 29.1671214] 
-ID:137 	 [False, False, 42, 34, 43.0013272] 
-ID:138 	 [False, False, 19, 3, 70.34144168] 
-ID:139 	 [False, False, 24, 24, 52.07076394] 
-ID:140 	 [False, False, 24, 36, 63.12900053] 
-ID:141 	 [False, False, 4, 0, 29.86780761] 
-ID:142 	 [False, False, 19, 33, 66.97873982] 
-ID:143 	 [False, False, 22, 14, 42.32972013] 
-ID:144 	 [False, False, 37, 6, 30.41692196] 
-ID:145 	 [False, False, 33, 24, 74.26615041] 
-ID:146 	 [False, False, 39, 14, 49.16852893] 
-ID:147 	 [False, False, 21, 48, 71.35472201] 
-ID:148 	 [False, False, 22, 17, 66.78438663] 
-ID:149 	 [False, False, 26, 27, 56.65609954] 
-ID:150 	 [False, False, 10, 27, 26.19979919] 
+ID:1 	 x=21, y=18, output=51.94411629, battery=False 
+ID:2 	 x=47, y=50, output=47.82087397, battery=False 
+ID:3 	 x=25, y=31, output=51.81241388, battery=False 
+ID:4 	 x=27, y=38, output=53.11777253, battery=False 
+ID:5 	 x=30, y=13, output=54.14676516, battery=False 
+ID:6 	 x=48, y=4, output=45.24272018, battery=False 
+ID:7 	 x=32, y=18, output=46.74039375, battery=False 
+ID:8 	 x=49, y=15, output=54.75398768, battery=False 
+ID:9 	 x=3, y=9, output=47.72196575, battery=False 
+ID:10 	 x=46, y=40, output=51.86891316, battery=False 
+ID:11 	 x=3, y=25, output=46.8033198, battery=False 
+ID:12 	 x=1, y=32, output=54.99730646, battery=False 
+ID:13 	 x=32, y=3, output=47.04037014, battery=False 
+ID:14 	 x=32, y=49, output=50.25432556, battery=False 
+ID:15 	 x=30, y=14, output=45.54596912, battery=False 
+ID:16 	 x=39, y=34, output=49.93506537, battery=False 
+ID:17 	 x=3, y=24, output=49.07862835, battery=False 
+ID:18 	 x=43, y=45, output=54.18469088, battery=False 
+ID:19 	 x=1, y=28, output=46.63089313, battery=False 
+ID:20 	 x=15, y=0, output=48.43740503, battery=False 
+ID:21 	 x=30, y=32, output=52.92581641, battery=False 
+ID:22 	 x=18, y=10, output=53.98009231, battery=False 
+ID:23 	 x=21, y=46, output=52.91142802, battery=False 
+ID:24 	 x=21, y=33, output=46.75613739, battery=False 
+ID:25 	 x=39, y=42, output=47.34915773, battery=False 
+ID:26 	 x=17, y=21, output=46.26812357, battery=False 
+ID:27 	 x=12, y=21, output=53.63368373, battery=False 
+ID:28 	 x=17, y=34, output=52.96938435, battery=False 
+ID:29 	 x=46, y=39, output=46.60969509, battery=False 
+ID:30 	 x=33, y=35, output=45.84094791, battery=False 
+ID:31 	 x=43, y=41, output=51.95373609, battery=False 
+ID:32 	 x=15, y=36, output=54.30849405, battery=False 
+ID:33 	 x=18, y=24, output=54.2211502, battery=False 
+ID:34 	 x=16, y=37, output=52.58547404, battery=False 
+ID:35 	 x=47, y=35, output=46.9524009, battery=False 
+ID:36 	 x=42, y=4, output=53.46156177, battery=False 
+ID:37 	 x=3, y=33, output=49.79974209, battery=False 
+ID:38 	 x=41, y=24, output=51.75273225, battery=False 
+ID:39 	 x=4, y=48, output=48.27297674, battery=False 
+ID:40 	 x=1, y=45, output=54.91354462, battery=False 
+ID:41 	 x=27, y=10, output=50.04190502, battery=False 
+ID:42 	 x=28, y=48, output=54.22966024, battery=False 
+ID:43 	 x=11, y=23, output=48.85814641, battery=False 
+ID:44 	 x=1, y=48, output=54.54461427, battery=False 
+ID:45 	 x=43, y=29, output=47.94582721, battery=False 
+ID:46 	 x=38, y=3, output=49.86535747, battery=False 
+ID:47 	 x=31, y=24, output=46.38651333, battery=False 
+ID:48 	 x=25, y=29, output=53.35585729, battery=False 
+ID:49 	 x=16, y=19, output=54.16981224, battery=False 
+ID:50 	 x=45, y=31, output=48.01065715, battery=False 
+ID:51 	 x=27, y=11, output=50.55356632, battery=False 
+ID:52 	 x=46, y=48, output=47.37788381, battery=False 
+ID:53 	 x=17, y=41, output=48.60918505, battery=False 
+ID:54 	 x=39, y=46, output=48.14242474, battery=False 
+ID:55 	 x=14, y=6, output=49.72629004, battery=False 
+ID:56 	 x=8, y=12, output=46.01633925, battery=False 
+ID:57 	 x=0, y=19, output=51.03867367, battery=False 
+ID:58 	 x=13, y=47, output=48.4395487, battery=False 
+ID:59 	 x=39, y=35, output=52.0929123, battery=False 
+ID:60 	 x=25, y=13, output=45.5472391, battery=False 
+ID:61 	 x=8, y=13, output=46.46747877, battery=False 
+ID:62 	 x=33, y=31, output=48.25043584, battery=False 
+ID:63 	 x=28, y=28, output=45.40186719, battery=False 
+ID:64 	 x=39, y=25, output=49.93311335, battery=False 
+ID:65 	 x=12, y=26, output=49.65236115, battery=False 
+ID:66 	 x=6, y=41, output=46.05322103, battery=False 
+ID:67 	 x=16, y=1, output=48.70842308, battery=False 
+ID:68 	 x=20, y=11, output=48.54997218, battery=False 
+ID:69 	 x=7, y=32, output=51.72717898, battery=False 
+ID:70 	 x=2, y=5, output=51.62646163, battery=False 
+ID:71 	 x=41, y=36, output=52.78210048, battery=False 
+ID:72 	 x=10, y=36, output=49.13738507, battery=False 
+ID:73 	 x=4, y=2, output=52.76961749, battery=False 
+ID:74 	 x=20, y=16, output=48.0219944, battery=False 
+ID:75 	 x=31, y=8, output=45.78474275, battery=False 
+ID:76 	 x=24, y=50, output=52.98566399, battery=False 
+ID:77 	 x=25, y=40, output=49.79777396, battery=False 
+ID:78 	 x=48, y=28, output=47.99198559, battery=False 
+ID:79 	 x=50, y=0, output=53.71601636, battery=False 
+ID:80 	 x=30, y=7, output=45.2342213, battery=False 
+ID:81 	 x=21, y=21, output=53.15980812, battery=False 
+ID:82 	 x=20, y=10, output=50.30051709, battery=False 
+ID:83 	 x=6, y=17, output=46.01918212, battery=False 
+ID:84 	 x=30, y=45, output=50.8435769, battery=False 
+ID:85 	 x=50, y=15, output=53.95360569, battery=False 
+ID:86 	 x=16, y=16, output=53.32105133, battery=False 
+ID:87 	 x=14, y=22, output=50.63918945, battery=False 
+ID:88 	 x=11, y=37, output=52.2305101, battery=False 
+ID:89 	 x=50, y=21, output=51.82639703, battery=False 
+ID:90 	 x=9, y=11, output=52.8088529, battery=False 
+ID:91 	 x=15, y=10, output=54.53006205, battery=False 
+ID:92 	 x=6, y=22, output=46.51627586, battery=False 
+ID:93 	 x=41, y=44, output=45.29702228, battery=False 
+ID:94 	 x=26, y=41, output=47.09131203, battery=False 
+ID:95 	 x=15, y=15, output=45.31733653, battery=False 
+ID:96 	 x=24, y=32, output=50.16548949, battery=False 
+ID:97 	 x=41, y=12, output=52.38040091, battery=False 
+ID:98 	 x=29, y=25, output=47.58049297, battery=False 
+ID:99 	 x=39, y=27, output=52.05437525, battery=False 
+ID:100 	 x=50, y=35, output=54.12515118, battery=False 
+ID:101 	 x=0, y=4, output=45.16959822, battery=False 
+ID:102 	 x=45, y=2, output=53.48855448, battery=False 
+ID:103 	 x=29, y=7, output=50.91041056, battery=False 
+ID:104 	 x=10, y=24, output=53.76285577, battery=False 
+ID:105 	 x=46, y=4, output=47.6825473, battery=False 
+ID:106 	 x=17, y=12, output=45.61104522, battery=False 
+ID:107 	 x=33, y=3, output=53.3512745, battery=False 
+ID:108 	 x=36, y=14, output=51.58057128, battery=False 
+ID:109 	 x=8, y=44, output=50.30256407, battery=False 
+ID:110 	 x=48, y=47, output=53.26904882, battery=False 
+ID:111 	 x=22, y=34, output=46.65187897, battery=False 
+ID:112 	 x=31, y=37, output=51.54326497, battery=False 
+ID:113 	 x=19, y=47, output=50.38289294, battery=False 
+ID:114 	 x=20, y=28, output=53.12331423, battery=False 
+ID:115 	 x=20, y=5, output=48.31035497, battery=False 
+ID:116 	 x=19, y=22, output=51.79628813, battery=False 
+ID:117 	 x=6, y=43, output=53.95936785, battery=False 
+ID:118 	 x=2, y=50, output=49.52760828, battery=False 
+ID:119 	 x=8, y=20, output=46.13662116, battery=False 
+ID:120 	 x=40, y=8, output=45.17557463, battery=False 
+ID:121 	 x=34, y=47, output=51.57104914, battery=False 
+ID:122 	 x=0, y=46, output=50.20207187, battery=False 
+ID:123 	 x=37, y=21, output=54.7990422, battery=False 
+ID:124 	 x=14, y=15, output=53.34058355, battery=False 
+ID:125 	 x=44, y=40, output=46.43816048, battery=False 
+ID:126 	 x=0, y=24, output=48.72125695, battery=False 
+ID:127 	 x=3, y=23, output=53.08724525, battery=False 
+ID:128 	 x=17, y=37, output=53.63429606, battery=False 
+ID:129 	 x=42, y=45, output=49.54607954, battery=False 
+ID:130 	 x=9, y=40, output=54.56844455, battery=False 
+ID:131 	 x=37, y=5, output=47.92097158, battery=False 
+ID:132 	 x=1, y=30, output=48.43719875, battery=False 
+ID:133 	 x=10, y=3, output=50.74878243, battery=False 
+ID:134 	 x=36, y=44, output=47.56339729, battery=False 
+ID:135 	 x=6, y=0, output=47.77817151, battery=False 
+ID:136 	 x=30, y=5, output=45.25109877, battery=False 
+ID:137 	 x=3, y=16, output=53.54773542, battery=False 
+ID:138 	 x=43, y=30, output=47.97674042, battery=False 
+ID:139 	 x=2, y=35, output=52.57995149, battery=False 
+ID:140 	 x=30, y=29, output=47.67000862, battery=False 
+ID:141 	 x=29, y=16, output=48.94518723, battery=False 
+ID:142 	 x=36, y=8, output=51.83878558, battery=False 
+ID:143 	 x=25, y=39, output=47.71839737, battery=False 
+ID:144 	 x=18, y=39, output=48.74438962, battery=False 
+ID:145 	 x=4, y=35, output=48.22881096, battery=False 
+ID:146 	 x=6, y=2, output=48.23526882, battery=False 
+ID:147 	 x=14, y=18, output=51.07946117, battery=False 
+ID:148 	 x=35, y=24, output=48.82801588, battery=False 
+ID:149 	 x=20, y=41, output=46.27510427, battery=False 
+ID:150 	 x=29, y=11, output=47.73944395, battery=False 
