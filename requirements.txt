@@ -1,5 +1,5 @@
 Python
 csv
 matplotlib
-pillow
+pillow (if not already installed)
 argparse
