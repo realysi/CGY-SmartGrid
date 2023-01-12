@@ -61,6 +61,8 @@ with open('data.txt', 'w') as data:
     for i in houses:
         total_output += houses[i].max_output
     data.write(f"Sum max_outputs:\t {total_output} \n\n")
+    for i in batteries:
+        data.write(f"ID:{i} \t {batteries[i]} \n")
     for i in houses:
         data.write(f"ID:{i} \t {houses[i]} \n")
         
