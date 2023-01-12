@@ -1,27 +1,30 @@
 import csv
 from objects import House, Battery
-import argparse
+from sys import argv
 
 """
 argparse uitgelegd:
-voeg na de gebruikelijke "python3 filename" de vlag --disctrict toe met daarachter 1 2 of 3 om aan te geven
-welke dataset van de drie districten je wilt verwerken. Met een getal groter dan 3 kom je hier ook door, maarrr
+voeg na de gebruikelijke "python3 filename" de vlag --disctrict toe met daarachter 1, 2 of 3 om aan te geven
+welke dataset van de drie districten je wilt verwerken. Met een getal groter dan 3 kom je hier ook door, maar
 dan wordt er geen data verwerkt.
 
 pip3 install argparse
 """
 
-parser = argparse.ArgumentParser()
-parser.add_argument('--district', type=int, required=True, help="Select district 1, 2 or 3")
-args = parser.parse_args()
+if argv[1] != "--district":
+    print("Usage: --district (filenumber)")
+    quit()
+else:
+    file_number = int(argv[2])
+
 
 districten = {} # Dictonary to save the relative paths (both houses & batteries) for each district
-for i in range(1, 4):
-    districten[i] = [f"Huizen&Batterijen/district_{str(i)}/district-{str(i)}_houses.csv", 
-    f"Huizen&Batterijen/district_{str(i)}/district-{str(i)}_batteries.csv"]
+for i in range(1, 5):
+    districten[i] = [f"data/district_{str(i)}/district-{str(i)}_houses.csv", 
+    f"data/district_{str(i)}/district-{str(i)}_batteries.csv"]
 
-house_link = districten[args.district][0]
-battery_link = districten[args.district][1]
+house_link = districten[file_number][0]
+battery_link = districten[file_number][1]
 
 # Dictionary containing data of houses
 # Indexing of dictionary: [0]connection, [1]to_bat, [2]x, [3]y, [4]max_output
@@ -56,14 +59,14 @@ with open(battery_link, mode='r') as csv_file:
 Om de data te visualizeren, zal wat data worden gegenereerd in data.txt. 
 Elke keer wanneer data.py zal worden gerund, zal data.txt worden overgeschreven.
 """
-with open('data.txt', 'w') as data:
+with open('output.txt', 'w') as data:
     total_output = 0
     for i in houses:
         total_output += houses[i][4]
     data.write(f"Sum max_outputs:\t {total_output} \n\n")
     for i in houses:
         data.write(f"ID:{i} \t {houses[i]} \n")
-        
+
 
 """
 Links:
