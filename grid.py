@@ -5,7 +5,7 @@ from data import houses, batteries
 """
 argparse uitgelegd:
 voeg na de gebruikelijke "python3 filename" de vlag --disctrict toe met daarachter 1 2 of 3 om aan te geven
-welke dataset van de drie districten je wil verwerken. Met een getal groter dan 3 kom je hier ook door, maarrr
+welke dataset van de drie districten je wil verwerken. Met een getal groter dan 3 kom je hier ook door, maar
 dan wordt er geen data verwerkt.
 """
 
@@ -33,7 +33,7 @@ axes_nummers = []
 for i in range(51):
     if i % 5 == 0:
         axes_nummers.append(i)
-        
+
 for i in axes_nummers:
     plt.axhline(i, linestyle="-", color="black", linewidth=0.5)
     plt.axvline(i, linestyle="-", color="black", linewidth=0.5)
