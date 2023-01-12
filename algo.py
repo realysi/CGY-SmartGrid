@@ -23,27 +23,27 @@ def random_house_order():
     return id_keys
 
 def fits(capacity, max_output):
-    if capacity - max_output > 0:
+    if capacity - max_output >= 0:
         return True
     else:
         return False
 
-"""
 def naam(order_batteries, order_houses): 
     amount = 0
     for i in order_batteries:
         id_current_battery = i
         current_battery = batteries[id_current_battery] #current_battery is class of type Battery
-
-
         for i in order_houses:
             id_current_house = i
             current_house = houses[id_current_house] #current_battery is class of type Battery
-            current_battery.capacity -= current_battery.max_output 
+            if fits(current_battery.capacity, current_house.max_output):
+                current_battery.capacity -= current_house.max_output
+            else: 
+                break
             print(current_house)
             amount += 1
     print(amount)
     return "iets"
-"""
+
 
 print(fits(100, 100))
