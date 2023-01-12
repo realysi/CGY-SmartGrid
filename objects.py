@@ -10,7 +10,7 @@ class House:
         self.to_battery = False
 
     def __repr__(self) -> str:
-        return f"ID= {self.id}, x={self.x}, y={self.y}, output={self.max_output}, battery={self.to_battery}"
+        return f"ID= {self.id}, x={self.x}, y={self.y}, output={self.max_output}, battery={self.to_battery}\n"
 
 class Battery:
     """
@@ -24,5 +24,7 @@ class Battery:
         self.id = id
     
     def __repr__(self) -> str:
-        return f"ID= {self.id}, x={self.x}, y={self.y}, capacity={self.capacity}, to houses={self.to_houses}"
+        return f"ID= {self.id}, x={self.x}, y={self.y}, capacity={self.capacity}, to houses={self.to_houses} \n\n"
+
+
 

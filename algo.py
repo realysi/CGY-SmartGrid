@@ -1,6 +1,6 @@
 from data import houses, batteries
 import random
-from random import randint, shuffle
+from objects import Battery, House
 
 """
 This algorithm works with the basis of the knapsack problem.
@@ -22,32 +22,58 @@ def random_house_order():
     random.shuffle(id_keys)
     return id_keys
 
-def fits(capacity, max_output):
-    if capacity - max_output >= 0:
+def fits(battery: Battery, house: House):
+    if battery.capacity - house.max_output > 0.0:
         return True
-    else:
+
+def subtract(battery: Battery, house: House):
+    if house.to_battery == False:
+        battery.capacity -= house.max_output
+        battery.to_houses.append(house.id)
+        house.to_battery = battery.id
+
+def move_on():
+    pass
+
+def mistakes() -> bool:
+    mistakes = False
+
+    for i in houses:
+        if houses[i].to_battery == False:
+            mistakes = True
+
+    if mistakes == False:
         return False
+    else:
+        return True
+        
+def main():
+    while True:
+        battery_order = random_battery_order()
+        house_order = random_house_order()
 
-def naam(order_batteries, order_houses): 
-    amount = 0
+        for i in battery_order:
+            battery = batteries[i]  #battery class
 
-    for i in order_batteries:
-        id_current_battery = i
-        current_battery = batteries[id_current_battery] #current_battery is class of type Battery
+            for j in house_order:
+                house = houses[j]   #house class
+                if fits(battery, house):
+                    subtract(battery, house) 
+                    
+                else:
+                    continue
 
-        for i in order_houses:
-            id_current_house = i
-            current_house = houses[id_current_house] #current_battery is class of type Battery
-            if fits(current_battery.capacity, current_house.max_output):
-                current_battery.capacity -= current_house.max_output
-                current_house.to_battery = current_battery.id
-            else: 
-                break
-            print(current_house)
-            amount += 1
-    print(amount)
-    return "iets"
+        #repeat
+        if mistakes():
+            continue
+        else:
+            for i in batteries:
+                print(batteries[i].id, batteries[i].capacity, sorted(batteries[i].to_houses))
+            print(houses)
+            break    
+    return "yesss"
 
 
-print(fits(100, 100))
-print(naam(random_battery_order(), random_house_order()))
+
+
+print(main())
