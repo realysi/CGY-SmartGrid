@@ -1,5 +1,5 @@
-from ..read import houses
-from ..read import batteries
+from .read import houses
+from .read import batteries
 import random
 from .code.classes.house import House
 from .code.classes.battery import Battery
