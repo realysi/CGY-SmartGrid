@@ -1,5 +1,5 @@
-from .read import houses
-from .read import batteries
+from read import houses
+from read import batteries
 import random
 from .code.classes.house import House
 from .code.classes.battery import Battery
@@ -10,14 +10,14 @@ It wil first select a random battery, fill this untill its capacity can't add an
 Then it will move on to the next battery. The houses will be chosen randomly.
 """
 
-def random_battery_order():
+def random_battery_order(batteries):
     id_keys = []
     for i in batteries:
         id_keys.append(batteries[i].id)
     random.shuffle(id_keys)
     return id_keys
 
-def random_house_order():
+def random_house_order(houses):
     id_keys = []
     for i in houses:
         id_keys.append(houses[i].id)
@@ -49,7 +49,7 @@ def mistakes() -> bool:
     else:
         return True
         
-def main():
+def algo():
     while True:
         battery_order = random_battery_order()
         house_order = random_house_order()
