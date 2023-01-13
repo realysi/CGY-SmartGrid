@@ -1,4 +1,5 @@
 from read import read_data
+from output import output_file
 from sys import argv
 
 """
@@ -11,5 +12,6 @@ Main file which is used to call all other functions in other files.
 if __name__ == "__main__":    
     # call functions
     data = read_data()
-    houses = data[0]
-    batteries = data[1]
+    houses: dict = data[0]
+    batteries: dict = data[1]
+    output_file(houses, batteries)
