@@ -18,9 +18,7 @@ def select_district():
         file_number = int(argv[2])
         if file_number > 4:
             quit()
-    return file_number
 
-def data_districts():
     districts = {} # Dictonary to save the relative paths (both houses & batteries) for each district
     for i in range(1, 5):
         districts[i] = [f"data/district_{str(i)}/district-{str(i)}_houses.csv", 
@@ -31,12 +29,12 @@ def data_districts():
 
     return house_link, battery_link
 
-def read_houses():
+def read_houses(relative_link_houses):
     # Dictionary containing data of houses
     # Indexing of dictionary: [0]connection, [1]to_bat, [2]x, [3]y, [4]max_output
     houses = {}
 
-    with open(house_link, mode='r') as csv_file:
+    with open(relative_link_houses, mode='r') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
 
         id_house = 0
@@ -48,11 +46,11 @@ def read_houses():
     
     return houses
 
-def read_batteries():  
+def read_batteries(relative_link_batteries):  
     # Dictionary containing data of batteries
     batteries = {}
 
-    with open(battery_link, mode='r') as csv_file:
+    with open(relative_link_batteries, mode='r') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         id_battery = 0
         for row in csv_reader:
