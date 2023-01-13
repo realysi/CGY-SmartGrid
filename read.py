@@ -27,7 +27,8 @@ def select_district():
     house_link = districts[file_number][0]
     battery_link = districts[file_number][1]
 
-    return house_link, battery_link
+    links_data = [house_link, battery_link]
+    return links_data
 
 def read_houses(relative_link_houses):
     # Dictionary containing data of houses
@@ -60,6 +61,10 @@ def read_batteries(relative_link_batteries):
             id_battery += 1
 
     return batteries
+
+def read_data():
+    house_link = select_district()[0]
+    return house_link
 
 # Data outputs
 """
