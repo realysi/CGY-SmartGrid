@@ -68,11 +68,10 @@ def read_data():
     houses = read_houses(house_link)
     batteries = read_batteries(battery_link)
     dictionaries = [houses, batteries]
-
     return dictionaries
 
 
-print(read_data())
+
 # Data outputs
 """
 Om de data te visualizeren, zal wat data worden gegenereerd in data.txt. 
