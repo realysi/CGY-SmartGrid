@@ -67,8 +67,9 @@ def read_data():
     battery_link = select_district()[1]
     houses = read_houses(house_link)
     batteries = read_batteries(battery_link)
+    dictionaries = [houses, batteries]
 
-    return houses, batteries
+    return dictionaries
 
 
 print(read_data())
