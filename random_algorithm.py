@@ -1,14 +1,28 @@
-#Yanick
+"""
+Info:
+Name algorithm: random_algorithm
+Case: Smartgrid (Teamname: CGY-SmartGrid)
+
+Summary: 
+This algorithm solves this smartgrid problem by looking at it as a knapsack problem.
+In this case there are 5 knapsacks, which together have to contain 150 objects (houses).
+This is solved by randomly selecting a battery and fill this with random houses untill there are no more houses 
+left that can fit inside the current battery. Then it moves on to the next battery and does the same thing, etc.
+When the last battery has run out of capacity, a check will be performed to see whether all houses are connected to a battery
+In that case the algorithm yields a result. Otherwise the algorithm will start again untill the check is passed.
+
+Example:
+->begin<-
+normal battery order [1,2,3,4,5] -> random order [3,5,2,4,1]
+normal house order [1,2,3,4,5] -> random order [4,1,5,3,2]
+Fill battery 4 untill full -> fill battery 3 untill full -> etc
+Check if all houses are connectec to a battery? Yes --> results | No --> start again at begin
+"""
+
 import random
 from battery import Battery
 from house import House
 import copy
-
-"""
-This algorithm works with the basis of the knapsack problem.
-It wil first select a random battery, fill this untill its capacity can't add another house
-Then it will move on to the next battery. The houses will be chosen randomly.
-"""
 
 def random_battery_order(batteries):
     id_keys = []
@@ -51,7 +65,7 @@ def mistakes(houses) -> bool:
         return True
 
         
-def algo(houses, batteries):
+def random_algorithm(houses, batteries):
     while True:
         copy_houses = copy.deepcopy(houses) #make a deepcopy of the houses dictionary
         copy_batteries = copy.deepcopy(batteries) #make a deepcopy of the batteries dictionary
@@ -73,12 +87,8 @@ def algo(houses, batteries):
             #print(house_order)
             continue
         else:
-            for i in copy_batteries:
-                print(copy_batteries[i].id, copy_batteries[i].capacity, sorted(copy_batteries[i].to_houses))
-            print(copy_houses)
-            
             break    
 
     dictionaries = [copy_houses, copy_batteries]
-    print("gelukt babyyyyy")
+
     return dictionaries
