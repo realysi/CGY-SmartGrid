@@ -12,6 +12,4 @@ if __name__ == "__main__":
     # call functions
     data = read_data()
     houses = data[0]
-    print(houses)
     batteries = data[1]
-    print(batteries)

@@ -30,12 +30,12 @@ def select_district():
     links_data = [house_link, battery_link]
     return links_data
 
-def read_houses(relative_link_houses):
+def read_houses(relative_path_houses: str):
     # Dictionary containing data of houses
     # Indexing of dictionary: [0]connection, [1]to_bat, [2]x, [3]y, [4]max_output
     houses = {}
 
-    with open(relative_link_houses, mode='r') as csv_file:
+    with open(relative_path_houses, mode='r') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
 
         id_house = 0
@@ -44,14 +44,13 @@ def read_houses(relative_link_houses):
                 house = House(int(row[0]), int(row[1]), float(row[2]), id_house)
                 houses[house.id] = house
             id_house += 1
-    
     return houses
 
-def read_batteries(relative_link_batteries):  
+def read_batteries(relative_path_batteries: str):  
     # Dictionary containing data of batteries
     batteries = {}
 
-    with open(relative_link_batteries, mode='r') as csv_file:
+    with open(relative_path_batteries, mode='r') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
         id_battery = 0
         for row in csv_reader:
@@ -59,8 +58,8 @@ def read_batteries(relative_link_batteries):
                 battery = Battery(int(row[0]), int(row[1]), float(row[2]), id_battery)
                 batteries[battery.id] = battery
             id_battery += 1
-
     return batteries
+
 
 def read_data():
     house_link = select_district()[0]
@@ -69,23 +68,4 @@ def read_data():
     batteries = read_batteries(battery_link)
     dictionaries = [houses, batteries]
     return dictionaries
-
-
-
-# Data outputs
-"""
-Om de data te visualizeren, zal wat data worden gegenereerd in data.txt. 
-Elke keer wanneer data.py zal worden gerund, zal data.txt worden overgeschreven.
-"""
-def output_file():
-    with open('output.txt', 'w') as data:
-        total_output = 0
-        for i in houses:
-            total_output += houses[i].max_output
-        data.write(f"Sum max_outputs:\t {total_output} \n\n")
-        for i in batteries:
-            data.write(f"ID:{i} \t {batteries[i]} \n")
-        for i in houses:
-            data.write(f"ID:{i} \t {houses[i]} \n")
-    return "Output generated"
 
