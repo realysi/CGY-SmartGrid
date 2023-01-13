@@ -17,8 +17,7 @@ if __name__ == "__main__":
     houses: dict = data[0]
     batteries: dict = data[1]
     output_file(houses, batteries)
-<<<<<<< Updated upstream
+
     plot_grid(houses, batteries)
-=======
     algo(houses, batteries)
->>>>>>> Stashed changes
+
