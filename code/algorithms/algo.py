@@ -8,19 +8,28 @@ from ..classes.battery import Battery
 This algorithm works with the basis of the knapsack problem.
 It wil first select a random battery, fill this untill its capacity can't add another house
 Then it will move on to the next battery. The houses will be chosen randomly.
-"""
 
-def random_battery_order():
+Aantekening: Werkt soms in 1 keer, maar andere keren met een miljoen repetities niet??
+"""
+def order_houses():
+    id_keys = []
+    for i in houses:
+        id_keys.append(houses[i].id)
+    return id_keys
+
+def order_batteries():
     id_keys = []
     for i in batteries:
         id_keys.append(batteries[i].id)
+    return id_keys
+
+def random_battery_order():
+    id_keys = order_batteries()
     random.shuffle(id_keys)
     return id_keys
 
 def random_house_order():
-    id_keys = []
-    for i in houses:
-        id_keys.append(houses[i].id)
+    id_keys = order_houses()
     random.shuffle(id_keys)
     return id_keys
 
@@ -29,53 +38,60 @@ def fits(battery: Battery, house: House):
         return True
 
 def subtract(battery: Battery, house: House):
-    if house.to_bat == False:
+    if house.to_battery == False:
         battery.capacity -= house.max_output
         battery.to_houses.append(house.id)
-        house.to_bat = battery.id
+        house.to_battery = battery.id
 
 def move_on():
     pass
 
-def mistakes() -> bool:
+def mistakes():
     mistakes = False
-
     for i in houses:
         if houses[i].to_battery == False:
             mistakes = True
+    return mistakes
 
-    if mistakes == False:
-        return False
-    else:
-        return True
-        
+#echt helemaal random:
 def main():
-    while True:
-        battery_order = random_battery_order()
-        house_order = random_house_order()
+    battery_order = random_battery_order()  #random
+    house_order = order_houses()
+    for i in house_order:
+        house = houses[i]   #house class
+        if house.max_output > house_order[0]:
+            buffer = house_order[0]
+            house.id = house_order[0]
+            buffer = house_order[i]
+    print(house_order)
 
-        for i in battery_order:
-            battery = batteries[i]  #battery class
-
-            for j in house_order:
-                house = houses[j]   #house class
-                if fits(battery, house):
-                    subtract(battery, house) 
-                    
-                else:
-                    continue
-
-        #repeat
-        if mistakes():
-            continue
-        else:
-            for i in batteries:
-                print(batteries[i].id, batteries[i].capacity, sorted(batteries[i].to_houses))
-            print(houses)
-            break    
-    return "yesss"
-
-
-
+    """
+    for i in battery_order:
+        battery = batteries[i]  #battery class
+        for j in house_order:
+            house = houses[j]   #house class
+            if fits(battery, house):
+                subtract(battery, house)
+    print(batteries)
+    """
+      
 
 print(main())
+
+
+"""
+#echt helemaal random:
+def main():
+    battery_order = random_battery_order()
+    house_order = random_house_order()
+
+    for i in battery_order:
+        battery = batteries[i]  #battery class
+        for j in house_order:
+            house = houses[j]   #house class
+            print(battery.id, battery.capacity)
+            if fits(battery, house):
+                subtract(battery, house)
+            else:
+                continue
+"""
