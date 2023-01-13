@@ -18,6 +18,6 @@ if __name__ == "__main__":
     batteries: dict = data[1]
     output_file(houses, batteries)
 
-    plot_grid(houses, batteries)
+    #plot_grid(houses, batteries)
     algo(houses, batteries)
-
+    print(algo(houses, batteries))
