@@ -1,9 +1,6 @@
-from read import houses
-from read import batteries
 import random
-from .code.classes.house import House
-from .code.classes.battery import Battery
-
+from battery import Battery
+from house import House
 """
 This algorithm works with the basis of the knapsack problem.
 It wil first select a random battery, fill this untill its capacity can't add another house
