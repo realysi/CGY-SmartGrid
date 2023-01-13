@@ -1,7 +1,9 @@
+#Yanick
 import random
 from battery import Battery
 from house import House
 import copy
+
 """
 This algorithm works with the basis of the knapsack problem.
 It wil first select a random battery, fill this untill its capacity can't add another house
@@ -30,6 +32,7 @@ def subtract(battery: Battery, house: House):
     if house.to_battery == False:
         battery.capacity -= house.max_output
         battery.to_houses.append(house.id)
+        battery.connections += 1
         house.to_battery = battery.id
 
 def move_on():
@@ -49,14 +52,11 @@ def mistakes(houses) -> bool:
 
         
 def algo(houses, batteries):
-    count = 0
     while True:
-        count += 1
-        print(count)
-        copy_houses = copy.deepcopy(houses)
-        copy_batteries = copy.deepcopy(batteries)
-        battery_order = random_battery_order(copy_batteries)
-        house_order = random_house_order(copy_houses)
+        copy_houses = copy.deepcopy(houses) #make a deepcopy of the houses dictionary
+        copy_batteries = copy.deepcopy(batteries) #make a deepcopy of the batteries dictionary
+        battery_order = random_battery_order(copy_batteries) #list of battery id's which are randomly shuffeled. 
+        house_order = random_house_order(copy_houses) #list of house id's which are randomly shuffeled. 
 
         for i in battery_order:
             battery = copy_batteries[i]  #battery class
@@ -79,6 +79,6 @@ def algo(houses, batteries):
             
             break    
 
-        
-
-    return 100
+    dictionaries = [copy_houses, copy_batteries]
+    print("gelukt babyyyyy")
+    return dictionaries

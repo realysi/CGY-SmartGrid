@@ -19,5 +19,7 @@ if __name__ == "__main__":
     output_file(houses, batteries)
 
     #plot_grid(houses, batteries)
-    algo(houses, batteries)
-    print(algo(houses, batteries))
+    print(algo(houses, batteries)[1])
+
+    
+
