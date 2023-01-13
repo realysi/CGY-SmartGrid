@@ -42,6 +42,17 @@ def axes_numbers():
     plt.xticks(ticks=axes_numbers, labels=axes_numbers) 
     plt.yticks(ticks=axes_numbers, labels=axes_numbers)
 
+def route(houses, batteries):
+    x = []
+    y = []
+    x.append(houses[3].x)
+    y.append(houses[3].y)
+    #naar de hoogte van de batterij (y-as=gelijk)
+    for i in range(houses[3].y, (batteries[1].y + 1)):
+        x.append(houses[3].x)
+        y.append(i)
+    plt.plot(x, y, marker = '.', color = 'deepskyblue')
+
 #tonen grid
 def render_grid():
     plt.minorticks_on() #toon minor gridlines (kan ticks nog uitschakelen -> zie links)
@@ -55,6 +66,7 @@ def plot_grid(houses, batteries):
     plot_houses(houses)
     plot_batteries(batteries)
     axes_numbers()
+    route(houses, batteries)
     render_grid()
 
 
