@@ -2,4 +2,3 @@ Python
 csv
 matplotlib
 pillow (if not already installed)
-argparse

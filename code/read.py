@@ -1,14 +1,13 @@
 import csv
-from objects import House, Battery
+from objects import *
 from sys import argv
 
 """
-argparse uitgelegd:
-voeg na de gebruikelijke "python3 filename" de vlag --disctrict toe met daarachter 1, 2 of 3 om aan te geven
-welke dataset van de drie districten je wilt verwerken. Met een getal groter dan 3 kom je hier ook door, maar
-dan wordt er geen data verwerkt.
+This file is used to read the data from the csv files and to store this data
+inside of objects. 
 
-pip3 install argparse
+Usage: --district {number of district the user would like to select}.
+
 """
 
 if argv[1] != "--district":
@@ -16,6 +15,8 @@ if argv[1] != "--district":
     quit()
 else:
     file_number = int(argv[2])
+    if file_number > 4:
+        quit()
 
 
 districten = {} # Dictonary to save the relative paths (both houses & batteries) for each district
@@ -68,10 +69,4 @@ with open('output.txt', 'w') as data:
         data.write(f"ID:{i} \t {batteries[i]} \n")
     for i in houses:
         data.write(f"ID:{i} \t {houses[i]} \n")
-
-
-"""
-Links:
-https://towardsdatascience.com/a-simple-guide-to-command-line-arguments-with-argparse-6824c30ab1c3
-"""
 

@@ -1,7 +1,0 @@
-Sum max_outputs:	 258.84194183 
-
-ID:1 	 [False, False, 12, 18, 51.94411629] 
-ID:2 	 [False, False, 6, 50, 47.82087397] 
-ID:3 	 [False, False, 25, 31, 51.81241388] 
-ID:4 	 [False, False, 27, 38, 53.11777253] 
-ID:5 	 [False, False, 43, 13, 54.14676516] 
