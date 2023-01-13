@@ -1,6 +1,7 @@
 import random
 from battery import Battery
 from house import House
+
 """
 This algorithm works with the basis of the knapsack problem.
 It wil first select a random battery, fill this untill its capacity can't add another house
@@ -34,7 +35,7 @@ def subtract(battery: Battery, house: House):
 def move_on():
     pass
 
-def mistakes() -> bool:
+def mistakes(houses) -> bool:
     mistakes = False
 
     for i in houses:
@@ -46,10 +47,13 @@ def mistakes() -> bool:
     else:
         return True
         
-def algo():
-    while True:
-        battery_order = random_battery_order()
-        house_order = random_house_order()
+def algo(houses, batteries):
+    count = 0
+    while count < 10:
+        count += 1
+        print(count)
+        battery_order = random_battery_order(batteries)
+        house_order = random_house_order(houses)
 
         for i in battery_order:
             battery = batteries[i]  #battery class
@@ -58,21 +62,17 @@ def algo():
                 house = houses[j]   #house class
                 if fits(battery, house):
                     subtract(battery, house) 
-                    
                 else:
                     continue
 
         #repeat
-        if mistakes():
+        if mistakes(houses):
+            print(house_order)
             continue
         else:
             for i in batteries:
                 print(batteries[i].id, batteries[i].capacity, sorted(batteries[i].to_houses))
             print(houses)
+            
             break    
     return "yesss"
-
-
-
-
-print(main())

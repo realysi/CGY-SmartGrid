@@ -2,6 +2,7 @@ from read import read_data
 from output import output_file
 from grid import plot_grid
 from sys import argv
+from algo import algo
 
 """
 
@@ -16,4 +17,8 @@ if __name__ == "__main__":
     houses: dict = data[0]
     batteries: dict = data[1]
     output_file(houses, batteries)
+<<<<<<< Updated upstream
     plot_grid(houses, batteries)
+=======
+    algo(houses, batteries)
+>>>>>>> Stashed changes

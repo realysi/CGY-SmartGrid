@@ -10,4 +10,4 @@ class House:
         self.to_battery = False
 
     def __repr__(self) -> str:
-        return f"ID= {self.id}, x={self.x}, y={self.y}, output={self.max_output}, battery={self.to_bat}\n"
+        return f"ID= {self.id}, x={self.x}, y={self.y}, output={self.max_output}, battery={self.to_battery}\n"
