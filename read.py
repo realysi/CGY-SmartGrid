@@ -10,23 +10,26 @@ inside of objects.
 Usage: --district {number of district the user would like to select}.
 
 """
-
-if argv[1] != "--district":
-    print("Usage: --district (filenumber)")
-    quit()
-else:
-    file_number = int(argv[2])
-    if file_number > 4:
+def select_district():
+    if argv[1] != "--district":
+        print("Usage: --district (filenumber)")
         quit()
+    else:
+        file_number = int(argv[2])
+        if file_number > 4:
+            quit()
+    return file_number
 
+def data_districts():
+    districts = {} # Dictonary to save the relative paths (both houses & batteries) for each district
+    for i in range(1, 5):
+        districts[i] = [f"data/district_{str(i)}/district-{str(i)}_houses.csv", 
+        f"data/district_{str(i)}/district-{str(i)}_batteries.csv"]
 
-districts = {} # Dictonary to save the relative paths (both houses & batteries) for each district
-for i in range(1, 5):
-    districts[i] = [f"data/district_{str(i)}/district-{str(i)}_houses.csv", 
-    f"data/district_{str(i)}/district-{str(i)}_batteries.csv"]
+    house_link = districts[file_number][0]
+    battery_link = districts[file_number][1]
 
-house_link = districts[file_number][0]
-battery_link = districts[file_number][1]
+    return house_link, battery_link
 
 def read_houses():
     # Dictionary containing data of houses
