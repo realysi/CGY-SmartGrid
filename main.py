@@ -1,4 +1,4 @@
-from read import *
+from read import read_data
 from sys import argv
 
 """
@@ -6,15 +6,10 @@ from sys import argv
 Main file which is used to call all other functions in other files.
 
 """
+def main():
+    data = read_data()[0]
+    print(data)
 
-if __name__ == "__main__":
-
-    if argv[1] != "--district":
-        print("Usage: --district (filenumber)")
-        quit()
-    else:
-        file_number = int(argv[2])
-        if file_number > 4:
-            quit()
-    
+if __name__ == "__main__":    
     # call functions
+    print(main())
