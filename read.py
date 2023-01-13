@@ -64,8 +64,14 @@ def read_batteries(relative_link_batteries):
 
 def read_data():
     house_link = select_district()[0]
-    return house_link
+    battery_link = select_district()[1]
+    houses = read_houses(house_link)
+    batteries = read_batteries(battery_link)
 
+    return houses, batteries
+
+
+print(read_data())
 # Data outputs
 """
 Om de data te visualizeren, zal wat data worden gegenereerd in data.txt. 
