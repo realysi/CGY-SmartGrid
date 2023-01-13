@@ -1,6 +1,6 @@
 import csv
-from code.classes.battery import Battery
-from code.classes.house import House
+from battery import Battery
+from house import House
 from sys import argv
 
 """

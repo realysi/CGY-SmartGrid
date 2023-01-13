@@ -1,5 +1,4 @@
-from code.classes.battery import *
-from code.read import *
+from read import *
 from sys import argv
 
 """
