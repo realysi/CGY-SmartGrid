@@ -1,6 +1,8 @@
-from data import houses, batteries
+from ..read import houses
+from ..read import batteries
 import random
-from objects import Battery, House
+from ..classes.house import House
+from ..classes.battery import Battery
 
 """
 This algorithm works with the basis of the knapsack problem.
@@ -27,10 +29,10 @@ def fits(battery: Battery, house: House):
         return True
 
 def subtract(battery: Battery, house: House):
-    if house.to_battery == False:
+    if house.to_bat == False:
         battery.capacity -= house.max_output
         battery.to_houses.append(house.id)
-        house.to_battery = battery.id
+        house.to_bat = battery.id
 
 def move_on():
     pass

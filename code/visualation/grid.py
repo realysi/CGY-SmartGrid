@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
-from read import *
+from ..read import houses
+from ..read import batteries
 
 """
 argparse uitgelegd:
