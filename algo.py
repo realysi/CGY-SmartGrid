@@ -29,10 +29,10 @@ def fits(battery: Battery, house: House):
         return True
 
 def subtract(battery: Battery, house: House):
-    if house.to_bat == False:
+    if house.to_battery == False:
         battery.capacity -= house.max_output
         battery.to_houses.append(house.id)
-        house.to_bat = battery.id
+        house.to_battery = battery.id
 
 def move_on():
     pass
