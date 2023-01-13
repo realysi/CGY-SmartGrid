@@ -1,4 +1,4 @@
-from code.objects import *
+from code.classes.battery import *
 from code.read import *
 
 """

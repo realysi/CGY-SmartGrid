@@ -1,4 +1,4 @@
-from data import houses, batteries
+from read import houses, batteries
 import random
 from random import randint, shuffle
 
