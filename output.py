@@ -9,8 +9,10 @@ def output_file(houses, batteries):
         for i in houses:
             total_output += houses[i].max_output
         data.write(f"Sum max_outputs:\t {total_output} \n\n")
+        data.write(f"________________________Batteries__________________________\n")
         for i in batteries:
             data.write(f"ID:{i} \t {batteries[i]} \n")
+        data.write(f"________________________Houses_____________________________\n")
         for i in houses:
             data.write(f"ID:{i} \t {houses[i]} \n")
     return "Output generated"

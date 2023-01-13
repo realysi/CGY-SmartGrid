@@ -1,6 +1,4 @@
 import matplotlib.pyplot as plt
-from read import houses
-from read import batteries
 
 """
 argparse uitgelegd:
@@ -8,44 +6,56 @@ voeg na de gebruikelijke "python3 filename" de vlag --disctrict toe met daaracht
 welke dataset van de drie districten je wil verwerken. Met een getal groter dan 3 kom je hier ook door, maar
 dan wordt er geen data verwerkt.
 """
+def empty_grid():
+    plt.xlim(-0.2,51)   #limiet x-as
+    plt.ylim(-0.2,51)   #limiet y-as
 
-plt.xlim(-0.2,51)   #limiet x-as
-plt.ylim(-0.2,51)   #limiet y-as
-
-plt.grid(which='major')  #toont major grid
-plt.grid(which='minor')  #toont minor grid
+    plt.grid(which='major')  #toont major grid
+    plt.grid(which='minor')  #toont minor grid
 
 #Data of houses
 #indexing of dictionary: [0]connection, [1]to_bat, [2]x, [3]y, [4]max_output
-for i in houses:
-    x = houses[i].x
-    y = houses[i].y
-    plt.plot(int(x), int(y), marker="p", color="black")
+def plot_houses(houses):
+    for i in houses:
+        x = houses[i].x
+        y = houses[i].y
+        plt.plot(int(x), int(y), marker="p", color="black")
 
 #Data van batterijen
 #indexing of dictionary: [0]to_houses, [1]capacity, [2]x, [3]y
-for i in batteries:
-    x = batteries[i].x
-    y = batteries[i].y
-    plt.plot(int(x), int(y), marker="P", color="red")
+def plot_batteries(batteries):
+    for i in batteries:
+        x = batteries[i].x
+        y = batteries[i].y
+        plt.plot(int(x), int(y), marker="P", color="red")
 
-axes_nummers = []
-for i in range(51):
-    if i % 5 == 0:
-        axes_nummers.append(i)
+def axes_numbers():
+    axes_numbers = []
+    for number in range(51):
+        if number % 5 == 0:
+            axes_numbers.append(number)
 
-for i in axes_nummers:
-    plt.axhline(i, linestyle="-", color="black", linewidth=0.5)
-    plt.axvline(i, linestyle="-", color="black", linewidth=0.5)
+    for number in axes_numbers:
+        plt.axhline(number, linestyle="-", color="black", linewidth=0.5)
+        plt.axvline(number, linestyle="-", color="black", linewidth=0.5)
 
-plt.xticks(ticks=axes_nummers, labels=axes_nummers) 
-plt.yticks(ticks=axes_nummers, labels=axes_nummers)
+    plt.xticks(ticks=axes_numbers, labels=axes_numbers) 
+    plt.yticks(ticks=axes_numbers, labels=axes_numbers)
 
-#tonen grid 
-plt.minorticks_on() #toon minor gridlines (kan ticks nog uitschakelen -> zie links)
-plt.tight_layout()
-plt.title("Smart Grid")
-plt.show()
+#tonen grid
+def render_grid():
+    plt.minorticks_on() #toon minor gridlines (kan ticks nog uitschakelen -> zie links)
+    plt.tight_layout()
+    plt.title("Smart Grid")
+    plt.show()
+
+
+def plot_grid(houses, batteries):
+    empty_grid()
+    plot_houses(houses)
+    plot_batteries(batteries)
+    axes_numbers()
+    render_grid()
 
 
 """
