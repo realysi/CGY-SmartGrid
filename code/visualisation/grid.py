@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream:grid.py
 import matplotlib.pyplot as plt
 
 """
@@ -20,15 +19,43 @@ def plot_houses(houses):
     for i in houses:
         x = houses[i].x
         y = houses[i].y
-        plt.plot(int(x), int(y), marker="p", color="black")
+        color = color_house(houses[i])
+        plt.plot(int(x), int(y), marker=".", color=color)
 
-#Data van batterijen
+# Gives color to the house on the grid
+def color_house(house):
+    if house.to_battery == 1:
+        return f"black"
+    elif house.to_battery == 2:
+        return f"green"
+    elif house.to_battery == 3:
+        return f"blue"
+    elif house.to_battery == 4:
+        return f"red"
+    elif house.to_battery == 5:
+        return f"purple"
+
+#Data of batteries
 #indexing of dictionary: [0]to_houses, [1]capacity, [2]x, [3]y
 def plot_batteries(batteries):
     for i in batteries:
         x = batteries[i].x
         y = batteries[i].y
-        plt.plot(int(x), int(y), marker="P", color="red")
+        color = color_battery(batteries[i])
+        plt.plot(int(x), int(y), marker="s", color=color)
+
+#  Gives color to the battery on the grid
+def color_battery(battery):
+    if battery.id == 1:
+        return f"black"
+    elif battery.id == 2:
+        return f"green"
+    elif battery.id == 3:
+        return f"blue"
+    elif battery.id == 4:
+        return f"red"
+    elif battery.id == 5:
+        return f"purple"
 
 def axes_numbers():
     axes_numbers = []
@@ -42,37 +69,6 @@ def axes_numbers():
 
     plt.xticks(ticks=axes_numbers, labels=axes_numbers) 
     plt.yticks(ticks=axes_numbers, labels=axes_numbers)
-
-# Plots the route of the cables from the houses to the batteries
-def route(houses):
-    x = []
-    y = []
-    start_x = houses[2].x
-    start_y = houses[2].y
-    delta_x = 7
-    delta_y = -18
-    end_x = start_x + delta_x
-    # To the same value of the x-axis of the battery (if delta_x is positive, moves from battery to the right).
-    if delta_x >= 0:
-        for i in range(start_x, (start_x + delta_x + 1), 1):
-            x.append(i)
-            y.append(start_y)
-            plt.plot(x, y, color = 'deepskyblue')
-    if delta_x < 0:
-        for i in range(start_x, (start_x + delta_x + 1), -1):
-            x.append(i)
-            y.append(start_y)
-            plt.plot(x, y, color = 'deepskyblue')
-    if delta_y >= 0:
-        for i in range(start_y, (start_y + delta_y + 1), 1):
-            x.append(end_x)
-            y.append(i)
-            plt.plot(x, y, color = 'deepskyblue')
-    if delta_y < 0:
-        for i in range(start_y, (start_y + delta_y + 1), -1):
-            x.append(end_x)
-            y.append(i)
-            plt.plot(x, y, color = 'deepskyblue')
 
 #Show grid
 def render_grid():
@@ -87,7 +83,6 @@ def plot_grid(houses, batteries):
     plot_houses(houses)
     plot_batteries(batteries)
     axes_numbers()
-    route(houses)
     render_grid()
 
 
@@ -98,93 +93,4 @@ https://www.pythoncharts.com/matplotlib/customizing-grid-matplotlib/
 https://stackoverflow.com/questions/14608483/how-to-add-a-grid-line-at-a-specific-location-in-matplotlib-plot
 https://stackoverflow.com/questions/7908636/how-to-add-hovering-annotations-to-a-plot
 
-=======
-import matplotlib.pyplot as plt
-from typing import List, Dict, Tuple
-
-"""
-grid.py is responsible for plotting the grid contaianing batteries and houses.
-This code is also responsible for plotting the connections between two objects.
-"""
-def empty_grid():
-    plt.xlim(-0.2,51)   #limiet x-as
-    plt.ylim(-0.2,51)   #limiet y-as
-
-    plt.grid(which='major')  #toont major grid
-    plt.grid(which='minor')  #toont minor grid
-
-#Data of houses
-#indexing of dictionary: [0]connection, [1]to_bat, [2]x, [3]y, [4]max_output
-def plot_houses(houses):
-    for i in houses:
-        x = houses[i].x
-        y = houses[i].y
-        plt.plot(int(x), int(y), marker="p", color="black")
-
-#Data van batterijen
-#indexing of dictionary: [0]to_houses, [1]capacity, [2]x, [3]y
-def plot_batteries(batteries):
-    for i in batteries:
-        x = batteries[i].x
-        y = batteries[i].y
-        plt.plot(int(x), int(y), marker="P", color="red")
-
-def axes_numbers():
-    axes_numbers = []
-    for number in range(51):
-        if number % 5 == 0:
-            axes_numbers.append(number)
-
-    for number in axes_numbers:
-        plt.axhline(number, linestyle="-", color="black", linewidth=0.5)
-        plt.axvline(number, linestyle="-", color="black", linewidth=0.5)
-
-    plt.xticks(ticks=axes_numbers, labels=axes_numbers) 
-    plt.yticks(ticks=axes_numbers, labels=axes_numbers)
-
-def route(houses, batteries):
-    x = []
-    y = []
-    x.append(houses[3].x)
-    y.append(houses[3].y)
-    # naar de hoogte van de batterij (y-as=gelijk)
-    for i in range(houses[3].y, (batteries[1].y + 1)):
-        x.append(houses[3].x)
-        y.append(i)
-    plt.plot(x, y, marker = '.', color = 'deepskyblue')
-
-
-# Calculates difference in x coordinates between a given house and battery 
-def delta_xy(houses, batteries) -> Dict[int, Tuple[int, int]]:
-    for id in houses:
-        x_start = houses[id].x
-        y_start = houses[id].y
-    
-
-
-def render_grid():
-    plt.minorticks_on() # Displays minor guidelines
-    plt.tight_layout()
-    plt.title("Smart Grid")
-    plt.show()
-
-
-def plot_grid(houses, batteries):
-    empty_grid()
-    plot_houses(houses)
-    plot_batteries(batteries)
-    axes_numbers()
-    route(houses, batteries)
-    delta_xy(houses, batteries)
-    render_grid()
-
-
-"""
-Links:
-https://www.tutorialspoint.com/how-can-i-plot-a-single-point-in-matplotlib-python
-https://www.pythoncharts.com/matplotlib/customizing-grid-matplotlib/
-https://stackoverflow.com/questions/14608483/how-to-add-a-grid-line-at-a-specific-location-in-matplotlib-plot
-https://stackoverflow.com/questions/7908636/how-to-add-hovering-annotations-to-a-plot
-
->>>>>>> Stashed changes:code/visualisation/grid.py
 """
