@@ -90,6 +90,7 @@ def random_algorithm(houses, batteries):
         else:
             break    
 
-    data = Data(copy_houses, copy_batteries)
+    cables = {}
+    data = Data(copy_houses, copy_batteries, cables)
 
     return data

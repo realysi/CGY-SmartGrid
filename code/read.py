@@ -69,6 +69,7 @@ def read_data():
     battery_link = select_district()[1]
     houses = read_houses(house_link)
     batteries = read_batteries(battery_link)
-    data = Data(houses, batteries)
+    cables = {}
+    data = Data(houses, batteries, cables)
     return data
 

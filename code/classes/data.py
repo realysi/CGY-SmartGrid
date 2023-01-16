@@ -4,8 +4,8 @@ from .battery import Battery
 
 
 class Data():
-    def __init__(self, houses, batteries):
+    def __init__(self, houses, batteries, cables):
         self.houses = houses
         self.batteries = batteries
-        self.cables = None
+        self.cables = cables
 
