@@ -1,12 +1,21 @@
+<<<<<<< Updated upstream
 Sum max_outputs:	 7500.000000019998 
 
 ________________________Batteries__________________________
 ID:1 	 	coordinates = (19, 20)	| capacity = 2.492233450000157	| connections = 30
 	to houses = [68, 57, 60, 94, 10, 69, 116, 117, 56, 141, 67, 83, 52, 136, 20, 99, 125, 89, 145, 90, 34, 7, 15, 112, 18, 48, 113, 23, 93, 131]
+=======
+Sum max_outputs:	 258.84194183 
+
+________________________Batteries__________________________
+ID:1 	 	coordinates = (13, 34)	| capacity = 1506.75	| connections = 0
+	to houses = []
+>>>>>>> Stashed changes
  
 ID:2 	 	coordinates = (1, 36)	| capacity = 10.072752440000052	| connections = 31
 	to houses = [42, 146, 86, 49, 80, 9, 77, 76, 26, 101, 19, 13, 123, 6, 111, 78, 100, 37, 106, 65, 122, 51, 91, 4, 135, 147, 109, 104, 54, 72, 102]
  
+<<<<<<< Updated upstream
 ID:3 	 	coordinates = (34, 49)	| capacity = 8.125855640000069	| connections = 30
 	to houses = [62, 133, 40, 96, 108, 132, 98, 1, 84, 128, 75, 137, 16, 61, 3, 39, 55, 12, 85, 73, 24, 53, 27, 126, 43, 41, 82, 143, 33, 127]
  
@@ -20,11 +29,18 @@ ________________________Houses_____________________________
 ID:1 	 	coordinates = (44, 6)	| output = 48.76400191	| battery:3
  
 ID:2 	 	coordinates = (13, 35)	| output = 44.09168174	| battery:4
+=======
+________________________Houses_____________________________
+ID:1 	 	coordinates = (12, 18)	| output = 51.94411629	| battery:False
+ 
+ID:2 	 	coordinates = (6, 50)	| output = 47.82087397	| battery:False
+>>>>>>> Stashed changes
  
 ID:3 	 	coordinates = (27, 6)	| output = 38.4723184	| battery:3
  
 ID:4 	 	coordinates = (14, 21)	| output = 36.40331775	| battery:2
  
+<<<<<<< Updated upstream
 ID:5 	 	coordinates = (50, 40)	| output = 44.36102572	| battery:4
  
 ID:6 	 	coordinates = (15, 40)	| output = 55.71262043	| battery:2
@@ -316,4 +332,7 @@ ID:148 	 	coordinates = (3, 25)	| output = 38.40802103	| battery:5
 ID:149 	 	coordinates = (34, 1)	| output = 37.82715244	| battery:4
  
 ID:150 	 	coordinates = (40, 31)	| output = 57.12008594	| battery:4
+=======
+ID:5 	 	coordinates = (43, 13)	| output = 54.14676516	| battery:False
+>>>>>>> Stashed changes
  
