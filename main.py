@@ -16,19 +16,19 @@ if __name__ == "__main__":
     data = read_data()
     houses: dict = data[0] #create houses dictionary, which contains data of all the houses
     batteries: dict = data[1] #create batteries dictionary, which contains data of all the houses
-    output_file(houses, batteries) #creates outputfile which contains data of both dictionaries -> see output.txt
+    
 
     # algorithm of choice
     data_2 = random_algorithm(houses, batteries) # returns dictionaries = [copy_houses, copy_batteries]
     houses: dict = data_2[0]
     batteries: dict = data_2[1]
+    output_file(houses, batteries) #creates outputfile which contains data of both dictionaries -> see output.txt
 
-    print(houses)
-    print(batteries)
+
     # calculate paths 
 
-    ##plot the grid with all its data:
-    #plot_grid(houses, batteries)
+    #plot the grid with all its data:
+    plot_grid(houses, batteries)
     
 
     
