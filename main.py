@@ -15,15 +15,9 @@ Usage: --district {number of district the user would like to select}.
 if __name__ == "__main__":    
     # Read in the data
     data = read_data()
-<<<<<<< Updated upstream
     houses: dict = data[0] #create houses dictionary, which contains data of all the houses
     batteries: dict = data[1] #create batteries dictionary, which contains data of all the houses
     
-=======
-    houses: dict = data[0] # Create houses dictionary, which contains data of all the houses
-    batteries: dict = data[1] # Create batteries dictionary, which contains data of all the houses
-    output_file(houses, batteries) # Creates outputfile which contains data of both dictionaries -> see output.txt
->>>>>>> Stashed changes
 
     # Algorithm of choice
     data_2 = random_algorithm(houses, batteries) # Returns dictionaries = [copy_houses, copy_batteries]
@@ -32,15 +26,10 @@ if __name__ == "__main__":
     output_file(houses, batteries) #creates outputfile which contains data of both dictionaries -> see output.txt
 
 
-<<<<<<< Updated upstream
+
     # calculate paths 
 
     #plot the grid with all its data:
-=======
-    # Calculate paths 
-
-    ##plot the grid with all its data:
->>>>>>> Stashed changes
     plot_grid(houses, batteries)
     
 
