@@ -3,13 +3,17 @@
 Om de data te visualizeren, zal wat data worden gegenereerd in output.txt. 
 Elke keer wanneer data.py zal worden gerund, zal data.txt worden overgeschreven.
 """
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 
 def output_file(houses, batteries):
     with open('output.json', 'w') as data:
         total_output = 0
         for i in houses:
             total_output += houses[i].max_output
-        data.write(f"District:")
+        data.write(f"district:")
         data.write(f"Sum max_outputs:\t {total_output} \n\n")
         data.write(f"costs-shared:")
         data.write(f"________________________Batteries__________________________\n")

@@ -1,17 +1,11 @@
 import matplotlib.pyplot as plt
 
-"""
-argparse uitgelegd:
-voeg na de gebruikelijke "python3 filename" de vlag --disctrict toe met daarachter 1 2 of 3 om aan te geven
-welke dataset van de drie districten je wil verwerken. Met een getal groter dan 3 kom je hier ook door, maar
-dan wordt er geen data verwerkt.
-"""
 def empty_grid():
-    plt.xlim(-0.2,51)   #limiet x-as
-    plt.ylim(-0.2,51)   #limiet y-as
+    plt.xlim(-0.2,51)   # Limit x-axis
+    plt.ylim(-0.2,51)   # Limit y-axis
 
-    plt.grid(which='major')  #toont major grid
-    plt.grid(which='minor')  #toont minor grid
+    plt.grid(which='major')
+    plt.grid(which='minor')
 
 #Data of houses
 #indexing of dictionary: [0]connection, [1]to_bat, [2]x, [3]y, [4]max_output
@@ -83,6 +77,10 @@ def plot_grid(houses, batteries):
     plot_houses(houses)
     plot_batteries(batteries)
     axes_numbers()
+<<<<<<< Updated upstream
+=======
+    route(houses)
+>>>>>>> Stashed changes
     render_grid()
 
 

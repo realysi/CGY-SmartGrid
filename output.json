@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 District:Sum max_outputs:	 7499.999999999998 
 
 costs-shared:________________________Batteries__________________________
@@ -308,12 +309,33 @@ ID:144 	 	coordinates = (37, 6)	| output = 30.41692196	| battery:4
 ID:145 	 	coordinates = (33, 24)	| output = 74.26615041	| battery:3
  
 ID:146 	 	coordinates = (39, 14)	| output = 49.16852893	| battery:2
+=======
+district:Sum max_outputs:	 258.84194183 
+
+costs-shared:________________________Batteries__________________________
+ID:1 	 	coordinates = (13, 34)	| capacity = 1247.90805817	| connections = 5
+	to houses = [1, 2, 4, 3, 5]
  
-ID:147 	 	coordinates = (21, 48)	| output = 71.35472201	| battery:1
+ID:2 	 	coordinates = (32, 11)	| capacity = 1506.75	| connections = 0
+	to houses = []
  
+________________________Houses_____________________________
+ID:1 	 	coordinates = (12, 18)	| output = 51.94411629	| battery:1
+>>>>>>> Stashed changes
+ 
+ID:2 	 	coordinates = (6, 50)	| output = 47.82087397	| battery:1
+ 
+<<<<<<< Updated upstream
 ID:148 	 	coordinates = (22, 17)	| output = 66.78438663	| battery:5
  
 ID:149 	 	coordinates = (26, 27)	| output = 56.65609954	| battery:1
  
 ID:150 	 	coordinates = (10, 27)	| output = 26.19979919	| battery:4
+=======
+ID:3 	 	coordinates = (25, 31)	| output = 51.81241388	| battery:1
+ 
+ID:4 	 	coordinates = (27, 38)	| output = 53.11777253	| battery:1
+ 
+ID:5 	 	coordinates = (43, 13)	| output = 54.14676516	| battery:1
+>>>>>>> Stashed changes
  
