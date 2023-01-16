@@ -1,319 +1,319 @@
 district:Sum max_outputs:	 7499.999999999998 
 
 costs-shared:________________________Batteries__________________________
-ID:1 	 	coordinates = (18, 34)	| capacity = 2.8526906399998992	| connections = 30
-	to houses = [67, 70, 83, 3, 114, 112, 124, 89, 62, 127, 92, 90, 55, 74, 23, 51, 95, 126, 22, 119, 91, 85, 28, 147, 125, 78, 80, 59, 141, 19]
+ID:1 	 	coordinates = (18, 34)	| capacity = 0.9852963500000342	| connections = 30
+	to houses = [144, 77, 134, 69, 105, 49, 83, 36, 58, 116, 29, 125, 104, 91, 146, 113, 139, 23, 27, 31, 108, 71, 17, 5, 98, 37, 133, 15, 148, 80]
  
-ID:2 	 	coordinates = (32, 11)	| capacity = 2.3246710599999645	| connections = 30
-	to houses = [32, 133, 88, 123, 134, 36, 53, 12, 130, 82, 8, 140, 64, 71, 40, 107, 24, 6, 21, 60, 128, 31, 29, 136, 94, 2, 138, 149, 11, 15]
+ID:2 	 	coordinates = (32, 11)	| capacity = 1.0822151399998319	| connections = 30
+	to houses = [55, 42, 44, 127, 103, 115, 118, 7, 130, 90, 75, 33, 45, 88, 87, 20, 78, 72, 64, 138, 11, 14, 112, 120, 65, 132, 8, 147, 34, 19]
  
-ID:3 	 	coordinates = (41, 1)	| capacity = 5.272841229999848	| connections = 30
-	to houses = [86, 108, 46, 79, 117, 109, 148, 81, 115, 118, 120, 146, 66, 142, 106, 84, 27, 72, 48, 57, 43, 93, 54, 49, 139, 105, 13, 137, 144, 131]
+ID:3 	 	coordinates = (41, 1)	| capacity = 6.401423760000128	| connections = 30
+	to houses = [43, 142, 96, 63, 93, 79, 73, 51, 150, 57, 84, 6, 13, 137, 30, 1, 123, 145, 82, 21, 18, 131, 74, 59, 12, 46, 107, 136, 26, 109]
  
-ID:4 	 	coordinates = (3, 35)	| capacity = 9.16367320000009	| connections = 30
-	to houses = [20, 129, 39, 25, 10, 75, 113, 1, 38, 56, 14, 110, 17, 96, 33, 18, 87, 121, 37, 69, 98, 135, 7, 150, 76, 65, 30, 45, 103, 5]
+ID:4 	 	coordinates = (3, 35)	| capacity = 24.996764019999922	| connections = 30
+	to houses = [2, 35, 16, 119, 143, 4, 111, 97, 52, 106, 114, 38, 22, 140, 47, 40, 9, 41, 54, 66, 48, 100, 39, 126, 68, 122, 94, 86, 56, 53]
  
-ID:5 	 	coordinates = (39, 41)	| capacity = 14.136123869999814	| connections = 30
-	to houses = [97, 77, 122, 34, 52, 47, 145, 104, 100, 44, 41, 42, 99, 16, 35, 68, 111, 61, 102, 63, 143, 50, 73, 9, 58, 26, 4, 132, 116, 101]
+ID:5 	 	coordinates = (39, 41)	| capacity = 0.28430073000005507	| connections = 30
+	to houses = [24, 3, 117, 141, 70, 129, 121, 81, 95, 61, 32, 67, 110, 60, 92, 28, 50, 10, 128, 99, 102, 85, 124, 135, 76, 62, 149, 89, 25, 101]
  
 ________________________Houses_____________________________
-ID:1 	 	coordinates = (21, 18)	| output = 51.94411629	| battery:4
+ID:1 	 	coordinates = (21, 18)	| output = 51.94411629	| battery:3
  
-ID:2 	 	coordinates = (47, 50)	| output = 47.82087397	| battery:2
+ID:2 	 	coordinates = (47, 50)	| output = 47.82087397	| battery:4
  
-ID:3 	 	coordinates = (25, 31)	| output = 51.81241388	| battery:1
+ID:3 	 	coordinates = (25, 31)	| output = 51.81241388	| battery:5
  
-ID:4 	 	coordinates = (27, 38)	| output = 53.11777253	| battery:5
+ID:4 	 	coordinates = (27, 38)	| output = 53.11777253	| battery:4
  
-ID:5 	 	coordinates = (30, 13)	| output = 54.14676516	| battery:4
+ID:5 	 	coordinates = (30, 13)	| output = 54.14676516	| battery:1
  
-ID:6 	 	coordinates = (48, 4)	| output = 45.24272018	| battery:2
+ID:6 	 	coordinates = (48, 4)	| output = 45.24272018	| battery:3
  
-ID:7 	 	coordinates = (32, 18)	| output = 46.74039375	| battery:4
+ID:7 	 	coordinates = (32, 18)	| output = 46.74039375	| battery:2
  
 ID:8 	 	coordinates = (49, 15)	| output = 54.75398768	| battery:2
  
-ID:9 	 	coordinates = (3, 9)	| output = 47.72196575	| battery:5
+ID:9 	 	coordinates = (3, 9)	| output = 47.72196575	| battery:4
  
-ID:10 	 	coordinates = (46, 40)	| output = 51.86891316	| battery:4
+ID:10 	 	coordinates = (46, 40)	| output = 51.86891316	| battery:5
  
 ID:11 	 	coordinates = (3, 25)	| output = 46.8033198	| battery:2
  
-ID:12 	 	coordinates = (1, 32)	| output = 54.99730646	| battery:2
+ID:12 	 	coordinates = (1, 32)	| output = 54.99730646	| battery:3
  
 ID:13 	 	coordinates = (32, 3)	| output = 47.04037014	| battery:3
  
-ID:14 	 	coordinates = (32, 49)	| output = 50.25432556	| battery:4
+ID:14 	 	coordinates = (32, 49)	| output = 50.25432556	| battery:2
  
-ID:15 	 	coordinates = (30, 14)	| output = 45.54596912	| battery:2
+ID:15 	 	coordinates = (30, 14)	| output = 45.54596912	| battery:1
  
-ID:16 	 	coordinates = (39, 34)	| output = 49.93506537	| battery:5
+ID:16 	 	coordinates = (39, 34)	| output = 49.93506537	| battery:4
  
-ID:17 	 	coordinates = (3, 24)	| output = 49.07862835	| battery:4
+ID:17 	 	coordinates = (3, 24)	| output = 49.07862835	| battery:1
  
-ID:18 	 	coordinates = (43, 45)	| output = 54.18469088	| battery:4
+ID:18 	 	coordinates = (43, 45)	| output = 54.18469088	| battery:3
  
-ID:19 	 	coordinates = (1, 28)	| output = 46.63089313	| battery:1
+ID:19 	 	coordinates = (1, 28)	| output = 46.63089313	| battery:2
  
-ID:20 	 	coordinates = (15, 0)	| output = 48.43740503	| battery:4
+ID:20 	 	coordinates = (15, 0)	| output = 48.43740503	| battery:2
  
-ID:21 	 	coordinates = (30, 32)	| output = 52.92581641	| battery:2
+ID:21 	 	coordinates = (30, 32)	| output = 52.92581641	| battery:3
  
-ID:22 	 	coordinates = (18, 10)	| output = 53.98009231	| battery:1
+ID:22 	 	coordinates = (18, 10)	| output = 53.98009231	| battery:4
  
 ID:23 	 	coordinates = (21, 46)	| output = 52.91142802	| battery:1
  
-ID:24 	 	coordinates = (21, 33)	| output = 46.75613739	| battery:2
+ID:24 	 	coordinates = (21, 33)	| output = 46.75613739	| battery:5
  
-ID:25 	 	coordinates = (39, 42)	| output = 47.34915773	| battery:4
+ID:25 	 	coordinates = (39, 42)	| output = 47.34915773	| battery:5
  
-ID:26 	 	coordinates = (17, 21)	| output = 46.26812357	| battery:5
+ID:26 	 	coordinates = (17, 21)	| output = 46.26812357	| battery:3
  
-ID:27 	 	coordinates = (12, 21)	| output = 53.63368373	| battery:3
+ID:27 	 	coordinates = (12, 21)	| output = 53.63368373	| battery:1
  
-ID:28 	 	coordinates = (17, 34)	| output = 52.96938435	| battery:1
+ID:28 	 	coordinates = (17, 34)	| output = 52.96938435	| battery:5
  
-ID:29 	 	coordinates = (46, 39)	| output = 46.60969509	| battery:2
+ID:29 	 	coordinates = (46, 39)	| output = 46.60969509	| battery:1
  
-ID:30 	 	coordinates = (33, 35)	| output = 45.84094791	| battery:4
+ID:30 	 	coordinates = (33, 35)	| output = 45.84094791	| battery:3
  
-ID:31 	 	coordinates = (43, 41)	| output = 51.95373609	| battery:2
+ID:31 	 	coordinates = (43, 41)	| output = 51.95373609	| battery:1
  
-ID:32 	 	coordinates = (15, 36)	| output = 54.30849405	| battery:2
+ID:32 	 	coordinates = (15, 36)	| output = 54.30849405	| battery:5
  
-ID:33 	 	coordinates = (18, 24)	| output = 54.2211502	| battery:4
+ID:33 	 	coordinates = (18, 24)	| output = 54.2211502	| battery:2
  
-ID:34 	 	coordinates = (16, 37)	| output = 52.58547404	| battery:5
+ID:34 	 	coordinates = (16, 37)	| output = 52.58547404	| battery:2
  
-ID:35 	 	coordinates = (47, 35)	| output = 46.9524009	| battery:5
+ID:35 	 	coordinates = (47, 35)	| output = 46.9524009	| battery:4
  
-ID:36 	 	coordinates = (42, 4)	| output = 53.46156177	| battery:2
+ID:36 	 	coordinates = (42, 4)	| output = 53.46156177	| battery:1
  
-ID:37 	 	coordinates = (3, 33)	| output = 49.79974209	| battery:4
+ID:37 	 	coordinates = (3, 33)	| output = 49.79974209	| battery:1
  
 ID:38 	 	coordinates = (41, 24)	| output = 51.75273225	| battery:4
  
 ID:39 	 	coordinates = (4, 48)	| output = 48.27297674	| battery:4
  
-ID:40 	 	coordinates = (1, 45)	| output = 54.91354462	| battery:2
+ID:40 	 	coordinates = (1, 45)	| output = 54.91354462	| battery:4
  
-ID:41 	 	coordinates = (27, 10)	| output = 50.04190502	| battery:5
+ID:41 	 	coordinates = (27, 10)	| output = 50.04190502	| battery:4
  
-ID:42 	 	coordinates = (28, 48)	| output = 54.22966024	| battery:5
+ID:42 	 	coordinates = (28, 48)	| output = 54.22966024	| battery:2
  
 ID:43 	 	coordinates = (11, 23)	| output = 48.85814641	| battery:3
  
-ID:44 	 	coordinates = (1, 48)	| output = 54.54461427	| battery:5
+ID:44 	 	coordinates = (1, 48)	| output = 54.54461427	| battery:2
  
-ID:45 	 	coordinates = (43, 29)	| output = 47.94582721	| battery:4
+ID:45 	 	coordinates = (43, 29)	| output = 47.94582721	| battery:2
  
 ID:46 	 	coordinates = (38, 3)	| output = 49.86535747	| battery:3
  
-ID:47 	 	coordinates = (31, 24)	| output = 46.38651333	| battery:5
+ID:47 	 	coordinates = (31, 24)	| output = 46.38651333	| battery:4
  
-ID:48 	 	coordinates = (25, 29)	| output = 53.35585729	| battery:3
+ID:48 	 	coordinates = (25, 29)	| output = 53.35585729	| battery:4
  
-ID:49 	 	coordinates = (16, 19)	| output = 54.16981224	| battery:3
+ID:49 	 	coordinates = (16, 19)	| output = 54.16981224	| battery:1
  
 ID:50 	 	coordinates = (45, 31)	| output = 48.01065715	| battery:5
  
-ID:51 	 	coordinates = (27, 11)	| output = 50.55356632	| battery:1
+ID:51 	 	coordinates = (27, 11)	| output = 50.55356632	| battery:3
  
-ID:52 	 	coordinates = (46, 48)	| output = 47.37788381	| battery:5
+ID:52 	 	coordinates = (46, 48)	| output = 47.37788381	| battery:4
  
-ID:53 	 	coordinates = (17, 41)	| output = 48.60918505	| battery:2
+ID:53 	 	coordinates = (17, 41)	| output = 48.60918505	| battery:4
  
-ID:54 	 	coordinates = (39, 46)	| output = 48.14242474	| battery:3
+ID:54 	 	coordinates = (39, 46)	| output = 48.14242474	| battery:4
  
-ID:55 	 	coordinates = (14, 6)	| output = 49.72629004	| battery:1
+ID:55 	 	coordinates = (14, 6)	| output = 49.72629004	| battery:2
  
 ID:56 	 	coordinates = (8, 12)	| output = 46.01633925	| battery:4
  
 ID:57 	 	coordinates = (0, 19)	| output = 51.03867367	| battery:3
  
-ID:58 	 	coordinates = (13, 47)	| output = 48.4395487	| battery:5
+ID:58 	 	coordinates = (13, 47)	| output = 48.4395487	| battery:1
  
-ID:59 	 	coordinates = (39, 35)	| output = 52.0929123	| battery:1
+ID:59 	 	coordinates = (39, 35)	| output = 52.0929123	| battery:3
  
-ID:60 	 	coordinates = (25, 13)	| output = 45.5472391	| battery:2
+ID:60 	 	coordinates = (25, 13)	| output = 45.5472391	| battery:5
  
 ID:61 	 	coordinates = (8, 13)	| output = 46.46747877	| battery:5
  
-ID:62 	 	coordinates = (33, 31)	| output = 48.25043584	| battery:1
+ID:62 	 	coordinates = (33, 31)	| output = 48.25043584	| battery:5
  
-ID:63 	 	coordinates = (28, 28)	| output = 45.40186719	| battery:5
+ID:63 	 	coordinates = (28, 28)	| output = 45.40186719	| battery:3
  
 ID:64 	 	coordinates = (39, 25)	| output = 49.93311335	| battery:2
  
-ID:65 	 	coordinates = (12, 26)	| output = 49.65236115	| battery:4
+ID:65 	 	coordinates = (12, 26)	| output = 49.65236115	| battery:2
  
-ID:66 	 	coordinates = (6, 41)	| output = 46.05322103	| battery:3
+ID:66 	 	coordinates = (6, 41)	| output = 46.05322103	| battery:4
  
-ID:67 	 	coordinates = (16, 1)	| output = 48.70842308	| battery:1
+ID:67 	 	coordinates = (16, 1)	| output = 48.70842308	| battery:5
  
-ID:68 	 	coordinates = (20, 11)	| output = 48.54997218	| battery:5
+ID:68 	 	coordinates = (20, 11)	| output = 48.54997218	| battery:4
  
-ID:69 	 	coordinates = (7, 32)	| output = 51.72717898	| battery:4
+ID:69 	 	coordinates = (7, 32)	| output = 51.72717898	| battery:1
  
-ID:70 	 	coordinates = (2, 5)	| output = 51.62646163	| battery:1
+ID:70 	 	coordinates = (2, 5)	| output = 51.62646163	| battery:5
  
-ID:71 	 	coordinates = (41, 36)	| output = 52.78210048	| battery:2
+ID:71 	 	coordinates = (41, 36)	| output = 52.78210048	| battery:1
  
-ID:72 	 	coordinates = (10, 36)	| output = 49.13738507	| battery:3
+ID:72 	 	coordinates = (10, 36)	| output = 49.13738507	| battery:2
  
-ID:73 	 	coordinates = (4, 2)	| output = 52.76961749	| battery:5
+ID:73 	 	coordinates = (4, 2)	| output = 52.76961749	| battery:3
  
-ID:74 	 	coordinates = (20, 16)	| output = 48.0219944	| battery:1
+ID:74 	 	coordinates = (20, 16)	| output = 48.0219944	| battery:3
  
-ID:75 	 	coordinates = (31, 8)	| output = 45.78474275	| battery:4
+ID:75 	 	coordinates = (31, 8)	| output = 45.78474275	| battery:2
  
-ID:76 	 	coordinates = (24, 50)	| output = 52.98566399	| battery:4
+ID:76 	 	coordinates = (24, 50)	| output = 52.98566399	| battery:5
  
-ID:77 	 	coordinates = (25, 40)	| output = 49.79777396	| battery:5
+ID:77 	 	coordinates = (25, 40)	| output = 49.79777396	| battery:1
  
-ID:78 	 	coordinates = (48, 28)	| output = 47.99198559	| battery:1
+ID:78 	 	coordinates = (48, 28)	| output = 47.99198559	| battery:2
  
 ID:79 	 	coordinates = (50, 0)	| output = 53.71601636	| battery:3
  
 ID:80 	 	coordinates = (30, 7)	| output = 45.2342213	| battery:1
  
-ID:81 	 	coordinates = (21, 21)	| output = 53.15980812	| battery:3
+ID:81 	 	coordinates = (21, 21)	| output = 53.15980812	| battery:5
  
-ID:82 	 	coordinates = (20, 10)	| output = 50.30051709	| battery:2
+ID:82 	 	coordinates = (20, 10)	| output = 50.30051709	| battery:3
  
 ID:83 	 	coordinates = (6, 17)	| output = 46.01918212	| battery:1
  
 ID:84 	 	coordinates = (30, 45)	| output = 50.8435769	| battery:3
  
-ID:85 	 	coordinates = (50, 15)	| output = 53.95360569	| battery:1
+ID:85 	 	coordinates = (50, 15)	| output = 53.95360569	| battery:5
  
-ID:86 	 	coordinates = (16, 16)	| output = 53.32105133	| battery:3
+ID:86 	 	coordinates = (16, 16)	| output = 53.32105133	| battery:4
  
-ID:87 	 	coordinates = (14, 22)	| output = 50.63918945	| battery:4
+ID:87 	 	coordinates = (14, 22)	| output = 50.63918945	| battery:2
  
 ID:88 	 	coordinates = (11, 37)	| output = 52.2305101	| battery:2
  
-ID:89 	 	coordinates = (50, 21)	| output = 51.82639703	| battery:1
+ID:89 	 	coordinates = (50, 21)	| output = 51.82639703	| battery:5
  
-ID:90 	 	coordinates = (9, 11)	| output = 52.8088529	| battery:1
+ID:90 	 	coordinates = (9, 11)	| output = 52.8088529	| battery:2
  
 ID:91 	 	coordinates = (15, 10)	| output = 54.53006205	| battery:1
  
-ID:92 	 	coordinates = (6, 22)	| output = 46.51627586	| battery:1
+ID:92 	 	coordinates = (6, 22)	| output = 46.51627586	| battery:5
  
 ID:93 	 	coordinates = (41, 44)	| output = 45.29702228	| battery:3
  
-ID:94 	 	coordinates = (26, 41)	| output = 47.09131203	| battery:2
+ID:94 	 	coordinates = (26, 41)	| output = 47.09131203	| battery:4
  
-ID:95 	 	coordinates = (15, 15)	| output = 45.31733653	| battery:1
+ID:95 	 	coordinates = (15, 15)	| output = 45.31733653	| battery:5
  
-ID:96 	 	coordinates = (24, 32)	| output = 50.16548949	| battery:4
+ID:96 	 	coordinates = (24, 32)	| output = 50.16548949	| battery:3
  
-ID:97 	 	coordinates = (41, 12)	| output = 52.38040091	| battery:5
+ID:97 	 	coordinates = (41, 12)	| output = 52.38040091	| battery:4
  
-ID:98 	 	coordinates = (29, 25)	| output = 47.58049297	| battery:4
+ID:98 	 	coordinates = (29, 25)	| output = 47.58049297	| battery:1
  
 ID:99 	 	coordinates = (39, 27)	| output = 52.05437525	| battery:5
  
-ID:100 	 	coordinates = (50, 35)	| output = 54.12515118	| battery:5
+ID:100 	 	coordinates = (50, 35)	| output = 54.12515118	| battery:4
  
 ID:101 	 	coordinates = (0, 4)	| output = 45.16959822	| battery:5
  
 ID:102 	 	coordinates = (45, 2)	| output = 53.48855448	| battery:5
  
-ID:103 	 	coordinates = (29, 7)	| output = 50.91041056	| battery:4
+ID:103 	 	coordinates = (29, 7)	| output = 50.91041056	| battery:2
  
-ID:104 	 	coordinates = (10, 24)	| output = 53.76285577	| battery:5
+ID:104 	 	coordinates = (10, 24)	| output = 53.76285577	| battery:1
  
-ID:105 	 	coordinates = (46, 4)	| output = 47.6825473	| battery:3
+ID:105 	 	coordinates = (46, 4)	| output = 47.6825473	| battery:1
  
-ID:106 	 	coordinates = (17, 12)	| output = 45.61104522	| battery:3
+ID:106 	 	coordinates = (17, 12)	| output = 45.61104522	| battery:4
  
-ID:107 	 	coordinates = (33, 3)	| output = 53.3512745	| battery:2
+ID:107 	 	coordinates = (33, 3)	| output = 53.3512745	| battery:3
  
-ID:108 	 	coordinates = (36, 14)	| output = 51.58057128	| battery:3
+ID:108 	 	coordinates = (36, 14)	| output = 51.58057128	| battery:1
  
 ID:109 	 	coordinates = (8, 44)	| output = 50.30256407	| battery:3
  
-ID:110 	 	coordinates = (48, 47)	| output = 53.26904882	| battery:4
+ID:110 	 	coordinates = (48, 47)	| output = 53.26904882	| battery:5
  
-ID:111 	 	coordinates = (22, 34)	| output = 46.65187897	| battery:5
+ID:111 	 	coordinates = (22, 34)	| output = 46.65187897	| battery:4
  
-ID:112 	 	coordinates = (31, 37)	| output = 51.54326497	| battery:1
+ID:112 	 	coordinates = (31, 37)	| output = 51.54326497	| battery:2
  
-ID:113 	 	coordinates = (19, 47)	| output = 50.38289294	| battery:4
+ID:113 	 	coordinates = (19, 47)	| output = 50.38289294	| battery:1
  
-ID:114 	 	coordinates = (20, 28)	| output = 53.12331423	| battery:1
+ID:114 	 	coordinates = (20, 28)	| output = 53.12331423	| battery:4
  
-ID:115 	 	coordinates = (20, 5)	| output = 48.31035497	| battery:3
+ID:115 	 	coordinates = (20, 5)	| output = 48.31035497	| battery:2
  
-ID:116 	 	coordinates = (19, 22)	| output = 51.79628813	| battery:5
+ID:116 	 	coordinates = (19, 22)	| output = 51.79628813	| battery:1
  
-ID:117 	 	coordinates = (6, 43)	| output = 53.95936785	| battery:3
+ID:117 	 	coordinates = (6, 43)	| output = 53.95936785	| battery:5
  
-ID:118 	 	coordinates = (2, 50)	| output = 49.52760828	| battery:3
+ID:118 	 	coordinates = (2, 50)	| output = 49.52760828	| battery:2
  
-ID:119 	 	coordinates = (8, 20)	| output = 46.13662116	| battery:1
+ID:119 	 	coordinates = (8, 20)	| output = 46.13662116	| battery:4
  
-ID:120 	 	coordinates = (40, 8)	| output = 45.17557463	| battery:3
+ID:120 	 	coordinates = (40, 8)	| output = 45.17557463	| battery:2
  
-ID:121 	 	coordinates = (34, 47)	| output = 51.57104914	| battery:4
+ID:121 	 	coordinates = (34, 47)	| output = 51.57104914	| battery:5
  
-ID:122 	 	coordinates = (0, 46)	| output = 50.20207187	| battery:5
+ID:122 	 	coordinates = (0, 46)	| output = 50.20207187	| battery:4
  
-ID:123 	 	coordinates = (37, 21)	| output = 54.7990422	| battery:2
+ID:123 	 	coordinates = (37, 21)	| output = 54.7990422	| battery:3
  
-ID:124 	 	coordinates = (14, 15)	| output = 53.34058355	| battery:1
+ID:124 	 	coordinates = (14, 15)	| output = 53.34058355	| battery:5
  
 ID:125 	 	coordinates = (44, 40)	| output = 46.43816048	| battery:1
  
-ID:126 	 	coordinates = (0, 24)	| output = 48.72125695	| battery:1
+ID:126 	 	coordinates = (0, 24)	| output = 48.72125695	| battery:4
  
-ID:127 	 	coordinates = (3, 23)	| output = 53.08724525	| battery:1
+ID:127 	 	coordinates = (3, 23)	| output = 53.08724525	| battery:2
  
-ID:128 	 	coordinates = (17, 37)	| output = 53.63429606	| battery:2
+ID:128 	 	coordinates = (17, 37)	| output = 53.63429606	| battery:5
  
-ID:129 	 	coordinates = (42, 45)	| output = 49.54607954	| battery:4
+ID:129 	 	coordinates = (42, 45)	| output = 49.54607954	| battery:5
  
 ID:130 	 	coordinates = (9, 40)	| output = 54.56844455	| battery:2
  
 ID:131 	 	coordinates = (37, 5)	| output = 47.92097158	| battery:3
  
-ID:132 	 	coordinates = (1, 30)	| output = 48.43719875	| battery:5
+ID:132 	 	coordinates = (1, 30)	| output = 48.43719875	| battery:2
  
-ID:133 	 	coordinates = (10, 3)	| output = 50.74878243	| battery:2
+ID:133 	 	coordinates = (10, 3)	| output = 50.74878243	| battery:1
  
-ID:134 	 	coordinates = (36, 44)	| output = 47.56339729	| battery:2
+ID:134 	 	coordinates = (36, 44)	| output = 47.56339729	| battery:1
  
-ID:135 	 	coordinates = (6, 0)	| output = 47.77817151	| battery:4
+ID:135 	 	coordinates = (6, 0)	| output = 47.77817151	| battery:5
  
-ID:136 	 	coordinates = (30, 5)	| output = 45.25109877	| battery:2
+ID:136 	 	coordinates = (30, 5)	| output = 45.25109877	| battery:3
  
 ID:137 	 	coordinates = (3, 16)	| output = 53.54773542	| battery:3
  
 ID:138 	 	coordinates = (43, 30)	| output = 47.97674042	| battery:2
  
-ID:139 	 	coordinates = (2, 35)	| output = 52.57995149	| battery:3
+ID:139 	 	coordinates = (2, 35)	| output = 52.57995149	| battery:1
  
-ID:140 	 	coordinates = (30, 29)	| output = 47.67000862	| battery:2
+ID:140 	 	coordinates = (30, 29)	| output = 47.67000862	| battery:4
  
-ID:141 	 	coordinates = (29, 16)	| output = 48.94518723	| battery:1
+ID:141 	 	coordinates = (29, 16)	| output = 48.94518723	| battery:5
  
 ID:142 	 	coordinates = (36, 8)	| output = 51.83878558	| battery:3
  
-ID:143 	 	coordinates = (25, 39)	| output = 47.71839737	| battery:5
+ID:143 	 	coordinates = (25, 39)	| output = 47.71839737	| battery:4
  
-ID:144 	 	coordinates = (18, 39)	| output = 48.74438962	| battery:3
+ID:144 	 	coordinates = (18, 39)	| output = 48.74438962	| battery:1
  
-ID:145 	 	coordinates = (4, 35)	| output = 48.22881096	| battery:5
+ID:145 	 	coordinates = (4, 35)	| output = 48.22881096	| battery:3
  
-ID:146 	 	coordinates = (6, 2)	| output = 48.23526882	| battery:3
+ID:146 	 	coordinates = (6, 2)	| output = 48.23526882	| battery:1
  
-ID:147 	 	coordinates = (14, 18)	| output = 51.07946117	| battery:1
+ID:147 	 	coordinates = (14, 18)	| output = 51.07946117	| battery:2
  
-ID:148 	 	coordinates = (35, 24)	| output = 48.82801588	| battery:3
+ID:148 	 	coordinates = (35, 24)	| output = 48.82801588	| battery:1
  
-ID:149 	 	coordinates = (20, 41)	| output = 46.27510427	| battery:2
+ID:149 	 	coordinates = (20, 41)	| output = 46.27510427	| battery:5
  
-ID:150 	 	coordinates = (29, 11)	| output = 47.73944395	| battery:4
+ID:150 	 	coordinates = (29, 11)	| output = 47.73944395	| battery:3
  

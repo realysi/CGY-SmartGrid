@@ -32,12 +32,14 @@ if __name__ == "__main__":
     # Algorithm of choice
     data: Data = random_algorithm(info.houses, info.batteries) # Returns dictionaries = [copy_houses, copy_batteries]
 
-    # calculate paths 
-    
-    cable = cables(data)
-    for i in cable.cables:
-        cable.cables[i].calculate_distance()
-        print(f"House: {cable.cables[i].house.id} to Battery: {cable.cables[i].battery.id} | distance = {cable.cables[i].distance}")
+    # calculate distance (for now) -> later do this by path
+    new_data = cables(data)
+    for i in new_data.cables:
+        new_data.cables[i].calculate_distance()
+    cost = new_data.costs()
+
+    print(f"House: {new_data.cables[i].house.id} to Battery: {new_data.cables[i].battery.id} | distance = {new_data.cables[i].distance}")
+    print(f"total cost: {new_data.costs()}")
 
     #output file
     output_file(data.houses, data.batteries) #creates outputfile which contains data of both dictionaries -> see output.txt

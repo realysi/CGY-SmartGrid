@@ -41,7 +41,7 @@ class Cable:
         pass
 
     def calculate_price(self): #moet nog rekening houden met check_overlay
-        cost = self.distance * 9
-        return cost
+        self.cost = self.distance * 9
+        return self.cost
 
     
