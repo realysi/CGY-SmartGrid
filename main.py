@@ -1,4 +1,5 @@
 from code.read import read_data
+from code.classes.data import Data
 from code.visualisation.output import output_file
 from code.visualisation.grid import plot_grid
 from sys import argv
@@ -15,18 +16,18 @@ Usage: --district {number of district the user would like to select}.
 
 if __name__ == "__main__":    
     # Read in the data
-    data = read_data()
+    info: Data = read_data()
 
     # Algorithm of choice
-    data_handeld = random_algorithm(data.houses, data.batteries) # Returns dictionaries = [copy_houses, copy_batteries]
-    output_file(data_handeld.houses, data_handeld.batteries) #creates outputfile which contains data of both dictionaries -> see output.txt
+    data: Data = random_algorithm(info.houses, info.batteries) # Returns dictionaries = [copy_houses, copy_batteries]
+    output_file(data.houses, data.batteries) #creates outputfile which contains data of both dictionaries -> see output.txt
 
 
 
     # calculate paths 
 
     #plot the grid with all its data:
-    plot_grid(data_handeld.houses, data_handeld.batteries)
+    plot_grid(data.houses, data.batteries)
     
 
     

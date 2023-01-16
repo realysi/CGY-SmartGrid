@@ -1,5 +1,4 @@
 from sys import argv
-import csv
 from .house import House
 from .battery import Battery
 
