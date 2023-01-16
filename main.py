@@ -16,7 +16,6 @@ if __name__ == "__main__":
     data = read_data()
     houses: dict = data[0] #create houses dictionary, which contains data of all the houses
     batteries: dict = data[1] #create batteries dictionary, which contains data of all the houses
-    output_file(houses, batteries) #creates outputfile which contains data of both dictionaries -> see output.txt
 
     # algorithm of choice
     data_2 = random_algorithm(houses, batteries) # returns dictionaries = [copy_houses, copy_batteries]
@@ -25,6 +24,10 @@ if __name__ == "__main__":
 
     print(houses)
     print(batteries)
+
+    #output data in json file
+    output_file(houses, batteries) #creates outputfile which contains data of both dictionaries -> see output.txt
+
     # calculate paths 
 
     ##plot the grid with all its data:
