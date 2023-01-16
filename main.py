@@ -1,5 +1,6 @@
 from code.read import read_data
 from code.classes.data import Data
+from code.classes.cable import Cable
 from code.visualisation.output import output_file
 from code.visualisation.grid import plot_grid
 from sys import argv
@@ -20,11 +21,17 @@ if __name__ == "__main__":
 
     # Algorithm of choice
     data: Data = random_algorithm(info.houses, info.batteries) # Returns dictionaries = [copy_houses, copy_batteries]
-    output_file(data.houses, data.batteries) #creates outputfile which contains data of both dictionaries -> see output.txt
-
-
 
     # calculate paths 
+    def paths():
+        cables = {}
+        for i in data.houses:
+            designated_battery = data.houses[i].to_battery
+            cable = Cable(data.houses[i], designated_battery)
+            cables[data.houses[i].id] = cable #Key = house.id: Value = Cable
+        pass
+    #output file
+    output_file(data.houses, data.batteries) #creates outputfile which contains data of both dictionaries -> see output.txt
 
     #plot the grid with all its data:
     plot_grid(data.houses, data.batteries)
