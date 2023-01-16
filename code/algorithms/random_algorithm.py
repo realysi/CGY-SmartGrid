@@ -22,6 +22,7 @@ Check if all houses are connected to a battery? Yes --> results | No --> start o
 import random
 from ..classes.battery import Battery
 from ..classes.house import House
+from ..classes.data import Data
 import copy
 
 def random_battery_order(batteries):
@@ -89,6 +90,6 @@ def random_algorithm(houses, batteries):
         else:
             break    
 
-    dictionaries = [copy_houses, copy_batteries]
+    data = Data(copy_houses, copy_batteries)
 
-    return dictionaries
+    return data

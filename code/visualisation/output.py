@@ -3,10 +3,6 @@
 Om de data te visualizeren, zal wat data worden gegenereerd in output.txt. 
 Elke keer wanneer data.py zal worden gerund, zal data.txt worden overgeschreven.
 """
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 
 def output_file(houses, batteries):
     with open('output.json', 'w') as data:

@@ -1,6 +1,7 @@
 import csv
-from classes.battery import Battery
-from  classes.house import House
+from .classes.battery import Battery
+from  .classes.house import House
+from .classes.data import Data
 from sys import argv
 
 """
@@ -68,6 +69,6 @@ def read_data():
     battery_link = select_district()[1]
     houses = read_houses(house_link)
     batteries = read_batteries(battery_link)
-    dictionaries = [houses, batteries]
-    return dictionaries
+    data = Data(houses, batteries)
+    return data
 

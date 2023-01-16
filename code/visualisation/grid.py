@@ -77,10 +77,6 @@ def plot_grid(houses, batteries):
     plot_houses(houses)
     plot_batteries(batteries)
     axes_numbers()
-<<<<<<< Updated upstream
-=======
-    route(houses)
->>>>>>> Stashed changes
     render_grid()
 
 
