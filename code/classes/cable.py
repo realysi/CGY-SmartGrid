@@ -1,11 +1,18 @@
 from math import sqrt
+from .house import House
+from .battery import Battery
 class Cable:
     
-    def __init__(self, house, battery) -> None:
+    def __init__(self, house: House, battery: Battery) -> None:
         self.battery = battery
+        self.battery.x = battery.x
+        self.battery.y = battery.y
         self.house = house
+        self.house.x = house.x
+        self.house.y = house.y
         self.x = []
         self.y = []
+        self.distance = 0
         self.segments = 0
         self.cost = 0
     
@@ -15,41 +22,24 @@ class Cable:
     def add_y(self):
         pass
 
-    def distance(self, x_battery, y_battery, x_house, y_house):
-        #distance = sqrt((x_battery - x_house)^2 + (y_battery - y_house)^2) #a^2 + b^2 = c^2
+    def calculate_distance(self):
         x_battery = self.battery.x
         y_battery = self.battery.y
         x_house = self.house.x
         y_house = self.house.y
+        #distance = sqrt((x_battery - x_house)^2 + (y_battery - y_house)^2) #a^2 + b^2 = c^2
         x_difference = abs(x_battery - x_house)
         y_difference = abs(y_battery - y_house)
-        distance = x_difference + y_difference
-        return distance
-        # we hebben a, b
+        self.distance = x_difference + y_difference
+        return self.distance
 
     def calculate_segments(self):
-        x_battery = self.battery.x
-        y_battery = self.battery.y
-        x_house = self.house.x
-        y_house = self.house.y
-        distance()
-
-
-        
-
-        length_x = len(self.x)
-        length_y = len(self.y)
-        if length_x == length_y:
-            segments = len(self.x)
-            return segments
-        else:
-            raise(ValueError:"Not the same amount of x and y points!")
-
+        pass
     def check_overlay(self):
         pass
 
     def calculate_price(self): #moet nog rekening houden met check_overlay
-        cost = self.segments * 9
+        cost = self.distance * 9
         return cost
 
     
