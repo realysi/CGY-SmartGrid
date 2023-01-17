@@ -83,6 +83,7 @@ def random_algorithm(houses, batteries):
                 else:
                     continue
 
+
         #repeat
         if mistakes(copy_houses):
             #print(house_order)

@@ -7,13 +7,7 @@ class Cable:
     
     def __init__(self, house: House, battery: Battery) -> None:
         self.battery = battery
-        self.battery.id = battery.id
-        self.battery.x = battery.x
-        self.battery.y = battery.y
         self.house = house
-        self.house.id = house.id
-        self.house.x = house.x
-        self.house.y = house.y
         self.x = []
         self.y = []
         self.distance = 0
