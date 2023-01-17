@@ -16,3 +16,4 @@ class Data():
             costs += cost
         return costs
 
+    

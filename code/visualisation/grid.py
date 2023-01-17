@@ -14,7 +14,7 @@ def plot_houses(houses):
         x = houses[i].x
         y = houses[i].y
         color = color_house(houses[i])
-        plt.plot(int(x), int(y), marker=".", color=color)
+        plt.plot(int(x), int(y), marker=".", color=color, label="house")
 
 # Gives color to the house on the grid
 def color_house(house):
@@ -36,7 +36,8 @@ def plot_batteries(batteries):
         x = batteries[i].x
         y = batteries[i].y
         color = color_battery(batteries[i])
-        plt.plot(int(x), int(y), marker="s", color=color)
+        plt.plot(int(x), int(y), marker="D", color=color, label="battery")
+    
 
 #  Gives color to the battery on the grid
 def color_battery(battery):

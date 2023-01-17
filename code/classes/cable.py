@@ -1,6 +1,8 @@
 from math import sqrt
 from .house import House
 from .battery import Battery
+
+
 class Cable:
     
     def __init__(self, house: House, battery: Battery) -> None:
