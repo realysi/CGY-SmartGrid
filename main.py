@@ -30,7 +30,7 @@ if __name__ == "__main__":
         score = data.costs()
         final_score.add_score(score, data)
     final_score.calculate_average_score()
-    data_best_score = final_score.best_data
+    data_best_score: Data = final_score.best_data
     print(final_score)
     
     #output file

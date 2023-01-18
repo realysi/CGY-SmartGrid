@@ -4,7 +4,7 @@ class Score:
     def __init__(self) -> None:
         self.scores = []
         self.best_score = 0
-        self.best_data = Data
+        self.best_data = Data({}, {}, {})
         self.total_score = 0
         self.average_score = 0
         self.counter = 0
