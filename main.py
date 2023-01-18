@@ -33,10 +33,13 @@ if __name__ == "__main__":
     data_best_score: Data = final_score.best_data
     print(final_score)
     
+    for i in data.cables:
+        data.cables[i].calculate_segments()
+
     #output file
     output_file(data_best_score.houses, data_best_score.batteries) #creates outputfile which contains data of both dictionaries -> see output.txt
 
     #plot the grid with all its data:
-    plot_grid(data_best_score.houses, data_best_score.batteries) #creates outputfile which contains data of both dictionaries -> see output.txt
+    plot_grid(data_best_score.houses, data_best_score.batteries, data.cables) #creates outputfile which contains data of both dictionaries -> see output.txt
 
     

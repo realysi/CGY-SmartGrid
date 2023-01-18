@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+from ..classes.cable import Cable
 
 def empty_grid():
     plt.xlim(-0.2,51)   # Limit x-axis
@@ -65,6 +66,27 @@ def axes_numbers():
     plt.xticks(ticks=axes_numbers, labels=axes_numbers) 
     plt.yticks(ticks=axes_numbers, labels=axes_numbers)
 
+def draw_cables(cables):
+    """ength = len(self.segments)
+        print(length)
+        
+        for i in range(length):
+            print(self.segments[i], self.segments[i][0], self.segments[i][1])"""
+    for i in cables:
+        coordinates = cables[i].segments
+
+        x_coordinates = []
+        y_coordinates = []
+
+        length = len(coordinates)
+
+        for i in range(length):
+            x_coordinates.append(coordinates[i][0])
+            y_coordinates.append(coordinates[i][1])
+
+        plt.plot(x_coordinates, y_coordinates)
+
+
 #Show grid
 def render_grid():
     plt.minorticks_on() #toon minor gridlines (kan ticks nog uitschakelen -> zie links)
@@ -73,11 +95,12 @@ def render_grid():
     plt.show()
 
 
-def plot_grid(houses, batteries):
+def plot_grid(houses, batteries, cables):
     empty_grid()
     plot_houses(houses)
     plot_batteries(batteries)
     axes_numbers()
+    draw_cables(cables)
     render_grid()
 
 

@@ -42,3 +42,6 @@ class Grid:
 
         plt.xticks(ticks=axes_numbers, labels=axes_numbers) 
         plt.yticks(ticks=axes_numbers, labels=axes_numbers)
+    
+    def plot_cables(self, x, y):
+        pass
