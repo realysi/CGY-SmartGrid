@@ -27,3 +27,4 @@ def route(houses):
             x.append(end_x)
             y.append(i)
             plt.plot(x, y, color = 'deepskyblue')
+
