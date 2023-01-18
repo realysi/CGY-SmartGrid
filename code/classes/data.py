@@ -10,6 +10,7 @@ class Data():
         self.batteries = batteries
         self.cables = cables
         self.cost = 0
+        self.score = 0
     
     def costs(self):
         costs = 0

@@ -2,7 +2,7 @@ from code.read import read_data
 from code.classes.data import Data
 from code.classes.cable import Cable
 from code.classes.battery import Battery
-from code.classes.scores import Score
+from best_score import Score
 from code.visualisation.output import output_file
 from code.visualisation.grid import plot_grid
 from sys import argv
@@ -25,7 +25,7 @@ if __name__ == "__main__":
     # Algorithm of choice
     scores = {} # dict to compare the results of an algorithm that runs n times
     score = Score()
-    for i in range(1,101):
+    for i in range(1,1001):
         data: Data = random_algorithm(info.houses, info.batteries) # Returns dictionaries = [copy_houses, copy_batteries]
         # calculate distance (for now) -> later do this by path
         data.add_cables()
