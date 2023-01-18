@@ -74,6 +74,7 @@ def draw_cables(cables):
             print(self.segments[i], self.segments[i][0], self.segments[i][1])"""
     for i in cables:
         coordinates = cables[i].segments
+        battery_id = cables[i].battery.id 
 
         x_coordinates = []
         y_coordinates = []
@@ -83,10 +84,23 @@ def draw_cables(cables):
         for i in range(length):
             x_coordinates.append(coordinates[i][0])
             y_coordinates.append(coordinates[i][1])
+        
+        color = color_cables(battery_id)
 
-        plt.plot(x_coordinates, y_coordinates)
+        plt.plot(x_coordinates, y_coordinates, color=color)
 
-
+def color_cables(battery_id):
+        if battery_id == 1:
+            return f"black"
+        elif battery_id == 2:
+            return f"green"
+        elif battery_id == 3:
+            return f"blue"
+        elif battery_id == 4:
+            return f"red"
+        elif battery_id == 5:
+            return f"purple"
+        
 #Show grid
 def render_grid():
     plt.minorticks_on() #toon minor gridlines (kan ticks nog uitschakelen -> zie links)

@@ -21,7 +21,7 @@ if __name__ == "__main__":
 
     # Algorithm of choice
     final_score = Score() 
-    for i in range(100):
+    for i in range(10000):
         data: Data = random_algorithm(info.houses, info.batteries) # Returns dictionaries = [copy_houses, copy_batteries]
         # calculate distance (for now) -> later do this by path
         data.add_cables()
@@ -33,13 +33,13 @@ if __name__ == "__main__":
     data_best_score: Data = final_score.best_data
     print(final_score)
     
-    for i in data.cables:
-        data.cables[i].calculate_segments()
+    for i in data_best_score.cables:
+        data_best_score.cables[i].calculate_segments()
 
     #output file
     output_file(data_best_score.houses, data_best_score.batteries) #creates outputfile which contains data of both dictionaries -> see output.txt
 
     #plot the grid with all its data:
-    plot_grid(data_best_score.houses, data_best_score.batteries, data.cables) #creates outputfile which contains data of both dictionaries -> see output.txt
+    plot_grid(data_best_score.houses, data_best_score.batteries, data_best_score.cables) #creates outputfile which contains data of both dictionaries -> see output.txt
 
     

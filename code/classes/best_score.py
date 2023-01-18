@@ -32,4 +32,4 @@ class Score:
 
 
     def __repr__(self) -> str:
-       return f"Best scores: {self.best_score}\t| Average Score: {self.average_score}\t| Best data: {self.best_data}"
+       return f"Best score: {self.best_score}\t| Average Score: {self.average_score}\t| Best data: {self.best_data}"

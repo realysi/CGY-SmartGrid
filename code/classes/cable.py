@@ -72,13 +72,8 @@ class Cable:
             if i != start_y:
                 coordinates_cables.append((end_x, i))
 
-
         self.segments = coordinates_cables
-        length = len(self.segments)
-        print(length)
         
-        for i in range(length):
-            print(self.segments[i], self.segments[i][0], self.segments[i][1])
         return self.segments
 
     def check_overlay(self):
