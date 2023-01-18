@@ -21,7 +21,7 @@ if __name__ == "__main__":
 
     # Algorithm of choice
     final_score = Score() 
-    for i in range(4):
+    for i in range(100):
         data: Data = random_algorithm(info.houses, info.batteries) # Returns dictionaries = [copy_houses, copy_batteries]
         # calculate distance (for now) -> later do this by path
         data.add_cables()
