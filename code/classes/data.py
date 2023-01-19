@@ -2,13 +2,14 @@ from sys import argv
 from .house import House
 from .battery import Battery
 from .cable import Cable
+from typing import Dict, List, Tuple
 
 
 class Data():
-    def __init__(self, houses, batteries, cables):
-        self.houses = houses
-        self.batteries = batteries
-        self.cables = cables
+    def __init__(self, houses, batteries):
+        self.houses: Dict[int, House] = houses
+        self.batteries: Dict[int, Battery] = batteries
+        self.cables: Dict[int, Cable] = {}
         self.cost = 0
         self.score = 0
     

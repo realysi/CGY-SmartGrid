@@ -1,6 +1,6 @@
 from code.read import read_data
 from code.classes.data import Data
-from code.classes.best_score import Score
+from code.classes.score import Score
 from code.visualisation.output import output_file
 from code.visualisation.grid import plot_grid
 from sys import argv
@@ -21,7 +21,7 @@ if __name__ == "__main__":
 
     # Algorithm of choice
     final_score = Score() 
-    for i in range(10000):
+    for i in range(100):
         data: Data = random_algorithm(info.houses, info.batteries) # Returns dictionaries = [copy_houses, copy_batteries]
         # calculate distance (for now) -> later do this by path
         data.add_cables()

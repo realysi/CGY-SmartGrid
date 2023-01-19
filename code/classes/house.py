@@ -9,7 +9,7 @@ class House:
         self.y = y
         self.max_output = max_output
         self.id = id
-        self.to_battery = False
+        self.to_battery: int = None
 
     def __repr__(self) -> str:
         return f"\tcoordinates = ({self.x}, {self.y})\t| output = {self.max_output}\t| battery:{self.to_battery}\n"
