@@ -29,8 +29,8 @@ class Score:
                 self.scores.remove(self.scores[0])
 
     def calculate_average_score(self):
-        return self.total_score / self.counter
+        self.average_score = self.total_score / self.counter
 
     def __repr__(self) -> str:
-       return f"Best score: {self.best_score}\t| Average Score: {self.average_score}\t| Best data: {self.best_data}"
+        return f"Best score: {self.best_score}\t| Average Score: {self.average_score}\t| Best data: {self.best_data}"
        

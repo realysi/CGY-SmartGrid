@@ -16,19 +16,20 @@ Usage: --district {number of district the user would like to select}.
 
 
 if __name__ == "__main__":    
-    # Read in the data
-    info: Data = read_data()
+    # Read in the raw data
+    raw_data: Data = read_data()
 
-    # Algorithm of choice
-    final_score = Score() 
-    for i in range(100):
-        data: Data = random_algorithm(info.houses, info.batteries) # Returns dictionaries = [copy_houses, copy_batteries]
-        # calculate distance (for now) -> later do this by path
+    # Create score object for all runs
+    final_score: Score = Score() 
+    for run in range(2):
+        # Applies algorithm to data set, makes connections between houses and batteries
+        data: Data = random_algorithm(raw_data.houses, raw_data.batteries)
         data.add_cables()
         for j in data.cables:
             data.cables[j].calculate_distance()
-        score = data.costs()
+        score = data.cables_cost()
         final_score.add_score(score, data)
+
     final_score.calculate_average_score()
     data_best_score: Data = final_score.best_data
     print(final_score)
