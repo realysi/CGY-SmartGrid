@@ -12,6 +12,7 @@ class Data():
         self.cables: Dict[int, Cable] = {} # Dict containing house_id and Cable object
         self.cost = 0
         self.score = 0
+        self.total_cable_length: int = 0
     
     # Returns total cost of all cables for one solution
     def cables_cost(self) -> int:
@@ -19,7 +20,10 @@ class Data():
             self.cost += self.cables[house_id].calculate_price()
         return self.cost
 
-    # 
+    def total_cable_length(self) -> int:
+        return self.total_cable_length
+
+    # Adds cables to dictionary 
     def add_cables(self):
         for house_id in self.houses:
             # Gives battery object connected to given house
@@ -28,6 +32,6 @@ class Data():
             # Creates Cable object given a house and connected battery
             cable: Cable = Cable(self.houses[house_id], connected_battery)
             self.cables[house_id] = cable
-            
+
         return self.cables
     

@@ -28,7 +28,7 @@ class Cable:
         #distance = sqrt((x_battery - x_house)^2 + (y_battery - y_house)^2) #a^2 + b^2 = c^2
         x_difference = abs(x_battery - x_house)
         y_difference = abs(y_battery - y_house)
-        self.distance = x_difference + y_difference
+        self.distance = (x_difference + y_difference)
         return self.distance
 
     def calculate_segments(self):
@@ -81,35 +81,3 @@ class Cable:
 
     def calculate_price(self): #moet nog rekening houden met check_overlay
         return self.distance * 9
-
-    
-    """def route(houses):
-    x = []
-    y = []
-    start_x = houses[2].x
-    start_y = houses[2].y
-    delta_x = 7
-    delta_y = -18
-    end_x = start_x + delta_x
-    # To the same value of the x-axis of the battery (if delta_x is positive, moves from battery to the right).
-    if delta_x >= 0:
-        for i in range(start_x, (start_x + delta_x + 1), 1):
-            x.append(i)
-            y.append(start_y)
-            plt.plot(x, y, color = 'deepskyblue')
-    if delta_x < 0:
-        for i in range(start_x, (start_x + delta_x + 1), -1):
-            x.append(i)
-            y.append(start_y)
-            plt.plot(x, y, color = 'deepskyblue')
-    if delta_y >= 0:
-        for i in range(start_y, (start_y + delta_y + 1), 1):
-            x.append(end_x)
-            y.append(i)
-            plt.plot(x, y, color = 'deepskyblue')
-    if delta_y < 0:
-        for i in range(start_y, (start_y + delta_y + 1), -1):
-            x.append(end_x)
-            y.append(i)
-            plt.plot(x, y, color = 'deepskyblue')"""
-

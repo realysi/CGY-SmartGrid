@@ -21,12 +21,13 @@ if __name__ == "__main__":
 
     # Create score object for all runs
     final_score: Score = Score() 
-    for run in range(2):
+    for run in range(10):
+
         # Applies algorithm to data set, makes connections between houses and batteries
         data: Data = random_algorithm(raw_data.houses, raw_data.batteries)
         data.add_cables()
-        for j in data.cables:
-            data.cables[j].calculate_distance()
+        # for house_id in data.cables: DIT MOET IN DATA GEBEUREN
+        #     data.cables[house_id].calculate_distance()
         score = data.cables_cost()
         final_score.add_score(score, data)
 
