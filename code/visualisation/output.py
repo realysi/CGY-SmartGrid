@@ -1,3 +1,4 @@
+from PIL import Image
 # Data outputs
 """
 Om de data te visualizeren, zal wat data worden gegenereerd in output.txt. 
@@ -19,3 +20,5 @@ def output_file(houses, batteries):
         for i in houses:
             data.write(f"ID:{i} \t {houses[i]} \n")
     return "Output generated"
+
+    

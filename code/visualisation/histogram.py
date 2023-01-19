@@ -15,4 +15,5 @@ def plot_histogram(scores, average_score):
 
     # Tweak spacing to prevent clipping of ylabel
     plt.subplots_adjust(left=0.15)
-    plt.show()
+    plt.savefig('histogram.png')
+    #plt.show()

@@ -14,23 +14,6 @@ class Cable:
         self.segments = []
         self.cost = 0
     
-    def add_x(self):
-        pass
-    
-    def add_y(self):
-        pass
-
-    def calculate_distance(self):
-        x_battery = self.battery.x
-        y_battery = self.battery.y
-        x_house = self.house.x
-        y_house = self.house.y
-        #distance = sqrt((x_battery - x_house)^2 + (y_battery - y_house)^2) #a^2 + b^2 = c^2
-        x_difference = abs(x_battery - x_house)
-        y_difference = abs(y_battery - y_house)
-        self.distance = (x_difference + y_difference)
-        return self.distance
-
     def calculate_segments(self):
         #Cable drawn from house to battery
         start_x, start_y, end_x, end_y = self.house.x, self.house.y, self.battery.x, self.battery.y
@@ -76,8 +59,16 @@ class Cable:
         
         return self.segments
 
+    def calculate_distance(self):
+        segments = self.segments 
+        length_segments = len(segments)
+        length_route = length_segments - 1 #3 points = 2 lines etc
+        self.distance = length_route
+        return self.distance
+
     def check_overlay(self):
         pass
 
-    def calculate_price(self): #moet nog rekening houden met check_overlay
-        return self.distance * 9
+    def calculate_cost(self): #moet nog rekening houden met check_overlay
+        self.cost = self.distance * 9
+        return self.cost

@@ -67,11 +67,6 @@ def axes_numbers():
     plt.yticks(ticks=axes_numbers, labels=axes_numbers)
 
 def draw_cables(cables):
-    """ength = len(self.segments)
-        print(length)
-        
-        for i in range(length):
-            print(self.segments[i], self.segments[i][0], self.segments[i][1])"""
     for i in cables:
         coordinates = cables[i].segments
         battery_id = cables[i].battery.id 
@@ -106,7 +101,6 @@ def render_grid():
     plt.minorticks_on() #toon minor gridlines (kan ticks nog uitschakelen -> zie links)
     plt.tight_layout()
     plt.title("Smart Grid")
-    plt.show()
 
 
 def plot_grid(houses, batteries, cables):
@@ -116,6 +110,8 @@ def plot_grid(houses, batteries, cables):
     axes_numbers()
     draw_cables(cables)
     render_grid()
+    plt.savefig('grid.png')
+    #plt.show()
 
 
 """
