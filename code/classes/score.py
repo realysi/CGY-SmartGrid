@@ -4,10 +4,10 @@ from typing import Tuple, Dict, List
 class Score:
     def __init__(self) -> None:
         self.scores: List[Tuple[int, Data]] = []
-        self.best_score: int = None
+        self.best_score: int = 0
         self.best_data: Data = Data({}, {})
         self.total_score: int = 0
-        self.average_score: int = 0
+        self.average_score: float = 0.0
         self.counter: int = 0
 
     # Adds scores of all runs and counts number of runs
