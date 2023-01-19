@@ -15,7 +15,7 @@ def plot_houses(houses):
         x = houses[i].x
         y = houses[i].y
         color = color_house(houses[i])
-        plt.plot(int(x), int(y), marker=".", color=color, label="house")
+        plt.plot(int(x), int(y), marker=".", color=color)
 
 # Gives color to the house on the grid
 def color_house(house):
@@ -37,7 +37,8 @@ def plot_batteries(batteries):
         x = batteries[i].x
         y = batteries[i].y
         color = color_battery(batteries[i])
-        plt.plot(int(x), int(y), marker="D", color=color, label="battery")
+        plt.plot(int(x), int(y), marker="D", color=color, label=color)
+    plt.legend()
     
 
 #  Gives color to the battery on the grid
@@ -109,10 +110,17 @@ def plot_grid(houses, batteries, cables):
     plot_batteries(batteries)
     axes_numbers()
     draw_cables(cables)
+    #nog wat netter maken dit
+    # Shrink current axis by 20%
+    ax = plt.subplot()
+    # Shrink current axis by 20%
+    box = ax.get_position()
+    ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
+    # Put a legend to the right of the current axis
+    ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
     render_grid()
-    plt.savefig('grid.png')
+    plt.savefig('grid.png', bbox_inches='tight')
     #plt.show()
-
 
 """
 Links:
