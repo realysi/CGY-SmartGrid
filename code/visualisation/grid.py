@@ -37,7 +37,7 @@ def plot_batteries(batteries):
         x = batteries[i].x
         y = batteries[i].y
         color = color_battery(batteries[i])
-        plt.plot(int(x), int(y), marker="D", color=color, label=color)
+        plt.plot(int(x), int(y), marker="D", color=color, label=f"Battery {batteries[i].id}")
     plt.legend()
     
 
