@@ -30,7 +30,7 @@ if __name__ == "__main__":
     final_score: Score = Score() 
 
     #run a certain algorithm for a specified number of times
-    for run in range(100):
+    for run in range(1000):
         # Applies algorithm to data set, makes connections between houses and batteries
         data: Data = random_algorithm(raw_data.houses, raw_data.batteries) #algorithm of choice
         data.add_cables()
@@ -42,9 +42,6 @@ if __name__ == "__main__":
 
     average_score = final_score.calculate_average_score()
     data_best_score: Data = final_score.best_data
-
-    for i in data_best_score.cables:
-        data_best_score.cables[i].calculate_segments()
 
     #data_best_score.overlay() --> DIT IS CODE VOOR DE OVERLAY UPDATE
     print(final_score)

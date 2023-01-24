@@ -17,6 +17,10 @@ def plot_houses(houses):
         color = color_house(houses[i])
         plt.plot(int(x), int(y), marker=".", color=color)
 
+def axes_labels(): #makes sure there is nothing added to axes labels, which is done by default 
+    plt.xlabel("")
+    plt.ylabel("")
+
 # Gives color to the house on the grid
 def color_house(house):
     if house.to_battery == 1:
@@ -39,11 +43,13 @@ def plot_batteries(batteries):
         color = color_battery(batteries[i])
         plt.plot(int(x), int(y), marker="D", color=color, label=f"Battery {batteries[i].id}")
 
-        plt.plot(int(x), int(y), marker="D", color=color, label=f"bat: {batteries[i].id}")
+        """plt.plot(int(x), int(y), marker="D", color=color, label=f"bat: {batteries[i].id}")
 
         plt.plot(int(x), int(y), marker="D", color=color, label=f"bat: {batteries[i].id}")
 
-        plt.plot(int(x), int(y), marker="D", color=color, label=f"bat: {batteries[i].id}")
+        plt.plot(int(x), int(y), marker="D", color=color, label=f"bat: {batteries[i].id}")"""
+
+        #code hierboven voegt onnodige legenda toe, aangezien door de for i in batteries alle batterijen al langs komen. ~ Yanick
 
         plt.legend()
     
@@ -116,8 +122,9 @@ def plot_grid(houses, batteries, cables):
     plot_houses(houses)
     plot_batteries(batteries)
     axes_numbers()
+    axes_labels()
     draw_cables(cables)
-    #nog wat netter maken dit
+    #-- schrinks the grid so that a legend box can be added.
     # Shrink current axis by 20%
     ax = plt.subplot()
     # Shrink current axis by 20%
