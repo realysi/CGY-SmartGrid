@@ -39,8 +39,11 @@ if __name__ == "__main__":
         final_score.add_score(score, data)
 
     #calculate average score, save dataset of best score
+
     average_score = final_score.calculate_average_score()
     data_best_score: Data = final_score.best_data
+
+    data_best_score.overlay()
     print(final_score)
     
     for i in data_best_score.cables:
