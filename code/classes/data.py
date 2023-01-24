@@ -43,14 +43,47 @@ class Data():
         return self.cables
     
     def overlay(self):
+        total_segments = 0
         for i in range(1,6):
-            tempory_list = []
-            flat_tempory_list = []
-            mini_list_cables = []
-            list_cables = []
-            for j in self.cables:
-                if self.cables[j].battery.id == i:
-                    tempory_list.append(self.cables[j].segments)
+            #------ Adds al segments of cables leading to certain battery to a list [[(x,y),(x,y)][(x,y),(x,y)]] ------
+            all_segments = []
+            for cable in self.cables: #loops through all the cables in this dataset
+                if self.cables[cable].battery.id == i:  #if battery.id = 1,2,3,4 or 5
+                        current_segments = self.cables[cable].segments #saves segments (which is a list, containing al the segments [[segment][segment][segment]etc]
+                        length_current_segments = len(current_segments) #saves length of segments list to use to loop through
+                        for segment in range(length_current_segments): #loops through the list of segments of the current cable
+                            current_segment = current_segments[segment] #segment of a certain position in the list                          
+                            all_segments.append(current_segment) #adds segment to a list which will contain the segments of all the cables which are connected to a certain battery
+            
+            #------- will check if one of the segments appears more than once in the list --> if so, deletes it from the list
+            set_all_segments = set(all_segments)
+            print(set_all_segments)
+
+
+            """for segment in all_segments:
+                copy_segment = copy.deepcopy(segment)
+                reversed_segment = [copy_segment[1], copy_segment[0]]
+                
+                count_segment = all_segments.count(segment)
+                count_reversed_segment = all_segments.count(reversed_segment)
+
+                if count_segment > 1: #if it appears more than once, removes the current value (method of doing this can be done on value in the future)
+                    all_segments.remove(segment)
+                
+                if count_reversed_segment > 0: #if the reversed (same cableline) appears as well, delete this one aswell
+                    all_segments.remove(segment)
+    
+            amount_unique_segments = len(all_segments)
+            print(all_segments)
+            print(amount_unique_segments)
+            total_segments += amount_unique_segments
+
+        print(total_segments)"""
+
+        """copy_current_segment = copy.deepcopy(current_segment)
+
+
+                    tempory_list.append(self.cables[cable].segments)
                     #print(self.cables[j].segments)
 
             length = len(tempory_list)
@@ -65,9 +98,13 @@ class Data():
                 if len(mini_list_cables) == 2:
                     #a = flat_tempory_list.count(mini_list_cables)
                     mini_deepcopy = copy.deepcopy(mini_list_cables)
+                    print(mini_deepcopy)
                     #print(mini_list_cables)
                     list_cables.append(mini_deepcopy)
                     mini_list_cables.pop(0)
+
+
+            #print(list_cables)
 
             length_list_cables = len(list_cables)
             for k in range(length_list_cables):
@@ -76,11 +113,11 @@ class Data():
                 new_kopie = [kopie[1], kopie[0]]
                 b = list_cables.count(new_kopie) # nu beide richtingen
                 totaal = a + b
-                print(list_cables[k])
-                print(totaal)
+                #print(totaal)
                 if totaal > 1:
                     overlay = True
                 #print(totaal)
 
 
     
+"""

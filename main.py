@@ -43,11 +43,12 @@ if __name__ == "__main__":
     average_score = final_score.calculate_average_score()
     data_best_score: Data = final_score.best_data
 
-    data_best_score.overlay()
-    print(final_score)
-    
     for i in data_best_score.cables:
         data_best_score.cables[i].calculate_segments()
+
+    #data_best_score.overlay() --> DIT IS CODE VOOR DE OVERLAY UPDATE
+    print(final_score)
+
 
     print("--- %s seconds ---" % (time.time() - start_time))
 

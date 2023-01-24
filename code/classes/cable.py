@@ -62,12 +62,13 @@ class Cable:
         for i in range(length):
             mini_segments.append(coordinates_cables[i])
             if len(mini_segments) == 2:
+                #print(mini_segments)
                 mini_deepcopy = copy.deepcopy(mini_segments)
                 coordinates_cables_real.append(mini_deepcopy)
                 mini_segments.pop(0)
 
-        self.segments = coordinates_cables_real
-        #self.segments = coordinates_cables
+        #self.segments = coordinates_cables_real --> DIT IS DE CODE VOOR DE OVERLAY UPDATE
+        self.segments = coordinates_cables
         
         return self.segments
 
