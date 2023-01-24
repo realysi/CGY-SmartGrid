@@ -2,6 +2,7 @@ district:Sum max_outputs:	 258.84194183
 
 costs-shared:________________________Batteries__________________________
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 ID:1 	 	coordinates = (13, 34)	| capacity = 3.9989396200000016	| connections = 3
 	to houses = [4, 3, 2]
  
@@ -23,22 +24,44 @@ ID:3 	 	coordinates = (41, 1)	| capacity = 0.6626189400001081	| connections = 30
 ID:4 	 	coordinates = (3, 35)	| capacity = 15.3083104299997	| connections = 30
 	to houses = [145, 118, 53, 96, 103, 127, 7, 38, 83, 91, 24, 106, 69, 1, 41, 19, 139, 119, 46, 17, 94, 11, 105, 27, 5, 12, 144, 108, 109, 92]
  
+=======
+ID:1 	 	coordinates = (18, 34)	| capacity = 5.777930369999879	| connections = 30
+	to houses = [64, 102, 101, 90, 120, 18, 146, 63, 73, 137, 86, 128, 43, 22, 61, 123, 50, 40, 44, 111, 150, 116, 66, 130, 149, 68, 25, 93, 115, 72]
+ 
+ID:2 	 	coordinates = (32, 11)	| capacity = 6.422622259999635	| connections = 30
+	to houses = [60, 147, 79, 124, 88, 20, 23, 39, 55, 87, 117, 13, 49, 48, 134, 80, 21, 75, 54, 52, 107, 47, 129, 42, 95, 15, 141, 58, 100, 76]
+ 
+ID:3 	 	coordinates = (41, 1)	| capacity = 0.6626189400001081	| connections = 30
+	to houses = [121, 9, 85, 28, 89, 6, 57, 67, 81, 133, 126, 142, 35, 140, 45, 112, 2, 78, 82, 31, 14, 71, 125, 113, 4, 110, 33, 74, 122, 143]
+ 
+ID:4 	 	coordinates = (3, 35)	| capacity = 15.3083104299997	| connections = 30
+	to houses = [145, 118, 53, 96, 103, 127, 7, 38, 83, 91, 24, 106, 69, 1, 41, 19, 139, 119, 46, 17, 94, 11, 105, 27, 5, 12, 144, 108, 109, 92]
+ 
+>>>>>>> Stashed changes
 ID:5 	 	coordinates = (39, 41)	| capacity = 5.578517999999846	| connections = 30
 	to houses = [114, 104, 16, 148, 97, 138, 29, 65, 70, 10, 51, 8, 99, 77, 34, 32, 131, 84, 62, 98, 59, 56, 36, 3, 135, 136, 30, 26, 37, 132]
  
 ________________________Houses_____________________________
 ID:1 	 	coordinates = (21, 18)	| output = 51.94411629	| battery:4
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes
  
 ID:2 	 	coordinates = (6, 50)	| output = 47.82087397	| battery:1
+=======
+>>>>>>> Stashed changes
  
 ID:3 	 	coordinates = (25, 31)	| output = 51.81241388	| battery:5
  
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 ID:4 	 	coordinates = (27, 38)	| output = 53.11777253	| battery:1
  
 ID:5 	 	coordinates = (43, 13)	| output = 54.14676516	| battery:2
 =======
+=======
+ID:3 	 	coordinates = (25, 31)	| output = 51.81241388	| battery:5
+ 
+>>>>>>> Stashed changes
 ID:4 	 	coordinates = (27, 38)	| output = 53.11777253	| battery:3
  
 ID:5 	 	coordinates = (30, 13)	| output = 54.14676516	| battery:4
@@ -332,5 +355,8 @@ ID:148 	 	coordinates = (35, 24)	| output = 48.82801588	| battery:5
 ID:149 	 	coordinates = (20, 41)	| output = 46.27510427	| battery:1
  
 ID:150 	 	coordinates = (29, 11)	| output = 47.73944395	| battery:1
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
  
