@@ -37,7 +37,11 @@ def plot_batteries(batteries):
         x = batteries[i].x
         y = batteries[i].y
         color = color_battery(batteries[i])
+<<<<<<< Updated upstream
         plt.plot(int(x), int(y), marker="D", color=color, label=f"Battery {batteries[i].id}")
+=======
+        plt.plot(int(x), int(y), marker="D", color=color, label=f"bat: {batteries[i].id}")
+>>>>>>> Stashed changes
     plt.legend()
     
 
