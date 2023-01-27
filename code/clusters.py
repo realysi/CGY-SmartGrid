@@ -1,4 +1,4 @@
-from .house import House
+from .classes.house import House
 from typing import Dict, List
 
 """
@@ -13,7 +13,7 @@ def make_neighbours(houses: Dict[int, House]) -> Dict[int, list]:
     """
     Returns a dict containing a houses (keys) and their neighbouring houses (values).
     Manhattan distance is calculated between all houses.
-    Only adds neighbouring houses with a distance smaller than 5 units to dict.
+    Only adds neighbouring houses with a distance smaller than 4 units to dict.
     """
     neighbours: Dict[int, list] = {}
     for home in houses:
@@ -30,7 +30,7 @@ def make_neighbours(houses: Dict[int, House]) -> Dict[int, list]:
             distance = abs(x_home - x_away) + abs(y_home - y_away)
             # Will not create a new key for a house if that house wat already part of a value
             # Maximum distance is also determined here
-            if distance < 5 and (away not in neighbours or home not in neighbours[away]):
+            if distance < 4 and (away not in neighbours or home not in neighbours[away]):
                 if home not in neighbours:
                     # If key not yet in dict, make empty list for the key
                     neighbours[home] = []
