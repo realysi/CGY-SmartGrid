@@ -67,16 +67,14 @@ class Cable:
                 coordinates_cables_real.append(mini_deepcopy)
                 mini_segments.pop(0)
 
-        #self.segments = coordinates_cables_real --> DIT IS DE CODE VOOR DE OVERLAY UPDATE
-        self.segments = coordinates_cables
+        self.segments = coordinates_cables_real
+        #self.segments = coordinates_cables
         
         return self.segments
 
     def calculate_distance(self):
-        segments = self.segments 
-        length_segments = len(segments)
-        length_route = length_segments - 1 #3 points = 2 lines etc
-        self.distance = length_route
+        segments = len(self.segments)
+        self.distance = segments
         return self.distance
 
     def calculate_cost(self): #moet nog rekening houden met check_overlay
