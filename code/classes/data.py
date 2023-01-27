@@ -27,17 +27,18 @@ class Data():
     def add_cables(self):
         for house_id in self.houses:
             # Gives Battery connected to given house
-            connected_battery: Battery = self.batteries[self.houses[house_id].to_battery]
+            if self.houses[house_id].to_battery != None:
+                connected_battery: Battery = self.batteries[self.houses[house_id].to_battery]
 
-            # Creates Cable object given a house and connected battery
-            cable: Cable = Cable(self.houses[house_id], connected_battery)
+                # Creates Cable object given a house and connected battery
+                cable: Cable = Cable(self.houses[house_id], connected_battery)
             
-            self.cables[house_id] = cable
+                self.cables[house_id] = cable
 
-            # for house_id in self.cables: 
-            self.cables[house_id].calculate_segments()
-            self.cables[house_id].calculate_distance()
-            self.cables[house_id].calculate_cost()
+                # for house_id in self.cables: 
+                self.cables[house_id].calculate_segments()
+                self.cables[house_id].calculate_distance()
+                self.cables[house_id].calculate_cost()
 
         return self.cables
     

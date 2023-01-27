@@ -81,8 +81,8 @@ def add_houses_bat(houses, batteries):
             house = houses[house_id]
             if fits(battery, house):
                         subtract(battery, house)
-    print(houses)
-    print(batteries)
+    #print(houses)
+    #print(batteries)
     return Data(houses, batteries)
 
 # Add all (untill it does not fit) the houses to the batteries. So battery 1 has priority. ___gave a score of 23094 (district 3)
