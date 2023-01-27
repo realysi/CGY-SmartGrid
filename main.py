@@ -23,21 +23,14 @@ if __name__ == "__main__":
     # Read in the raw data
     raw_data: Data = read_data()
 
-
     # List for histogram
     all_scores = []
 
     # Create score object for all runs
     final_score: Score = Score() 
 
-    # Run distance algorithm (Need to check how it works with data object)
-    # houses = raw_data.houses
-    # batteries = raw_data.batteries
-    # data = distance_algorithm(houses, batteries)
-
-
     #run a certain algorithm for a specified number of times
-    for run in range(1):
+    for run in range(100):
         # Applies algorithm to data set, makes connections between houses and batteries
         data: Data = random_algorithm(raw_data.houses, raw_data.batteries) #algorithm of choice
         data.add_cables()

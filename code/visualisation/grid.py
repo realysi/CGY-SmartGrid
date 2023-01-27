@@ -16,12 +16,13 @@ def plot_houses(houses):
         y = houses[i].y
         color = color_house(houses[i])
         plt.plot(int(x), int(y), marker=".", color=color)
-
-def axes_labels(): #makes sure there is nothing added to axes labels, which is done by default 
+        
+# Removes labels from axes
+def axes_labels():
     plt.xlabel("")
     plt.ylabel("")
 
-# Gives color to the house on the grid
+# Gives color to houses on the grid
 def color_house(house):
     if house.to_battery == 1:
         return f"black"
@@ -54,7 +55,7 @@ def plot_batteries(batteries):
         plt.legend()
     
 
-#  Gives color to the battery on the grid
+#  Gives color to batteries on the grid
 def color_battery(battery):
     if battery.id == 1:
         return f"black"

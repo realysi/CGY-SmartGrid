@@ -2,8 +2,7 @@ from sys import argv
 from .house import House
 from .battery import Battery
 from .cable import Cable
-from typing import Dict, List, Tuple, Any
-import copy
+from typing import Dict, List
 
 
 class Data():
@@ -27,19 +26,18 @@ class Data():
     # Adds cables to dictionary 
     def add_cables(self):
         for house_id in self.houses:
-            # Gives battery object connected to given house
-            if self.houses[house_id].to_battery != None:
-                connected_battery_id = self.houses[house_id].to_battery
-                connected_battery = self.batteries[connected_battery_id]
-                # Creates Cable object given a house and connected battery
-                cable: Cable = Cable(self.houses[house_id], connected_battery)
-        
-                self.cables[house_id] = cable
+            # Gives Battery connected to given house
+            connected_battery: Battery = self.batteries[self.houses[house_id].to_battery]
 
-                #for house_id in self.cables: 
-                self.cables[house_id].calculate_segments()
-                self.cables[house_id].calculate_distance()
-                self.cables[house_id].calculate_cost()
+            # Creates Cable object given a house and connected battery
+            cable: Cable = Cable(self.houses[house_id], connected_battery)
+            
+            self.cables[house_id] = cable
+
+            # for house_id in self.cables: 
+            self.cables[house_id].calculate_segments()
+            self.cables[house_id].calculate_distance()
+            self.cables[house_id].calculate_cost()
 
         return self.cables
     
