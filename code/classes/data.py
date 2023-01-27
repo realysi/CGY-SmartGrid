@@ -3,6 +3,7 @@ from .house import House
 from .battery import Battery
 from .cable import Cable
 from typing import Dict, List
+import copy
 
 
 class Data():
