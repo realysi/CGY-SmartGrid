@@ -10,6 +10,7 @@ class Battery:
         self.connections = 0
         self.id = id
         self.closest_houses = []
+        self.best_score_houses = []
     
     def __repr__(self) -> str:
         return f"id: {self.id}\tcoordinates = ({self.x}, {self.y})\t| capacity = {self.capacity}\t| connections = {self.connections}\n\tto houses = {self.to_houses}\n"

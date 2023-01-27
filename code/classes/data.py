@@ -2,15 +2,14 @@ from sys import argv
 from .house import House
 from .battery import Battery
 from .cable import Cable
-from typing import Dict, List, Tuple
-import copy
+from typing import Dict, List
 
 
 class Data():
     def __init__(self, houses: Dict[int, House], batteries: Dict[int, Battery]) -> None:
         self.houses = houses
         self.batteries = batteries
-        self.cables: Dict[int, Cable] = {} # Dict containing house_id and Cable object
+        self.cables = {} # Dict containing house_id and Cable object
         self.cost = 0
         self.score = 0
         self.total_cable_length = 0
@@ -28,18 +27,19 @@ class Data():
     # Adds cables to dictionary 
     def add_cables(self):
         for house_id in self.houses:
-            # Gives battery object connected to given house
-            connected_battery: Battery = self.batteries[self.houses[house_id].to_battery]
+            # Gives Battery connected to given house
+            if self.houses[house_id].to_battery != None:
+                connected_battery: Battery = self.batteries[self.houses[house_id].to_battery]
 
-            # Creates Cable object given a house and connected battery
-            cable: Cable = Cable(self.houses[house_id], connected_battery)
+                # Creates Cable object given a house and connected battery
+                cable: Cable = Cable(self.houses[house_id], connected_battery)
             
-            self.cables[house_id] = cable
+                self.cables[house_id] = cable
 
-            #for house_id in self.cables: 
-            self.cables[house_id].calculate_segments()
-            self.cables[house_id].calculate_distance()
-            self.cables[house_id].calculate_cost()
+                # for house_id in self.cables: 
+                self.cables[house_id].calculate_segments()
+                self.cables[house_id].calculate_distance()
+                self.cables[house_id].calculate_cost()
 
         return self.cables
     

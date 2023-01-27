@@ -6,8 +6,12 @@ from code.visualisation.grid import plot_grid
 from code.visualisation.histogram import plot_histogram
 from sys import argv
 from code.algorithms.random_algorithm import random_algorithm
+
 from code.algorithms.distance_relatable_algorithm import distance_algorithm
 from code.algorithms.hillclimber import restart_hillclimber
+
+from code.algorithms.distance_related_algorithm import distance_algorithm
+
 import time
 
 """
@@ -23,7 +27,6 @@ start_time = time.time()
 if __name__ == "__main__":    
     # Read in the raw data
     raw_data: Data = read_data()
-
 
     # List for histogram
     all_scores = []
@@ -48,6 +51,9 @@ if __name__ == "__main__":
 
     #run a certain algorithm for a specified number of times
     """for run in range(100):
+
+    #run a certain algorithm for a specified number of times
+    for run in range(100):
         # Applies algorithm to data set, makes connections between houses and batteries
         data: Data = random_algorithm(raw_data.houses, raw_data.batteries) #algorithm of choice
         data.add_cables()
