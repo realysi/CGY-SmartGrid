@@ -38,6 +38,11 @@ def read_houses(relative_path_houses: str):
     # Indexing of dictionary: [0]connection, [1]to_bat, [2]x, [3]y, [4]max_output
     houses = {}
 
+    # Give some more info about the data
+    max_output: float = 0
+    total_output: float = 0
+    counter: int = 0
+
     with open(relative_path_houses, mode='r') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
 
@@ -46,6 +51,14 @@ def read_houses(relative_path_houses: str):
             if id_house != 0: # Skip first line of file
                 house = House(int(row[0]), int(row[1]), float(row[2]), id_house)
                 houses[house.id] = house
+
+                # get the house with the most output
+                total_output += float(row[2])
+                counter += 1
+                if float(row[2]) > max_output:
+                    max_output = float(row[2])
+
+
             id_house += 1
     return houses
 

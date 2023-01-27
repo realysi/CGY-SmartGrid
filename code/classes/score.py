@@ -15,18 +15,21 @@ class Score:
         self.total_score += score 
         self.counter += 1
         self.scores.append((score, data))
-        self.get_best_score()
+        if len(self.scores) > 1:
+            self.get_best_score()
+        else:
+            self.best_score = score
 
     def get_best_score(self):
-        if len(self.scores) > 1:
-            if self.scores[0][0] < self.scores[1][0]:
-                self.best_score = self.scores[0][0]  # Best (lowest) score is saved
-                self.best_data = self.scores[0][1] # Corresponding data object is saved
-                self.scores.remove(self.scores[1]) # Removes tuple with worse score
-            else:
-                self.best_score = self.scores[1][0]
-                self.best_data = self.scores[1][1]
-                self.scores.remove(self.scores[0])
+        if self.scores[0][0] < self.scores[1][0]:
+            self.best_score = self.scores[0][0]  # Best (lowest) score is saved
+            self.best_data = self.scores[0][1] # Corresponding data object is saved
+            self.scores.remove(self.scores[1]) # Removes tuple with worse score
+        else:
+            self.best_score = self.scores[1][0]
+            self.best_data = self.scores[1][1]
+            self.scores.remove(self.scores[0])
+       
 
     def calculate_average_score(self):
         self.average_score = self.total_score / self.counter

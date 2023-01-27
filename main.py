@@ -6,7 +6,7 @@ from code.visualisation.grid import plot_grid
 from code.visualisation.histogram import plot_histogram
 from sys import argv
 from code.algorithms.random_algorithm import random_algorithm
-from code.algorithms.distance_relatable_algorithm import distance_algorithm
+from code.algorithms.distance_related_algorithm import distance_algorithm
 import time
 
 """
@@ -31,9 +31,9 @@ if __name__ == "__main__":
     final_score: Score = Score() 
 
     # Run distance algorithm (Need to check how it works with data object)
-    houses = raw_data.houses
-    batteries = raw_data.batteries
-    data = distance_algorithm(houses, batteries)
+    # houses = raw_data.houses
+    # batteries = raw_data.batteries
+    # data = distance_algorithm(houses, batteries)
 
 
     #run a certain algorithm for a specified number of times
