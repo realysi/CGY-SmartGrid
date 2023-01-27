@@ -12,4 +12,4 @@ class Battery:
         self.closest_houses = []
     
     def __repr__(self) -> str:
-        return f"\tcoordinates = ({self.x}, {self.y})\t| capacity = {self.capacity}\t| connections = {self.connections}\n\tto houses = {self.to_houses}\n"
+        return f"id: {self.id}\tcoordinates = ({self.x}, {self.y})\t| capacity = {self.capacity}\t| connections = {self.connections}\n\tto houses = {self.to_houses}\n"

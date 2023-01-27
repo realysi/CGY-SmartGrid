@@ -89,14 +89,16 @@ def draw_cables(cables):
         y_coordinates = []
 
         length = len(coordinates)
-
-        for i in range(length):
-            x_coordinates.append(coordinates[i][0])
-            y_coordinates.append(coordinates[i][1])
+        j = 0
+        for i in coordinates:
+            x_coordinates.append(i[0][0])
+            y_coordinates.append(i[0][1])
+            x_coordinates.append(i[1][0])
+            y_coordinates.append(i[1][1])
         
         color = color_cables(battery_id)
 
-        plt.plot(x_coordinates, y_coordinates, color=color)
+        plt.plot(x_coordinates, y_coordinates, color=color, ls = "-")
 
 def color_cables(battery_id):
         if battery_id == 1:
@@ -118,6 +120,7 @@ def render_grid():
 
 
 def plot_grid(houses, batteries, cables):
+    plt.clf() #to empyty the plot when wanting to run it more times for the same algorithm
     empty_grid()
     plot_houses(houses)
     plot_batteries(batteries)

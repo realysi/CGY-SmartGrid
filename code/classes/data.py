@@ -14,9 +14,10 @@ class Data():
         self.cost = 0
         self.score = 0
         self.total_cable_length = 0
+        self.runs = 0
     
     # Returns total cost of all cables for one solution
-    def cables_cost(self) -> int:
+    def cables_cost_no_overlap(self) -> int:
         for house_id in self.cables:
             cost_cable = self.cables[house_id].cost
             self.cost += cost_cable
@@ -42,8 +43,8 @@ class Data():
 
         return self.cables
     
-    def overlay(self):
-        total_segments = 0
+    def cost_with_overlay(self):
+        battery_unique_segments = 0
         for i in range(1,6):
             #------ Adds al segments of cables leading to certain battery to a list [[(x,y),(x,y)][(x,y),(x,y)]] ------
             all_segments = []
@@ -56,68 +57,43 @@ class Data():
                             all_segments.append(current_segment) #adds segment to a list which will contain the segments of all the cables which are connected to a certain battery
             
             #------- will check if one of the segments appears more than once in the list --> if so, deletes it from the list
-            set_all_segments = set(all_segments)
-            print(set_all_segments)
+            unique_segments = []
+            duplicates = {}
+            duplicates_reversed = {}
+            for segments in all_segments:
 
-
-            """for segment in all_segments:
-                copy_segment = copy.deepcopy(segment)
+                copy_segment = copy.deepcopy(segments)
                 reversed_segment = [copy_segment[1], copy_segment[0]]
-                
-                count_segment = all_segments.count(segment)
+
+                count_segment = all_segments.count(segments)
                 count_reversed_segment = all_segments.count(reversed_segment)
 
-                if count_segment > 1: #if it appears more than once, removes the current value (method of doing this can be done on value in the future)
-                    all_segments.remove(segment)
-                
-                if count_reversed_segment > 0: #if the reversed (same cableline) appears as well, delete this one aswell
-                    all_segments.remove(segment)
-    
-            amount_unique_segments = len(all_segments)
-            print(all_segments)
-            print(amount_unique_segments)
-            total_segments += amount_unique_segments
+                if count_segment < 2 and count_reversed_segment < 1: #if it appears more than once, removes the current value (method of doing this can be done on value in the future)                   
+                    unique_segments.append(segments)
+                else:
+                    # ----- check which segments had duplicates
+                    if segments != duplicates.values():
+                        duplicates[count_segment] = segments
+                    
+                    if segments != duplicates_reversed.keys():
+                        duplicates_reversed[count_reversed_segment] = segments
 
-        print(total_segments)"""
+            # ---- count how many unique of those duplicates there were
+            unique_in_duplicates = 0
+            for j in duplicates.values():
+                unique_in_duplicates += 1
 
-        """copy_current_segment = copy.deepcopy(current_segment)
+            unique_in_duplicates_reversed = 0
+            for z in duplicates_reversed.keys():
+                if z != 0:
+                    unique_in_duplicates_reversed += 1
 
+            total_unique_segments = len(unique_segments) + unique_in_duplicates + unique_in_duplicates_reversed
 
-                    tempory_list.append(self.cables[cable].segments)
-                    #print(self.cables[j].segments)
+            battery_unique_segments += total_unique_segments
+            
+        self.cost = battery_unique_segments * 9
 
-            length = len(tempory_list)
-            for a in range(length):
-                length_sublist = len(tempory_list[a])
-                for b in range(length_sublist):
-                    flat_tempory_list.append(tempory_list[a][b])
+        return self.cost
+                    
 
-            length_flat = len(flat_tempory_list)
-            for h in range(length_flat):
-                mini_list_cables.append(flat_tempory_list[h])
-                if len(mini_list_cables) == 2:
-                    #a = flat_tempory_list.count(mini_list_cables)
-                    mini_deepcopy = copy.deepcopy(mini_list_cables)
-                    print(mini_deepcopy)
-                    #print(mini_list_cables)
-                    list_cables.append(mini_deepcopy)
-                    mini_list_cables.pop(0)
-
-
-            #print(list_cables)
-
-            length_list_cables = len(list_cables)
-            for k in range(length_list_cables):
-                a = list_cables.count(list_cables[k]) #alleen kabels in dezelfde richting deelt nu
-                kopie = copy.deepcopy(list_cables[k])
-                new_kopie = [kopie[1], kopie[0]]
-                b = list_cables.count(new_kopie) # nu beide richtingen
-                totaal = a + b
-                #print(totaal)
-                if totaal > 1:
-                    overlay = True
-                #print(totaal)
-
-
-    
-"""
