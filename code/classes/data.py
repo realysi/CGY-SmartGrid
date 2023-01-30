@@ -15,6 +15,7 @@ class Data():
         self.score = 0
         self.total_cable_length = 0
         self.runs = 0
+        self.depth = 0
     
     # Returns total cost of all cables for one solution
     def cables_cost_no_overlap(self) -> int:
@@ -36,6 +37,8 @@ class Data():
                 cable: Cable = Cable(self.houses[house_id], connected_battery)
             
                 self.cables[house_id] = cable
+
+                # for house_id in self.cables: 
                 self.cables[house_id].calculate_segments()
                 self.cables[house_id].calculate_distance()
                 self.cables[house_id].calculate_cost()
@@ -45,9 +48,9 @@ class Data():
     def cost_with_overlay(self):
         battery_unique_segments = 0
         for i in range(1,6):
-            # Adds all segments of cables leading to certain battery to a list [[(x,y),(x,y)][(x,y),(x,y)]] ------
+            #------ Adds al segments of cables leading to certain battery to a list [[(x,y),(x,y)][(x,y),(x,y)]] ------
             all_segments = []
-            for cable in self.cables:
+            for cable in self.cables: #loops through all the cables in this dataset
                 if self.cables[cable].battery.id == i:  #if battery.id = 1,2,3,4 or 5
                         current_segments = self.cables[cable].segments #saves segments (which is a list, containing al the segments [[segment][segment][segment]etc]
                         length_current_segments = len(current_segments) #saves length of segments list to use to loop through
@@ -90,6 +93,7 @@ class Data():
             total_unique_segments = len(unique_segments) + unique_in_duplicates + unique_in_duplicates_reversed
 
             battery_unique_segments += total_unique_segments
+        
             
         self.cost = battery_unique_segments * 9
 
