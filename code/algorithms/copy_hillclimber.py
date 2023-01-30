@@ -149,15 +149,103 @@ def restart_hillclimber(houses, batteries):
         print(f"\n{i}\n")
 
 
+def hillclimber(houses, batteries) -> Data:
+    data: Data = random_algorithm(houses, batteries)
+    data.add_cables()
+    data.cost_with_overlay() #calculates cost of grid
+    for i in range(20):
+        copy_data = data
+        data = switch(data)
+        if copy_data == data:
+            print("JA")
+        
+        print(f"\n{i}\n")
+
+    return data
     return data
 
 #makes it well enough to a depth of 60 in an okay time (10 min)
 #further than 100 steps can take up to an hour and a half
 
 
-#Waar op focussen vandaag:
-#1.controleren of scores wel kloppen want komt tot 3600 met hillclimber 2.Restarten als er na een bepaalde tijd niks wordt gevonden
-#3.Code opschonen #4.Technisch onderdeel schrijven
+def switch(data: Data) -> Data:
+    """
+    Returns data object 
+    Edits data object and if valid_switch() and beter_score_after_switch() return true
+    it returns the edited data object, otherwise the old object.
+    """
+    tries = 0
+    while True:
+        if runs(tries):
+            copy_data: Data = copy.deepcopy(data)
+            house_one: House = select_house_one(copy_data)
+            house_two: House = select_house_two(copy_data, house_one.id)
+
+            switch_max_outputs(copy_data, house_one, house_two)
+            switch_to_houses(copy_data, house_one, house_two)
+
+            #switch_batteries(house_one, house_two)
+            copy_house_one_battery: int = copy.deepcopy(house_one.to_battery) #make a deepcopy of house_one battery as buffer
+            house_one.to_battery = house_two.to_battery #switch batteries of house_one and house_two
+            house_two.to_battery = copy_house_one_battery
+
+            copy_data.cables[house_one.id].segments.clear()
+            copy_data.cables[house_two.id].segments.clear()
+
+            copy_data.add_cables() #only should have to do this for two switched houses
+
+            if valid_switch(copy_data):
+                if better_score_after_switch(data, copy_data):
+                    return copy_data
+                else:
+                    tries += 1
+                    continue         
+            else:
+                tries += 1
+                continue
+        else:
+            return data
+            break
+
+def random_solution(houses, batteries) -> Data:
+    """
+    Returns data object which has been solved by the random algorithm and alreay has the segments and costs calculated.
+    """
+    data: Data = random_algorithm(houses, batteries)
+    data.add_cables()
+    data.cost_with_overlay()
+
+    return data
+
+def restart_hillclimber(houses, batteries) -> dict[int, Data]:
+    """"
+    Returns dictionary that contains data object of all hill climber runs (key = number of run, value = data object).
+    Hill climber algorithm that restarts for x amount of times if after n-runs no beter solution has been found.
+    """
+    results = {}
+    total_hillclimbers: int = 0
+    while total_hillclimbers < 10:
+        data: Data = random_solution(houses, batteries)
+        for i in range(100):
+            copy_data = data
+            data = switch(data)
+            data.depth += 1
+            if copy_data == data:
+                print(f"cost: {data.cost} | depth : {data.depth}")
+                results[total_hillclimbers + 1] = data
+                total_hillclimbers += 1
+                break
+            else:
+                continue
+
+    print(results)
+    sketch(results)
+    return results
+
+
+    
+
+
        
 
         

@@ -8,7 +8,7 @@ from sys import argv
 from code.algorithms.random_algorithm import random_algorithm
 
 #from code.algorithms.distance_relatable_algorithm import distance_algorithm
-from code.algorithms.hillclimber import hillclimber, restart_hillclimber
+from code.algorithms.hillclimber import restart_hillclimber
 
 from code.algorithms.distance_related_algorithm import distance_algorithm
 

@@ -315,7 +315,7 @@ ID:148 	  id: 148	coordinates = (35, 24)	| output = 48.82801588	| battery:2
  
 ID:149 	  id: 149	coordinates = (20, 41)	| output = 46.27510427	| battery:2
  
-ID:150 	 	coordinates = (29, 11)	| output = 47.73944395	| battery:1
+ID:150 	  id: 150	coordinates = (29, 11)	| output = 47.73944395	| battery:4
  
 ID:150 	  id: 150	coordinates = (29, 11)	| output = 47.73944395	| battery:4
 >>>>>>> Stashed changes
