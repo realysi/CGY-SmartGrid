@@ -36,10 +36,6 @@ class Data():
                 self.cables[house_id] = cable
                 self.cables[house_id].add_cables()
         return self.cables
-
-    def add_cables_manually(self, start, end):
-        cable: Cable = Cable()
-        pass
     
     def cost_with_overlay(self) -> int:
         for battery_id in self.batteries:

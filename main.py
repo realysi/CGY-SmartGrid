@@ -33,7 +33,7 @@ if __name__ == "__main__":
     data.add_cables()
     plot_grid(data.houses, data.batteries, data.cables)
 
-'''
+
     # List for histogram
     all_scores = []
 
@@ -50,18 +50,19 @@ if __name__ == "__main__":
         #print(f"{data.cables[i].segments}")
 
     print(f"SCORE: {data.cost}")
-'''
+
     #- van Christos # Run distance algorithm (Need to check how it works with data object)
-"""houses = raw_data.houses
+
+    houses = raw_data.houses
     batteries = raw_data.batteries
-    data = distance_algorithm(houses, batteries)"""
+    data = distance_algorithm(houses, batteries)
 
     #run a certain algorithm for a specified number of times
-        data.add_cables()
-        #score = data.cables_cost_no_overlap()
-        score = data.cost_with_overlay()
-        all_scores.append(score)
-        final_score.add_score(score, data)
+    data.add_cables()
+    #score = data.cables_cost_no_overlap()
+    score = data.cost_with_overlay()
+    all_scores.append(score)
+    final_score.add_score(score, data)
 
 
     
@@ -81,4 +82,3 @@ if __name__ == "__main__":
     # Plot the dat  a
     plot_histogram(all_scores, average_score)
     plot_grid(data_best_score.houses, data_best_score.batteries, data_best_score.cables) #creates outputfile which contains data of both dictionaries -> see output.txt
-"""

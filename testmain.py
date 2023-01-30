@@ -4,6 +4,7 @@ from code.classes.score import Score
 from code.visualisation.output import output_file
 from code.visualisation.grid import plot_grid
 from code.visualisation.histogram import plot_histogram
+from code.algorithms.cluster_algorithm import cluster_algorithm
 from sys import argv
 from code.algorithms.random_algorithm import random_algorithm
 from code.algorithms.distance_related_algorithm import distance_algorithm
@@ -22,7 +23,8 @@ start_time = time.time()
 if __name__ == "__main__":    
     # Read in the raw data
     raw_data: Data = read_data()
-
+    cluster_algorithm(raw_data.houses, raw_data.batteries)
+'''
     # Create score object for all runs
     final_score: Score = Score() 
 
@@ -41,3 +43,4 @@ if __name__ == "__main__":
 
     output_file(data_best_score.houses, data_best_score.batteries)
     plot_grid(data_best_score.houses, data_best_score.batteries, data_best_score.cables)
+'''
