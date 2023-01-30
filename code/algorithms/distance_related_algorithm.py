@@ -1,12 +1,15 @@
 import math
 import random
 from ..classes.data import Data
+from copy import deepcopy
+
 """
 First calculate the distances between each house and battery.
 Then we make a list of tuples containing the house_id and the distance to the battery. (doing this for each battery)
 After making the lists we are going to add the houses to the battery
 """
 
+# Checks if there are houses without a battery
 def mistakes(houses) -> bool:
     for house_id in houses:
         if houses[house_id].to_battery == None:
@@ -65,8 +68,8 @@ def subtract(battery, house):
 
 # Adds first house in closest_house to battery and then goes to next battery.
 def add_houses_bat(houses, batteries):
-    # Counter goes to 150 because there are 150 houses in each list for eacht battery
-    for counter in range(150):
+    # Counter goes to the amount of houses in each list for eacht battery
+    for counter in range(len(houses)):
         for battery_id in batteries:
             battery = batteries[battery_id]
             # House gives tuple (house_id , distance), we need house_id
@@ -74,83 +77,62 @@ def add_houses_bat(houses, batteries):
             house = houses[house_id]
             if fits(battery, house):
                         subtract(battery, house)
-    #print(houses)
-    #print(batteries)
 
-    while mistakes(houses):
-        shuffle_houses(houses, batteries)
-        fill_batteries(houses, batteries)
-    return Data(houses, batteries)
 
-# Checks which houses have no battery and shuffles them randomly with a house in a battery
-def shuffle_houses(houses, batteries):
-
+def shuffle(houses, batteries, change):
+    # Get houses without a connected battery
     houses_without_battery = []
-
-    house_id_to_shuffle = 0
-    output_house_to_shuffle = 0
-
-
-    # Checks which houses have no battery
     for house_id in houses:
         if houses[house_id].to_battery is None:
             houses_without_battery.append((house_id, houses[house_id].max_output))
 
-    # Check which house without a battery has the most output 
-    for house in houses_without_battery:
-        if house[1] > output_house_to_shuffle:
-            output_house_to_shuffle = house[1]
-            house_id_to_shuffle = house[0]
-
-    # Check which batteries have capacity > 1 and choses random battery to switch with.
+    # Get a battery to remove a house from
     batteries_with_space = []
-    bat_id_to_shuffle = 0
     for battery_id in batteries:
         if batteries[battery_id].capacity > 1:
             batteries_with_space.append(battery_id)
-    if len(batteries_with_space) > 0:
-        bat_id_to_shuffle = random.choice(batteries_with_space)
+    battery_id_to_shuffle = random.choice(batteries_with_space)
+    # Finds house to remove
+    house_to_remove = random.choice(batteries[battery_id_to_shuffle].to_houses)
+    batteries[battery_id_to_shuffle].remove_house(houses[house_to_remove])
+    houses_without_battery.append((houses[house_to_remove].id, houses[house_to_remove].max_output))
+    fit_houses(houses, batteries, houses_without_battery, change)
 
-    # Random choice of house to remove
-    house_id_to_remove = random.choice(batteries[bat_id_to_shuffle].to_houses)
 
-    # Shuffling takes place here
-    battery_to_shuffle = batteries[bat_id_to_shuffle]    
-    battery_to_shuffle.remove_house(houses[house_id_to_remove])
-    battery_to_shuffle.add_house(houses[house_id_to_shuffle])    
-
-# Function that finds the houses without battery and tries to fit these
-def fill_batteries(houses, batteries):
-    # List with house_id's and their output that dont have a battery yet
-    houses_without_battery = []
-
-    # List with battery_id's and their capacity
-    batteries_id_capacity = []
-
-    # Checks which houses have no battery
-    for house_id in houses:
-        if houses[house_id].to_battery is None:
-            houses_without_battery.append((house_id, houses[house_id].max_output))
-    
-    # Sorts houses on biggest output
+def fit_houses(houses, batteries, houses_without_battery, change):
+    # Sort the houses on their output
     houses_without_battery.sort(key = lambda x: x[1])
-    houses_without_battery.reverse()
+    if change is False:
+        houses_without_battery.reverse()
 
     for battery_id in batteries:
-        batteries_id_capacity.append((battery_id, batteries[battery_id].capacity))
+        for house in houses_without_battery:
+            house_to_fit = house[0]
+            if houses[house_to_fit].max_output < batteries[battery_id].capacity:
+                batteries[battery_id].add_house(houses[house_to_fit])
+                houses_without_battery.remove(house)
+                continue
+    return houses_without_battery
 
-    # Sorts batteries on most capacity left
-    batteries_id_capacity.sort(key = lambda x: x[1])
-    batteries_id_capacity.reverse()
-
-    # Tries to add all houses without battery to the batteries
-    for house_tuple in houses_without_battery:
-        for battery_tuple in batteries_id_capacity:
-            if house_tuple[1] < battery_tuple[1]:
-                batteries[battery_tuple[0]].add_house(houses[house_tuple[0]])
+def change_algorithm(counter):
+    if counter < 20:
+        return False
+    else:
+        return True
 
         
 def distance_algorithm(houses, batteries):
     add_scores(houses, batteries)
-    return add_houses_bat(houses, batteries)
-    #return add_houses_bat_alternative(houses, batteries)
+    add_houses_bat(houses, batteries)
+    copy_houses = deepcopy(houses)
+    copy_batteries = deepcopy(batteries)
+    counter = 0
+    while mistakes(copy_houses):
+    #for i in range(45):
+        change = change_algorithm(counter)
+        counter += 1
+        if counter > 40:
+            counter = 0
+        shuffle(copy_houses, copy_batteries, change)
+    print(copy_houses, copy_batteries)
+    return Data(copy_houses, copy_batteries)
