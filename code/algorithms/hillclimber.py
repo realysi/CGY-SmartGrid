@@ -119,7 +119,7 @@ def runs(tries: int) -> bool:
     """
     returns True if amount of tries is under the given limit.
     """
-    if tries < 20:
+    if tries < 5:
         return True
     else: 
         return False
