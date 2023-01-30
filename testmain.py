@@ -23,9 +23,6 @@ if __name__ == "__main__":
     # Read in the raw data
     raw_data: Data = read_data()
 
-    # List for histogram
-    all_scores = []
-
     # Create score object for all runs
     final_score: Score = Score() 
     
@@ -51,7 +48,5 @@ if __name__ == "__main__":
     #data_best_score.overlay() --> DIT IS CODE VOOR DE OVERLAY UPDATE
     print(final_score)
 
-    #output file
-    output_file(data_best_score.houses, data_best_score.batteries) #creates outputfile which contains data of both dictionaries -> see output.txt
-
-    plot_grid(data_best_score.houses, data_best_score.batteries, data_best_score.cables) #creates outputfile which contains data of both dictionaries -> see output.txt
+    output_file(data_best_score.houses, data_best_score.batteries)
+    plot_grid(data_best_score.houses, data_best_score.batteries, data_best_score.cables)
