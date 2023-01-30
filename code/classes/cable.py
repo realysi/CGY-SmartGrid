@@ -1,82 +1,82 @@
 from math import sqrt
-from .house import House
-from .battery import Battery
+from typing import List, Tuple
 import copy
 
 
 class Cable:
     
-    def __init__(self, house: House, battery: Battery) -> None:
-        self.battery = battery
-        self.house = house
+    # Class takes two arguments, start object and end object
+    # Draws cable from x,y of start object to x,y of end object
+    def __init__(self, start, end) -> None:
+        self.start = start
+        self.end = end
         self.x = []
         self.y = []
         self.distance = 0
         self.segments = []
         self.cost = 0
-    
-    def calculate_segments(self):
-        # Cable drawn from house to battery
-        start_x, start_y, end_x, end_y = self.house.x, self.house.y, self.battery.x, self.battery.y
 
+    def calculate_segments(self):
+        start_x, start_y, end_x, end_y = self.start.x, self.start.y, self.end.x, self.end.y
         delta_x = (end_x - start_x)
         delta_y = (end_y - start_y)
+        current_x, current_y = start_x, start_y
 
-        x_coordinates_segments = []
-        y_coordinates_segments = []
-
-        current_x = start_x
-        current_y = start_y
-        # Battery to the right of the house 
+        # If end object is to the right of start object
         if delta_x > 0: 
             while current_x != end_x + 1:
-                x_coordinates_segments.append(current_x)
+                self.x.append(current_x)
                 current_x += 1
+        # If end object is to the left of start object
         elif delta_x < 0:
             while current_x != end_x - 1:
-                x_coordinates_segments.append(current_x)
+                self.x.append(current_x)
                 current_x -= 1
-        # Battery above the hosue
+        # If end object is above start object
         if delta_y > 0: 
             while current_y != end_y + 1:
-                y_coordinates_segments.append(current_y)
-                current_y += 1      
-        elif delta_y < 0: #under the house
+                self.y.append(current_y)
+                current_y += 1   
+        # If end object is below start object   
+        elif delta_y < 0:
             while current_y != end_y - 1:
-                y_coordinates_segments.append(current_y)
+                self.y.append(current_y)
                 current_y -= 1
-        # List for all the coordinates of the cable [(),(),()]
-        coordinates_cables = [] 
-        # First move the x value
-        for i in x_coordinates_segments:
-            coordinates_cables.append((i, start_y))
+        # List containing pairs of coordinates
+        coordinates = []
 
-        # Then move y
-        for i in y_coordinates_segments:
-            if i != start_y:
-                coordinates_cables.append((end_x, i))
+        # Move in the x-direction
+        for x in self.x:
+            coordinates.append((x, start_y))
+        # Move in the y-direction
+        for y in self.y:
+            if y != start_y:
+                coordinates.append((end_x, y))
 
-        coordinates_cables_real = []
+        coordinates_cables: List[List[Tuple[int, int]]] = []
         mini_segments = []
-        length = len(coordinates_cables)
-        for i in range(length):
-            mini_segments.append(coordinates_cables[i])
-            if len(mini_segments) == 2:
-                #print(mini_segments)
-                mini_deepcopy = copy.deepcopy(mini_segments)
-                coordinates_cables_real.append(mini_deepcopy)
-                mini_segments.pop(0)
 
-        self.segments = coordinates_cables_real
-        #self.segments = coordinates_cables
-        
+        for tuple in coordinates:
+            # Append one pair of coordinates
+            mini_segments.append(tuple)
+
+            if len(mini_segments) == 2:
+                mini_deepcopy = copy.deepcopy(mini_segments)
+                coordinates_cables.append(mini_deepcopy)
+                # Pop the first set of coordinates from the list
+                mini_segments.pop(0)
+        self.segments = coordinates_cables
         return self.segments
 
     def calculate_distance(self):
-        segments = len(self.segments)
-        self.distance = segments
+        self.distance = len(self.segments)
         return self.distance
 
-    def calculate_cost(self): #moet nog rekening houden met check_overlay
+    def calculate_cost(self):
         self.cost = self.distance * 9
         return self.cost
+
+    def add_cables(self):
+        self.calculate_segments()
+        self.calculate_distance()
+        self.calculate_cost()

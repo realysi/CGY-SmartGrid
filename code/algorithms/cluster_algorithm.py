@@ -26,13 +26,14 @@ def calc_middle(cluster, houses) -> Tuple[int, int]:
     return (x_avg, y_avg)
         
 
-def closest_battery_to_cluster(middle: Tuple[int, int], batteries) -> Battery:
+def closest_battery_to_cluster(middle: Tuple[int, int], batteries, cluster) -> Battery:
     """
     Returns the battery id of the battery
     which is closest to the centre of a given cluster.
     """
-    # Distance between center of cluster and battery cannot exceed 100 
-    smallest_distance = 100
+    
+    # Distance between center of cluster and battery cannot exceed 50
+    smallest_distance = 50
     closest_battery_id = 0
     for battery_id in batteries:
         # Calculate distance between centre of cluster and battery
@@ -45,12 +46,17 @@ def closest_battery_to_cluster(middle: Tuple[int, int], batteries) -> Battery:
     return closest_battery_id
 
 
+def connect_houses(cluster, houses) -> None:
+    """
+    Connects all houses in the cluster to the house in the cluster which is
+    closest to the battery. 
+    """
+
 def cluster_algorithm(houses, batteries):
     clusters = make_clusters(houses)
     for cluster in clusters:
         middle = calc_middle(cluster, houses)
-        closest_battery = closest_battery_to_cluster(middle, batteries)
+        closest_battery = closest_battery_to_cluster(middle, batteries, cluster)
         # The first house in the cluster will always be the closest to the battery
         closest_house = cluster[0]
-        print(cluster)
     pass

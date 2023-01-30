@@ -55,11 +55,11 @@ if __name__ == "__main__":
     """for run in range(20):
         # Applies algorithm to data set, makes connections between houses and batteries
         data: Data = random_algorithm(raw_data.houses, raw_data.batteries) #algorithm of choice
-        data.add_cables()
-        #score = data.cables_cost_no_overlap()
-        score = data.cost_with_overlay()
-        all_scores.append(score)
-        final_score.add_score(score, data)
+    data.add_cables()
+    #score = data.cables_cost_no_overlap()
+    score = data.cost_with_overlay()
+    all_scores.append(score)
+    final_score.add_score(score, data)
 
 
     

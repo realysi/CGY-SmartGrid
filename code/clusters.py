@@ -8,7 +8,6 @@ at the same time. These cluster can be used in an algorithm to efficiently
 connect houses to batteries by sharing cables. 
 """
 
-
 def make_neighbours(houses: Dict[int, House]) -> Dict[int, list]:
     """
     Returns a dict containing a houses (keys) and their neighbouring houses (values).
@@ -36,7 +35,7 @@ def make_neighbours(houses: Dict[int, House]) -> Dict[int, list]:
                     neighbours[home] = []
                 neighbours[home] += [away]
     return(neighbours)
-                
+
 
 def make_clusters(houses) -> List[list]:
     """
