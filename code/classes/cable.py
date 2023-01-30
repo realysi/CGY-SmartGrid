@@ -73,9 +73,7 @@ class Cable:
         return self.segments
 
     def calculate_distance(self):
-        segments = len(self.segments)
-        self.distance = segments
-        return self.distance
+        self.distance = len(self.segments)
 
     def calculate_cost(self): #moet nog rekening houden met check_overlay
         self.cost = self.distance * 9

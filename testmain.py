@@ -29,12 +29,15 @@ if __name__ == "__main__":
     # Create score object for all runs
     final_score: Score = Score() 
     
+
     for i in range(10):
         data: Data = distance_algorithm(raw_data.houses, raw_data.batteries)
         data.add_cables()
-        score = data.cables_cost()
+        score = data.cost_with_overlay()
+        #score = data.cables_cost_no_overlap()
         all_scores.append(score)
         final_score.add_score(score, data)
+
 
     #print(raw_data.houses)
     #print(raw_data.batteries)
