@@ -26,6 +26,7 @@ if __name__ == "__main__":
     # Create score object for all runs
     final_score: Score = Score() 
     
+    all_scores = []
 
     for i in range(10):
         data: Data = distance_algorithm(raw_data.houses, raw_data.batteries)
