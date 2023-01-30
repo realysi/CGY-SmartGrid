@@ -89,6 +89,7 @@ class Data():
             total_unique_segments = len(unique_segments) + unique_in_duplicates + unique_in_duplicates_reversed
 
             battery_unique_segments += total_unique_segments
+        
             
         self.cost = battery_unique_segments * 9
 

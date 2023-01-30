@@ -1,7 +1,9 @@
 """
 Info:
 Name algorithm: random_algorithm
+Door: Yanick
 Case: Smartgrid (Teamname: CGY-SmartGrid)
+
 
 Summary: 
 This algorithm solves this smartgrid problem by looking at it as a knapsack problem.

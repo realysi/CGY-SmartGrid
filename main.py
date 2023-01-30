@@ -41,12 +41,13 @@ if __name__ == "__main__":
     final_score: Score = Score() 
 
     #stukje van Yanick voor testen hillclimber algoritme
-    data: Data = restart_hillclimber(raw_data.houses, raw_data.batteries)
-    plot_grid(data.houses, data.batteries, data.cables) #creates outputfile which contains data of both dictionaries -> see output.txt
-    for i in data.cables:
-        print(f"ID: {data.cables[i].house.id}")
+    data = restart_hillclimber(raw_data.houses, raw_data.batteries)
+    #data: Data = hillclimber(raw_data.houses, raw_data.batteries)
+    #plot_grid(data.houses, data.batteries, data.cables) #creates outputfile which contains data of both dictionaries -> see output.txt
+    #for i in data.cables:
+        #print(f"ID: {data.cables[i].house.id}")
         #print(f"BAT ID: {data.cables[i].battery.id} | Capacity: {data.cables[i].battery.capacity} | {data.cables[i].battery.to_houses}")
-        print(f"{data.cables[i].segments}")
+        #print(f"{data.cables[i].segments}")
 
     print(f"SCORE: {data.cost}")
 '''
@@ -55,11 +56,7 @@ if __name__ == "__main__":
     batteries = raw_data.batteries
     data = distance_algorithm(houses, batteries)"""
 
-"""
     #run a certain algorithm for a specified number of times
-    for run in range(100):
-        # Applies algorithm to data set, makes connections between houses and batteries
-        data: Data = random_algorithm(raw_data.houses, raw_data.batteries) #algorithm of choice
         data.add_cables()
         #score = data.cables_cost_no_overlap()
         score = data.cost_with_overlay()
