@@ -80,4 +80,5 @@ def random_algorithm(houses: Dict[int, House], batteries: Dict[int, Battery]) ->
         if mistakes(copy_houses):
             continue
         else:
-            return Data(copy_houses, copy_batteries)  
+            return Data(copy_houses, copy_batteries)
+            
