@@ -57,8 +57,7 @@ def read_houses(relative_path_houses: str):
                 counter += 1
                 if float(row[2]) > max_output:
                     max_output = float(row[2])
-
-
+            
             id_house += 1
     return houses
 
@@ -75,7 +74,6 @@ def read_batteries(relative_path_batteries: str):
                 batteries[battery.id] = battery
             id_battery += 1
     return batteries
-
 
 def read_data():
     house_link = select_district()[0]

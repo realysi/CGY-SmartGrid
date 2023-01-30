@@ -11,10 +11,10 @@ def empty_grid():
 #Data of houses
 #indexing of dictionary: [0]connection, [1]to_bat, [2]x, [3]y, [4]max_output
 def plot_houses(houses):
-    for i in houses:
-        x = houses[i].x
-        y = houses[i].y
-        color = color_house(houses[i])
+    for house_id in houses:
+        x = houses[house_id].x
+        y = houses[house_id].y
+        color = color_house(houses[house_id])
         plt.plot(int(x), int(y), marker=".", color=color)
         
 # Removes labels from axes
@@ -38,22 +38,13 @@ def color_house(house):
 #Data of batteries
 #indexing of dictionary: [0]to_houses, [1]capacity, [2]x, [3]y
 def plot_batteries(batteries):
-    for i in batteries:
-        x = batteries[i].x
-        y = batteries[i].y
-        color = color_battery(batteries[i])
-        plt.plot(int(x), int(y), marker="D", color=color, label=f"Battery {batteries[i].id}")
-
-        """plt.plot(int(x), int(y), marker="D", color=color, label=f"bat: {batteries[i].id}")
-
-        plt.plot(int(x), int(y), marker="D", color=color, label=f"bat: {batteries[i].id}")
-
-        plt.plot(int(x), int(y), marker="D", color=color, label=f"bat: {batteries[i].id}")"""
-
-        #code hierboven voegt onnodige legenda toe, aangezien door de for i in batteries alle batterijen al langs komen. ~ Yanick
+    for battery_id in batteries:
+        x = batteries[battery_id].x
+        y = batteries[battery_id].y
+        color = color_battery(batteries[battery_id])
+        plt.plot(int(x), int(y), marker="D", color=color, label=f"Battery {batteries[battery_id].id}")
 
         plt.legend()
-    
 
 #  Gives color to batteries on the grid
 def color_battery(battery):
@@ -82,9 +73,9 @@ def axes_numbers():
     plt.yticks(ticks=axes_numbers, labels=axes_numbers)
 
 def draw_cables(cables):
-    for i in cables:
-        coordinates = cables[i].segments
-        battery_id = cables[i].battery.id 
+    for cable in cables:
+        coordinates = cables[cable].segments
+        battery_id = cables[cable].end.id
 
         x_coordinates = []
         y_coordinates = []
@@ -111,14 +102,12 @@ def color_cables(battery_id):
         elif battery_id == 4:
             return f"red"
         elif battery_id == 5:
-            return f"purple"
-        
-#Show grid
+            return f"purple"    
+
 def render_grid():
     plt.minorticks_on() #toon minor gridlines (kan ticks nog uitschakelen -> zie links)
     plt.tight_layout()
     plt.title("Smart Grid")
-
 
 def plot_grid(houses, batteries, cables):
     plt.clf() #to empyty the plot when wanting to run it more times for the same algorithm
@@ -128,17 +117,15 @@ def plot_grid(houses, batteries, cables):
     axes_numbers()
     axes_labels()
     draw_cables(cables)
-    #-- schrinks the grid so that a legend box can be added.
-    # Shrink current axis by 20%
     ax = plt.subplot()
-    # Shrink current axis by 20%
     box = ax.get_position()
+    # Schrinks grid so that a legend box can be added.
     ax.set_position([box.x0, box.y0, box.width * 0.8, box.height])
     # Put a legend to the right of the current axis
     ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
     render_grid()
     plt.savefig('grid.png', bbox_inches='tight')
-    #plt.show()
+    plt.show()
 
 """
 Links:

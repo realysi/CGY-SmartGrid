@@ -23,23 +23,14 @@ if __name__ == "__main__":
     # Read in the raw data
     raw_data: Data = read_data()
 
-    # List for histogram
-    all_scores = []
-
     # Create score object for all runs
     final_score: Score = Score() 
 
-    for i in range(2):
+    for run in range(2):
         data: Data = distance_algorithm(raw_data.houses, raw_data.batteries)
         data.add_cables()
-        score = data.cables_cost()
-        all_scores.append(score)
+        score = data.cost_with_overlay()
         final_score.add_score(score, data)
-
-    #print(raw_data.houses)
-    #print(raw_data.batteries)
-
-
 
     #calculate average score, save dataset of best score
     average_score = final_score.calculate_average_score()
@@ -48,7 +39,5 @@ if __name__ == "__main__":
     #data_best_score.overlay() --> DIT IS CODE VOOR DE OVERLAY UPDATE
     print(final_score)
 
-    #output file
-    output_file(data_best_score.houses, data_best_score.batteries) #creates outputfile which contains data of both dictionaries -> see output.txt
-
-    plot_grid(data_best_score.houses, data_best_score.batteries, data_best_score.cables) #creates outputfile which contains data of both dictionaries -> see output.txt
+    output_file(data_best_score.houses, data_best_score.batteries)
+    plot_grid(data_best_score.houses, data_best_score.batteries, data_best_score.cables)
