@@ -28,8 +28,8 @@ if __name__ == "__main__":
 
     # Create score object for all runs
     final_score: Score = Score() 
-
-    for i in range(2):
+    
+    for i in range(10):
         data: Data = distance_algorithm(raw_data.houses, raw_data.batteries)
         data.add_cables()
         score = data.cables_cost()
@@ -39,7 +39,7 @@ if __name__ == "__main__":
     #print(raw_data.houses)
     #print(raw_data.batteries)
 
-
+    print(all_scores)
 
     #calculate average score, save dataset of best score
     average_score = final_score.calculate_average_score()

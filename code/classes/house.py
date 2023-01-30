@@ -9,7 +9,7 @@ class House:
         self.y = y
         self.max_output = max_output
         self.id = id
-        self.to_battery: int = None
+        self.to_battery = None
         self.incluster: bool = False
 
     def __repr__(self) -> str:
