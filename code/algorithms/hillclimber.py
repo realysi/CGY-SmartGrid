@@ -55,9 +55,6 @@ def switch_max(data: Data, chosen_houses:list[House]):
         house_after = chosen_houses[i + 1]
         data.batteries[house.to_battery].capacity -= house_after.max_output #--- remove output from battery and add output from next house
     
-    """for i in chosen_houses:
-        battery = data.batteries[i.to_battery]
-        print(f"switch_max: {i.id}\t| {battery.capacity}")"""
         
 def switch_bat(data: Data, chosen_houses:list[House]):
     length_houses = len(chosen_houses)
@@ -73,10 +70,6 @@ def switch_bat(data: Data, chosen_houses:list[House]):
         
         house_after = chosen_houses[i + 1]
         house.to_battery = house_after.to_battery
-
-    """for i in chosen_houses:
-        print(f"switch_bat: {i.id}\t| {i.to_battery}")"""
-
 
 
 def switch_houses(data: Data, chosen_houses: list[House]):
@@ -133,19 +126,19 @@ def clear_segments(data: Data, choice_houses:list[House]):
         data.cables[i.id].segments.clear()
 
 
-def runs(tries: int) -> bool:
+def runs(tries: int, limit) -> bool:
     """
     returns True if amount of tries is under the given limit.
     """
-    if tries < 100:
+    if tries < limit:
         return True
     else: 
         return False
 
 
-def bitch(data: Data, amount_of_houses):
+def switch(data: Data, amount_of_houses, limit):
     while True:
-        if runs(data.depth):
+        if runs(data.depth, limit):
             data.depth += 1
             copy_data: Data = copy.deepcopy(data)
 
@@ -160,7 +153,7 @@ def bitch(data: Data, amount_of_houses):
 
             if valid_switch(copy_data):
                 if better_score_after_switch(data, copy_data):
-                    print(f"cost: {copy_data.cost}\t| depth : {data.depth}")
+                    #print(f"cost: {copy_data.cost}\t| depth : {data.depth}")
                     return copy_data
                     
                 else:
@@ -194,11 +187,12 @@ def restart_hillclimber(houses, batteries, amount_of_houses) -> dict[int, Data]:
     """
     results = {}
     total_hillclimbers: int = 0
+    limit = 100
     while total_hillclimbers < 1:
         data: Data = random_solution(houses, batteries)
 
-        while data.depth < 100:
-            data = bitch(data, amount_of_houses)
+        while data.depth < limit:
+            data = switch(data, amount_of_houses, limit)
             
         data.algorithm_used = "hill climber"
         data.base = "random"

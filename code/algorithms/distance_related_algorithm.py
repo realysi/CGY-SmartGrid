@@ -141,3 +141,12 @@ def distance_algorithm(houses, batteries):
         runs += 1
     print(runs)
     return Data(copy_houses, copy_batteries)
+
+
+#Had dit even nodig ~ Yanick
+def exp_greedy_algorithm(houses, batteries):
+    data = distance_algorithm(houses, batteries)
+    data.add_cables
+    data.cost_with_overlay
+
+    return data
