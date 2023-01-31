@@ -7,6 +7,8 @@ from code.visualisation.histogram import plot_histogram
 from sys import argv
 from code.algorithms.random_algorithm import random_algorithm
 
+from code.experiments.hillclimber_exp import hillclimber
+
 #from code.algorithms.distance_relatable_algorithm import distance_algorithm
 from code.algorithms.hillclimber import restart_hillclimber
 
@@ -35,7 +37,7 @@ if __name__ == "__main__":
     final_score: Score = Score() 
 
     #stukje van Yanick voor testen hillclimber algoritme
-    #data = restart_hillclimber(raw_data.houses, raw_data.batteries)
+    data = hillclimber(raw_data.houses, raw_data.batteries)
 
     #print(f"SCORE: {data.cost}")
 
@@ -46,7 +48,7 @@ if __name__ == "__main__":
 
 
     #run a certain algorithm for a specified number of times
-    for run in range(20):
+    """for run in range(20):
         # Applies algorithm to data set, makes connections between houses and batteries
         data: Data = random_algorithm(raw_data.houses, raw_data.batteries) #algorithm of choice
         data.add_cables()
@@ -77,3 +79,4 @@ if __name__ == "__main__":
     #plot the data
     plot_histogram(all_scores, average_score)
     plot_grid(data_best_score.houses, data_best_score.batteries, data_best_score.cables) #creates outputfile which contains data of both dictionaries -> see output.txt
+"""

@@ -7,6 +7,7 @@ the given dataset by trying to switch 2 houses of 2 different batteries with eac
 batteries capacities are exceeded due to the switch and wether the switch results in lower costs. If these 3 
 requirements are met, then the switch is made permanent. 
 """
+import csv
 from matplotlib import pyplot as plt
 from .random_algorithm import random_algorithm
 from code.classes.data import Data
@@ -114,12 +115,12 @@ def switch_to_houses(data: Data, house_one: House, house_two: House):
     data.batteries[house_one.to_battery].to_houses.append(house_two.id)
     data.batteries[house_two.to_battery].to_houses.append(house_one.id)
 
-
+#This function will likely be removed since it won't be neccesary much longer
 def runs(tries: int) -> bool:
     """
     returns True if amount of tries is under the given limit.
     """
-    if tries < 5:
+    if tries < 10:
         return True
     else: 
         return False
@@ -149,10 +150,10 @@ def switch(data: Data) -> Data:
     it returns the edited data object, otherwise the old object.
     """
     #-- if edited data is valid and has a better score within x tries, then return edited data type --
-    tries = 0
     while True:
-        if runs(tries):
-            tries += 1
+        if runs(data.depth):
+            data.depth += 1
+            #total tries now stored in data.depth which copy_data will copy
             copy_data: Data = copy.deepcopy(data)
             house_one: House = select_house_one(copy_data)
             house_two: House = select_house_two(copy_data, house_one.id)
@@ -167,10 +168,14 @@ def switch(data: Data) -> Data:
 
             if valid_switch(copy_data):
                 if better_score_after_switch(data, copy_data):
+                    print(f"cost: {copy_data.cost}\t| depth : {data.depth}")
                     return copy_data
+                    
                 else:
+                    #print(f"cost: {data.cost}\t| depth : {data.depth}")
                     continue         
             else:
+                #print(f"cost: {data.cost}\t| depth : {data.depth}")
                 continue
         else:
             return data
@@ -195,24 +200,41 @@ def restart_hillclimber(houses, batteries) -> dict[int, Data]:
     """
     results = {}
     total_hillclimbers: int = 0
-    while total_hillclimbers < 10:
+    while total_hillclimbers < 1:
         data: Data = random_solution(houses, batteries)
-        for i in range(100):
-            copy_data = data
-            data = switch(data)
-            data.depth += 1
-            if copy_data == data:
-                print(f"cost: {data.cost} | depth : {data.depth}")
-                results[total_hillclimbers + 1] = data
-                total_hillclimbers += 1
-                break
-            else:
-                continue
 
+        while data.depth < 10:
+            data = switch(data)
+            
+        data.algorithm_used = "hill climber"
+        data.base = "random"
+
+        print(f"run: {total_hillclimbers}\t| cost: {data.cost}\t| depth : {data.depth}")
+        results[total_hillclimbers + 1] = data
+        total_hillclimbers += 1
+
+            
+    save_data(results)
     print(results)
     sketch(results)
     return results
 
+def save_data(dictionary: dict[int, Data]):
+    fields = ["Run", "Depth", "Cost", "Algorithm", "Base"]
+    filename = "hillclimber.csv"
+
+    with open(filename, "w") as csvfile:
+        csv_writer = csv.writer(csvfile)
+
+        csv_writer.writerow(fields)
+        for i in dictionary:
+            run = i
+            depth = dictionary[i].depth
+            cost = dictionary[i].cost
+            algo = dictionary[i].algorithm_used
+            algo_base = dictionary[i].base
+            row = [run, depth, cost, algo, algo_base]
+            csv_writer.writerows([row])
 
     
 

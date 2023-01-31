@@ -244,7 +244,35 @@ def restart_hillclimber(houses, batteries) -> dict[int, Data]:
 
 
     
+def restart_hillclimber(houses, batteries) -> dict[int, Data]:
+    """"
+    Returns dictionary that contains data object of all hill climber runs (key = number of run, value = data object).
+    Hill climber algorithm that restarts for x amount of times if after n-runs no beter solution has been found.
+    """
+    results = {}
+    total_hillclimbers: int = 0
+    while total_hillclimbers < 10:
+        data: Data = random_solution(houses, batteries)
+        for i in range(100): #till which depth you wanna go --> should be amount of tries
+        #while data.depth < 20000:
+            copy_data = data
+            data = switch(data)
+            ##data.depth += 1
+        #print(f"cost: {data.cost}\t| depth : {data.depth}")
+        #results[total_hillclimbers + 1] = data
+        #total_hillclimbers += 1
 
+            if copy_data == data:
+                print(f"cost: {data.cost}\t| depth : {data.depth}")
+                results[total_hillclimbers + 1] = data
+                total_hillclimbers += 1
+                break
+            else:
+                continue
+
+    print(results)
+    sketch(results)
+    return results
 
        
 
