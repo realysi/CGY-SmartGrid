@@ -13,6 +13,7 @@ class Data():
         self.cables = {} # Dict containing house_id and Cable object
         self.cost = 0
         self.score = 0
+        self.depth = 0
         self.total_cable_length = 0
     
     # Returns total cost of all cables for one solution
@@ -36,12 +37,9 @@ class Data():
                 self.cables[house_id] = cable
                 self.cables[house_id].add_cables()
         return self.cables
-
-    def add_cables_manually(self, start, end):
-        cable: Cable = Cable()
-        pass
     
     def cost_with_overlay(self) -> int:
+        battery_unique_segments = 0
         for battery_id in self.batteries:
             # Adds all segments of cables leading to certain battery to a list [[(x,y),(x,y)][(x,y),(x,y)]] ------
             all_segments = []
@@ -85,7 +83,6 @@ class Data():
                 if z != 0:
                     unique_in_duplicates_reversed += 1
             
-            battery_unique_segments = 0
             total_unique_segments = len(unique_segments) + unique_in_duplicates + unique_in_duplicates_reversed
 
             battery_unique_segments += total_unique_segments
