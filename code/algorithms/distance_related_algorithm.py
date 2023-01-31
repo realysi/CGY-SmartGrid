@@ -78,7 +78,7 @@ def add_houses_bat(houses, batteries):
             if fits(battery, house):
                         subtract(battery, house)
 
-
+# Hill_climber function to shuffle houses.
 def shuffle(houses, batteries, change):
     # Get houses without a connected battery
     houses_without_battery = []
@@ -98,10 +98,13 @@ def shuffle(houses, batteries, change):
     houses_without_battery.append((houses[house_to_remove].id, houses[house_to_remove].max_output))
     fit_houses(houses, batteries, houses_without_battery, change)
 
-
+# Tries to fit all the houses without a battery
 def fit_houses(houses, batteries, houses_without_battery, change):
     # Sort the houses on their output
     houses_without_battery.sort(key = lambda x: x[1])
+
+    # If we tried to fit the first house in the list for 20 times and no solution came 
+    # we switch the order of houses we want to fit first
     if change is False:
         houses_without_battery.reverse()
 
@@ -114,6 +117,7 @@ def fit_houses(houses, batteries, houses_without_battery, change):
                 continue
     return houses_without_battery
 
+# Counter for when we change the house_order for fitting houses
 def change_algorithm(counter):
     if counter < 20:
         return False
@@ -127,12 +131,13 @@ def distance_algorithm(houses, batteries):
     copy_houses = deepcopy(houses)
     copy_batteries = deepcopy(batteries)
     counter = 0
+    runs = 0
     while mistakes(copy_houses):
-    #for i in range(45):
         change = change_algorithm(counter)
         counter += 1
         if counter > 40:
             counter = 0
         shuffle(copy_houses, copy_batteries, change)
-    print(copy_houses, copy_batteries)
+        runs += 1
+    print(runs)
     return Data(copy_houses, copy_batteries)
