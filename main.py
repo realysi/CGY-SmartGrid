@@ -7,7 +7,7 @@ from code.visualisation.histogram import plot_histogram
 from sys import argv
 from code.algorithms.random_algorithm import random_algorithm
 
-from code.experiments.hillclimber_exp import hillclimber
+from code.experiments.hillclimber_exp import hillclimber_random_2opt
 
 #from code.algorithms.distance_relatable_algorithm import distance_algorithm
 from code.algorithms.hillclimber import restart_hillclimber
@@ -37,7 +37,8 @@ if __name__ == "__main__":
     final_score: Score = Score() 
 
     #stukje van Yanick voor testen hillclimber algoritme
-    data = hillclimber(raw_data.houses, raw_data.batteries)
+    data = restart_hillclimber(raw_data.houses, raw_data.batteries, 3)
+    #data = hillclimber_random_2opt(raw_data.houses, raw_data.batteries)
 
     #print(f"SCORE: {data.cost}")
 
