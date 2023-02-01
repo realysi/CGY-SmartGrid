@@ -9,7 +9,7 @@ class House:
         self.y = y
         self.max_output = max_output
         self.id = id
-        self.to_battery: int = None
+        self.to_battery: int = None #int hinttype is neccesary here for my code ~ Yanick
         self.incluster: bool = False
         self.to_house: int = None
 
