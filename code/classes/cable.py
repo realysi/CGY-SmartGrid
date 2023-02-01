@@ -4,7 +4,6 @@ import copy
 
 
 class Cable:
-    
     # Class takes two arguments, start object and end object
     # Draws cable from x,y of start object to x,y of end object
     def __init__(self, start, end) -> None:

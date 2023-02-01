@@ -1,8 +1,7 @@
-from sys import argv
 from .house import House
 from .battery import Battery
 from .cable import Cable
-from typing import Dict, List
+from typing import Dict
 import copy
 
 

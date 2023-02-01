@@ -33,6 +33,7 @@ def select_district():
     links_data = [house_link, battery_link]
     return links_data
 
+
 def read_houses(relative_path_houses: str):
     # Dictionary containing data of housessz
     # Indexing of dictionary: [0]connection, [1]to_bat, [2]x, [3]y, [4]max_output

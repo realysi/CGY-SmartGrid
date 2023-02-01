@@ -1,9 +1,6 @@
 from typing import List, Dict, Tuple, Any
 
 class House:
-    """
-    
-    """
     def __init__(self, x, y, max_output, id):
         self.x = x
         self.y = y

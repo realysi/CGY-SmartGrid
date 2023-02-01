@@ -29,6 +29,7 @@ from ..classes.score import Score
 from copy import deepcopy
 from sys import argv
 
+
 # Makes list with random ints, same amount as battery objects
 def random_battery_order(batteries: Dict[int, Battery]) -> List[int]:
     id_keys: List[int] = []
@@ -36,6 +37,7 @@ def random_battery_order(batteries: Dict[int, Battery]) -> List[int]:
         id_keys.append(battery_id)
     random.shuffle(id_keys)
     return id_keys
+
 
 # Makes list with random ints, same amount as house objects
 def random_house_order(houses):
@@ -45,9 +47,11 @@ def random_house_order(houses):
     random.shuffle(id_keys)
     return id_keys
 
+
 # Checks if house fits inside battery
 def fits(battery: Battery, house: House) -> bool:
     return battery.capacity - house.max_output > 0.0
+
 
 # Subtracts house output from battery capacity in case house in not connected yet
 def subtract(battery: Battery, house: House) -> None:
@@ -57,6 +61,7 @@ def subtract(battery: Battery, house: House) -> None:
         battery.connections += 1
         house.to_battery = battery.id
 
+
 # Returns True if a house has no battery connection
 def mistakes(houses) -> bool:
     for house_id in houses:
@@ -64,23 +69,21 @@ def mistakes(houses) -> bool:
             return True
     return False
 
+
 # Returns Data object containing a copy of the houses and batteries dicts.
 # Calls all other functions in this file.
 def random_algorithm(houses: Dict[int, House], batteries: Dict[int, Battery]):
-
     while True:
         copy_houses: Dict[int, House] = deepcopy(houses) # Make a deepcopy of the houses dictionary
         copy_batteries: Dict[int, Battery] = deepcopy(batteries) # Make a deepcopy of the batteries dictionary
         battery_order = random_battery_order(copy_batteries) # Randomizes battery id order 
         house_order = random_house_order(copy_houses) # Randomizes house id order 
-
         for battery_id in battery_order:
             battery: Battery = copy_batteries[battery_id]
             for house_id in house_order:
                 house: House = copy_houses[house_id]
                 if fits(battery, house):
                     subtract(battery, house)
-
         # Check if there are houses without battery
         if mistakes(copy_houses):
             continue
@@ -88,13 +91,12 @@ def random_algorithm(houses: Dict[int, House], batteries: Dict[int, Battery]):
             return Data(copy_houses, copy_batteries)
 
 
+# Starts the algorithm
 def start_random(houses, batteries):
-
     final_score = Score()
-
     runs = int(argv[4])
 
-    # Runs the algorithm
+    # Runs the algorithm x amount of times
     for run in range(runs):
         print(run)
         data = random_algorithm(houses, batteries)
