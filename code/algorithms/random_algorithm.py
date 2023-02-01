@@ -96,6 +96,7 @@ def start_random(houses, batteries):
 
     # Runs the algorithm
     for run in range(runs):
+        print(run)
         data = random_algorithm(houses, batteries)
         data.add_cables()
         score = data.cost_with_overlay()
