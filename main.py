@@ -49,7 +49,7 @@ if __name__ == "__main__":
             print("Usage: --district (filenumber) 'algorithm' 'amount of runs' 'amount_of_houses_to_remove' 'capacity_border'")
             raise SystemExit
     elif argv[3] == "hillclimber":
-        #3 = name, 4 = base, 5 = houses, 6 = depth
+        #argv[3] = hillclimber, argv[4] = base (random or greedy), argv[5] = houses to switch, argv[6] = depth
         if argv[4] == "random":
             data = hillclimber_random(raw_data.houses, raw_data.batteries, int(argv[5]), int(argv[6]))
             output_file(data.houses, data.batteries)
@@ -57,7 +57,7 @@ if __name__ == "__main__":
         elif argv[4] == "greedy":
             data = hillclimber_greedy(raw_data.houses, raw_data.batteries, int(argv[5]), int(argv[6]))            
     elif argv[3] == "restart_hillclimber":
-        #3 = name, 4 = base, 5 = houses, 6 = depth, 7=restarts
+        #argv[3] = hillclimber, argv[4] = base (random or greedy), argv[5] = houses to switch, argv[6] = depth, argv[7] = restarts
         if argv[4] == "random":
             data_dictionary = restart_hillclimber_random(raw_data.houses, raw_data.batteries, int(argv[5]), int(argv[6]), int(argv[7]))
             data = data_restart(data_dictionary)
