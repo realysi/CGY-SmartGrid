@@ -6,9 +6,10 @@ from code.visualisation.grid import plot_grid
 from code.visualisation.histogram import plot_histogram
 from code.algorithms.cluster_algorithm import cluster_algorithm
 from sys import argv
-from code.algorithms.random_algorithm import random_algorithm
+from code.algorithms.random_algorithm import start_random
 from code.algorithms.distance_related_algorithm import start_distance
-from code.experiments.distance_related_exp import test_distance_district_1
+from code.experiments.distance_related_exp import test_distance_district
+from code.experiments.random_exp import test_random
 import time
 
 """
@@ -25,5 +26,36 @@ if __name__ == "__main__":
     # Read in the raw data
     raw_data: Data = read_data()
 
-    # Run algorithm
-    scores = test_distance_district_1(raw_data.houses, raw_data.batteries)
+    # Runs the chosen algorithm
+    if argv[3] == "random":
+        if len(argv) == 5:
+            scores = test_random(raw_data.houses, raw_data.batteries)
+            data_best_score: Data = scores.best_data
+        else:
+            print("Usage: --district (filenumber) 'algorithm' 'amount of runs'")
+            raise SystemExit
+    elif argv[3] == "distance":
+        if len(argv) == 7:
+            #scores = start_distance(raw_data.houses, raw_data.batteries)
+            scores = test_distance_district(raw_data.houses, raw_data.batteries)
+            data_best_score: Data = scores.best_data
+        else:
+            print("Usage: --district (filenumber) 'algorithm' 'amount of runs' 'amount_of_houses_to_remove' 'capacity_border'")
+            raise SystemExit
+    elif argv[3] == "hillclimber":
+        pass
+    elif argv[3] == "cluster":
+        if len(argv) == 5:
+            for run in range(int(argv[4])):
+                data = cluster_algorithm(raw_data.houses, raw_data.batteries)
+        else:
+            print("Usage: --district (filenumber) 'algorithm' 'amount of runs'")
+            raise SystemExit
+        pass
+    
+
+    # Plot histogram
+    #output_file(data_best_score.houses, data_best_score.batteries)
+    plot_histogram()
+    #plot_grid(data_best_score.houses, data_best_score.batteries, data_best_score.cables)
+

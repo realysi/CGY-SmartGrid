@@ -25,7 +25,9 @@ import random
 from ..classes.battery import Battery
 from ..classes.house import House
 from ..classes.data import Data
+from ..classes.score import Score
 from copy import deepcopy
+from sys import argv
 
 # Makes list with random ints, same amount as battery objects
 def random_battery_order(batteries: Dict[int, Battery]) -> List[int]:
@@ -64,7 +66,8 @@ def mistakes(houses) -> bool:
 
 # Returns Data object containing a copy of the houses and batteries dicts.
 # Calls all other functions in this file.
-def random_algorithm(houses: Dict[int, House], batteries: Dict[int, Battery]) -> Data:
+def random_algorithm(houses: Dict[int, House], batteries: Dict[int, Battery]):
+
     while True:
         copy_houses: Dict[int, House] = deepcopy(houses) # Make a deepcopy of the houses dictionary
         copy_batteries: Dict[int, Battery] = deepcopy(batteries) # Make a deepcopy of the batteries dictionary
@@ -78,9 +81,33 @@ def random_algorithm(houses: Dict[int, House], batteries: Dict[int, Battery]) ->
                 if fits(battery, house):
                     subtract(battery, house)
 
-        # NOG EVEN NAAR LOGICA KIJKEN --- RUNTIME
+        # Check if there are houses without battery
         if mistakes(copy_houses):
             continue
         else:
             return Data(copy_houses, copy_batteries)
+
+
+def start_random(houses, batteries):
+
+    final_score = Score()
+
+    runs = int(argv[4])
+
+    # Runs the algorithm
+    for run in range(runs):
+        data = random_algorithm(houses, batteries)
+        data.add_cables()
+        score = data.cost_with_overlay()
+        final_score.all_scores.append(score)
+        final_score.add_score(score, data)
+
+    # Calculate average score, save dataset of best score
+    final_score.calculate_average_score()
+    print(final_score.all_scores)
+    print(final_score)
+
+    return final_score
+    
+
             
