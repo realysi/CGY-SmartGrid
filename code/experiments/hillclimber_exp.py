@@ -6,7 +6,7 @@ from code.classes.data import Data
 from code.classes.house import House
 from code.classes.battery import Battery
 from code.visualisation.hillclimber_views import sketch
-from code.algorithms.distance_related_algorithm import distance_algorithm, exp_greedy_algorithm
+from code.algorithms.distance_related_algorithm import distance_algorithm #, exp_greedy_algorithm
 import random
 import copy
 
@@ -60,13 +60,13 @@ def data_restart_hillclimber(results: dict[int, Data], filename: str):
             csv_writer.writerows([row])
 
 
-def hillclimber_random(houses: dict[int, House], batteries: dict[int, Battery], amount_of_houses: int):
+def hillclimber_random(houses: dict[int, House], batteries: dict[int, Battery], amount_of_houses: int, depth: int):
     """
     Returns a data object which is run through a hillclimber algorithm which starts with a random solution.
     Change limit if you want the algorithm to run deeper or less deep.
     """
     data: Data = random_solution(houses, batteries)
-    limit = 5000
+    limit = depth
 
     open_temporary_data("hillclimber_random_data.csv")
 
@@ -83,13 +83,13 @@ def hillclimber_random(houses: dict[int, House], batteries: dict[int, Battery], 
     return data
 
 
-def hillclimber_greedy(houses: dict[int, House], batteries: dict[int, Battery], amount_of_houses: int):
+def hillclimber_greedy(houses: dict[int, House], batteries: dict[int, Battery], amount_of_houses: int, depth: int):
     """
     Returns a data object which is run through a hillclimber algorithm which starts with a greedy solution
     Change limit if you want the algorithm to run deeper or less deep.
     """
     data: Data = exp_greedy_algorithm(houses, batteries)
-    limit = 500
+    limit = depth
 
     open_temporary_data("hillclimber_greedy_data.csv")
 
@@ -106,7 +106,7 @@ def hillclimber_greedy(houses: dict[int, House], batteries: dict[int, Battery], 
     return data
 
 
-def restart_hillclimber_random(houses: dict[int, House], batteries: dict[int, Battery], amount_of_houses: int) -> dict[int, Data]:
+def restart_hillclimber_random(houses: dict[int, House], batteries: dict[int, Battery], amount_of_houses: int, depth: int, restarts: int) -> dict[int, Data]:
     """
     Algorithm
     Returns data objects which are run through a hillclimber algorithm which starts with a random solution
@@ -115,9 +115,9 @@ def restart_hillclimber_random(houses: dict[int, House], batteries: dict[int, Ba
     """
     results = {}
     total_hillclimbers: int = 0
-    limit = 100
+    limit = depth
 
-    while total_hillclimbers < 1:
+    while total_hillclimbers < restarts:
         data: Data = random_solution(houses, batteries)
 
         while data.depth < limit:
@@ -134,7 +134,7 @@ def restart_hillclimber_random(houses: dict[int, House], batteries: dict[int, Ba
     return results
 
 
-def restart_hillclimber_greedy(houses: dict[int, House], batteries: dict[int, Battery], amount_of_houses: int) -> dict[int, Data]:
+def restart_hillclimber_greedy(houses: dict[int, House], batteries: dict[int, Battery], amount_of_houses: int, depth: int, restarts: int) -> dict[int, Data]:
     """
     Returns data objects which are run through a hillclimber algorithm which starts with a greedy solution.
     Change limit if you want the algorithm to run deeper or less deep. Change < after total hillclimbers if you
@@ -143,8 +143,8 @@ def restart_hillclimber_greedy(houses: dict[int, House], batteries: dict[int, Ba
     #--- Experiment algorithm --- 
     results = {}
     total_hillclimbers: int = 0
-    limit = 100
-    while total_hillclimbers < 1:
+    limit = depth
+    while total_hillclimbers < restarts:
         data: Data = exp_greedy_algorithm(houses, batteries)
 
         while data.depth < limit:

@@ -9,6 +9,8 @@ class Score:
         self.total_score: int = 0
         self.average_score: float = 0.0
         self.counter: int = 0
+        self.all_scores = []
+        self.switch_per_run = []
 
     # Adds scores of all runs and counts number of runs
     def add_score(self, score: int, data: Data) -> None:

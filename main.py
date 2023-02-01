@@ -36,7 +36,7 @@ if __name__ == "__main__":
     final_score: Score = Score() 
 
     #stukje van Yanick voor testen hillclimber algoritme
-    data = hillclimber_random(raw_data.houses, raw_data.batteries, 2)
+    data = hillclimber_random(raw_data.houses, raw_data.batteries, 5)
     #data = hillclimber_greedy(raw_data.houses, raw_data.batteries, 3)
     #data = restart_hillclimber_random(raw_data.houses, raw_data.batteries, 3)
     #data = restart_hillclimber_random(raw_data.houses, raw_data.batteries, 3)
