@@ -10,15 +10,15 @@ class Data():
     def __init__(self, houses: Dict[int, House], batteries: Dict[int, Battery]) -> None:
         self.houses = houses
         self.batteries = batteries
-        # Key = house_id; value = Cable object
-        self.cables: Dict[int, Cable] = {}
+        self.cables = {} # Dict containing house_id and Cable object
         self.cost = 0
         self.score = 0
+        self.depth = 0
         self.total_cable_length = 0
         self.base = ""
         self.algorithm_used = ""
         self.swaps = 0
-
+    
     # Returns total cost of all cables for one solution
     def cables_cost_no_overlap(self) -> int:
         for house_id in self.cables:
@@ -28,7 +28,7 @@ class Data():
         self.total_cable_length = float(self.cost / 9)
         return self.cost
 
-    # Adds cables to dictionary
+    # Adds cables to dictionary 
     def add_cables(self) -> dict:
         for house_id in self.houses:
             house: House = self.houses[house_id]
@@ -40,7 +40,7 @@ class Data():
                 self.cables[house_id] = cable
                 self.cables[house_id].add_cables()
         return self.cables
-
+    
     def cost_with_overlay(self) -> int:
         battery_unique_segments = 0
         for battery_id in self.batteries:
@@ -94,3 +94,5 @@ class Data():
         self.cost = battery_unique_segments * 9
 
         return self.cost
+                    
+
