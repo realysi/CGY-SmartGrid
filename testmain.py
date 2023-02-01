@@ -70,6 +70,6 @@ if __name__ == "__main__":
         raise SystemExit
     
 
-    #output_file(data_best_score.houses, data_best_score.batteries)
+    output_file(data_best_score.houses, data_best_score.batteries)
     plot_histogram()
-    #plot_grid(data_best_score.houses, data_best_score.batteries, data_best_score.cables)
+    plot_grid(data.houses, data.batteries, data.cables)

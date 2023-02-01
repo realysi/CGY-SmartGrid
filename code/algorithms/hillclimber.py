@@ -230,6 +230,3 @@ def save_data(dictionary: dict[int, Data]):
             algo_base = dictionary[i].base
             row = [run, depth, cost, algo, algo_base]
             csv_writer.writerows([row])
-
-    
-

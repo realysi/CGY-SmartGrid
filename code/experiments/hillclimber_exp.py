@@ -160,4 +160,3 @@ def restart_hillclimber_greedy(houses: dict[int, House], batteries: dict[int, Ba
             
     return results
 
-

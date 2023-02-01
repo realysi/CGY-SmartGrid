@@ -1,2 +1,2 @@
 Depth,Cost,Swaps at a time,Algorithm,Base
-1500,6489,2,hillclimber,random
+20,17145,2,hillclimber,random

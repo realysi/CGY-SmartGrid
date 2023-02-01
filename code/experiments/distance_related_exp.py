@@ -7,7 +7,7 @@ def test_distance(houses, batteries):
 
     scores = start_distance(houses, batteries)
 
-    filename = "results/distance/distance_district_3.csv"
+    filename = "results/distance/distance_district_3_remove_1.csv"
 
     with open(filename, "a") as csvfile:
         csv_writer = csv.writer(csvfile)

@@ -6,7 +6,7 @@ from typing import Dict, List
 import copy
 
 
-class Data():
+class Data:
     def __init__(self, houses: Dict[int, House], batteries: Dict[int, Battery]) -> None:
         self.houses = houses
         self.batteries = batteries
