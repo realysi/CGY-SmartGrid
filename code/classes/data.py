@@ -10,7 +10,8 @@ class Data():
     def __init__(self, houses: Dict[int, House], batteries: Dict[int, Battery]) -> None:
         self.houses = houses
         self.batteries = batteries
-        self.cables = {} # Dict containing house_id and Cable object
+        # Key = house_id; value = Cable object
+        self.cables: Dict[int, Cable] = {}
         self.cost = 0
         self.score = 0
         self.total_cable_length = 0

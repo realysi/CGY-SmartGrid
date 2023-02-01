@@ -75,7 +75,7 @@ def axes_numbers():
 def draw_cables(cables):
     for cable in cables:
         coordinates = cables[cable].segments
-        battery_id = cables[cable].end.id
+        battery_id = cables[cable].start.to_battery
 
         x_coordinates = []
         y_coordinates = []

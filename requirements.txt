@@ -1,4 +1,8 @@
-Python
-csv
-matplotlib
-pillow (if not already installed)
+Python 3.8.10
+    - Install via: https://www.python.org/downloads/
+csv 22.2.2
+    - Install using: pip install python-csv
+matplotlib 3.6.3
+    - Install via: https://matplotlib.org/stable/users/installing/index.html
+pillow 9.4.0
+    - Install using: pip install Pillow

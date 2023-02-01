@@ -11,6 +11,9 @@ class House:
         self.id = id
         self.to_battery: int = None
         self.incluster: bool = False
+        self.to_house: int = None
 
     def __repr__(self) -> str:
-        return f" id: {self.id}\tcoordinates = ({self.x}, {self.y})\t| output = {self.max_output}\t| battery:{self.to_battery}\n"
+        return f" id: {self.id}\tcoordinates = ({self.x}, {self.y})\t| output = {self.max_output}\t| battery:{self.to_battery} | to house: {self.to_house}\n"
+
+    

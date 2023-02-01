@@ -18,7 +18,6 @@ import time
 """
 
 Main file which is used to call all other functions in other files.
-
 Usage: --district {number of district the user would like to select}.
 
 """
@@ -28,6 +27,10 @@ start_time = time.time()
 if __name__ == "__main__":    
     # Read in the raw data
     raw_data: Data = read_data()
+    data = cluster_algorithm(raw_data.houses, raw_data.batteries)
+    plot_grid(data.houses, data.batteries, data.cables)
+
+"""
     # cluster_algorithm(raw_data.houses, raw_data.batteries)
     data = random_algorithm(raw_data.houses, raw_data.batteries)
     data.add_cables()
@@ -82,3 +85,4 @@ if __name__ == "__main__":
     # Plot the dat  a
     plot_histogram(all_scores, average_score)
     plot_grid(data_best_score.houses, data_best_score.batteries, data_best_score.cables) #creates outputfile which contains data of both dictionaries -> see output.txt
+"""
