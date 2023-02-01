@@ -73,15 +73,12 @@ The following arguments/parameters can be given to this algorithm:
 - if restarts --> amount of restarts
 - base algorithm
 
-In this project there are 4 types of hillclimber algorithms, 2 of which are functioning:
+In this project there are 2 types of hillclimber algorithms:
 - hillclimber random (functions):
     uses a random solution as base to imporve the cost.
-- hillclimber greedy:
-    uses a greedy solution as base to imporve the cost.
 - restart_hillclimber random (functions): 
     restarts if no improvement can be found within x-tries. Uses a random solution as base.
--restart_hillclimber greedy:
-    restarts if no improvement can be found within x-tries. Uses a greedy solution as base.
+
 
 #### Clustering
 
