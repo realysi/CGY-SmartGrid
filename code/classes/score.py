@@ -34,8 +34,7 @@ class Score:
        
 
     def calculate_average_score(self):
-        if self.counter > 0:
-            self.average_score = self.total_score / self.counter
+        self.average_score = self.total_score / self.counter
 
     def __repr__(self) -> str:
         return f"Best score: {self.best_score}\t| Average Score: {self.average_score}"
