@@ -1,3 +1,0 @@
-Run,Depth,Cost,Swaps at a time,Algorithm,Base
-1,20,2,16326,restart_hillclimber,random
-2,20,2,15138,restart_hillclimber,random
