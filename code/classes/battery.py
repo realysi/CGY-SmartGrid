@@ -1,10 +1,6 @@
 from typing import List
 
 class Battery:
-    """
-    Class which represents a battery object. Batteries have an x and y
-    coordinate, as well as a maximum capacity and an id.
-    """
     def __init__(self, x, y, capacity, id):
         self.x = x
         self.y = y

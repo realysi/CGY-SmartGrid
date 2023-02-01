@@ -17,6 +17,7 @@ def mistakes(houses) -> bool:
         if houses[house_id].to_battery == None:
             return True
     return False
+
         
 # Add scores to the houses
 def add_scores(houses, batteries):
@@ -31,10 +32,12 @@ def add_scores(houses, batteries):
         sorted_list = sort_list_distance(unsorted_list)
         batteries[battery_id].best_score_houses = sorted_list   
 
+
 # Sorts the unsorted list to the second element of the tuple (house_id , distance)
 def sort_list_distance(unsorted_list):
     unsorted_list.sort(key=lambda a: a[1])
     return unsorted_list    
+
 
 # Calculate the distance between each battery and house
 def calculate_distance(house, battery):
@@ -47,9 +50,11 @@ def calculate_distance(house, battery):
     tot_distance = distance_x + distance_y
     return tot_distance
 
+
 # Checks if house fits inside battery
 def fits(battery, house):
     return battery.capacity > house.max_output
+
 
 # Subtracts house output from battery capacity in case house in not connected yet
 def subtract(battery, house):
@@ -58,6 +63,7 @@ def subtract(battery, house):
         battery.to_houses.append(house.id)
         battery.connections += 1
         house.to_battery = battery.id
+
 
 # Adds first house in closest_house to battery and then goes to next battery.
 def add_houses_bat(houses, batteries):
@@ -110,9 +116,10 @@ def fit_houses(houses, batteries, houses_without_battery, change):
                 continue
     return houses_without_battery
 
+
+# After 10 runs the order of houses will change so the other house will get priority
+# this is necessary to avoid infinite looping
 def change_algorithm(counter):
-    # After 10 runs the order of houses will change so the other house will get priority
-    # this is necessary to avoid infinite looping
     if counter < 10:
         return False
     else:
@@ -142,7 +149,7 @@ def distance_algorithm(houses, batteries, amount_of_houses_to_remove, capacity_b
     return Data(copy_houses, copy_batteries)
 
 
-
+# Starts the algorithm
 def start_distance(houses, batteries):
     # Create score object for all runs
     final_score: Score = Score() 

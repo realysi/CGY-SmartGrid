@@ -22,6 +22,8 @@ class Score:
         else:
             self.best_score = score
 
+
+    # Gets the best score and the data of that score
     def get_best_score(self):
         if self.scores[0][0] < self.scores[1][0]:
             self.best_score = self.scores[0][0]  # Best (lowest) score is saved
@@ -33,6 +35,7 @@ class Score:
             self.scores.remove(self.scores[0])
        
 
+    # Gets the average score of all the scores
     def calculate_average_score(self):
         self.average_score = self.total_score / self.counter
 

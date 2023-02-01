@@ -1,23 +1,19 @@
-from code.read import read_data
 from code.classes.data import Data
-from code.classes.score import Score
+from code.read import read_data
 from code.visualisation.output import output_file
 from code.visualisation.grid import plot_grid
-from code.visualisation.histogram import plot_histogram
 from code.algorithms.cluster_algorithm import cluster_algorithm
-from sys import argv
 from code.algorithms.random_algorithm import start_random
 from code.algorithms.distance_related_algorithm import start_distance
-from code.experiments.distance_related_exp import test_distance
-from code.experiments.random_exp import test_random
 from code.experiments.hillclimber_exp import hillclimber_random, hillclimber_greedy, restart_hillclimber_random, restart_hillclimber_greedy, data_restart
 import time
+from sys import argv
 
 """
 
 Main file which is used to call all other functions in other files.
 
-Usage: --district {number of district the user would like to select}.
+Usage: --district {number of district the user would like to select} {Parameters}.
 
 """
 start_time = time.time()
