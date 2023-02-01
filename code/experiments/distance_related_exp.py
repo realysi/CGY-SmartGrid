@@ -3,7 +3,7 @@ import csv
 from sys import argv
 
 
-def test_distance_district(houses, batteries):
+def test_distance(houses, batteries):
 
     scores = start_distance(houses, batteries)
 
