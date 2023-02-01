@@ -127,11 +127,3 @@ def plot_grid(houses, batteries, cables):
     plt.savefig('grid.png', bbox_inches='tight')
     plt.show()
 
-"""
-Links:
-https://www.tutorialspoint.com/how-can-i-plot-a-single-point-in-matplotlib-python
-https://www.pythoncharts.com/matplotlib/customizing-grid-matplotlib/
-https://stackoverflow.com/questions/14608483/how-to-add-a-grid-line-at-a-specific-location-in-matplotlib-plot
-https://stackoverflow.com/questions/7908636/how-to-add-hovering-annotations-to-a-plot
-
-"""
