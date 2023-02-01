@@ -62,8 +62,26 @@ The distance algorithm first calculates the distance to all houses for each batt
     - To prevent a house from not being added to a battery, the list of houses without a battery is randomized after 10 shuffles.
 - After fitting all the houses, the algorithm yields a result.
 
-
 #### Hillclimber
+
+The hill climber algorithm tries to achieve lower costs by continously switching a set amount of houses. It switches the batteries of the given amount of houses with each other. If the capacity of one of the batteries is exceeded, the algorithm starts again. If none of the capacities is exceeded, the scores of the edited data set by the hill climber will be compared to that of the data before the changes of the algorithm. If the cost is lower after the algorithm, this dataset will be returned. Otherwise the algorithm starts again. 
+
+The following arguments/parameters can be given to this algorithm:
+- district
+- depth (amount of total tries)
+- restart or no restart
+- if restarts --> amount of restarts
+- base algorithm
+
+In this project there are 4 types of hillclimber algorithms, 2 of which are functioning:
+- hillclimber random (functions):
+    uses a random solution as base to imporve the cost.
+- hillclimber greedy:
+    uses a greedy solution as base to imporve the cost.
+- restart_hillclimber random (functions): 
+    restarts if no improvement can be found within x-tries. Uses a random solution as base.
+-restart_hillclimber greedy:
+    restarts if no improvement can be found within x-tries. Uses a greedy solution as base.
 
 #### Clustering
 
@@ -111,10 +129,11 @@ The different algorithms to be entered are:
 
 - random (followed by number of runs)
 - distance (followed by: number of runs | amount of houses deleted per shuffle | capacity border)
-- hillclimber (followed by: number of runs | depth)
+- hillclimber (followed by: base algorithm (random/greedy) | amount of houses to switch | depth)
+- restart_hillclimber (followed by: base algorithm (random/greedy) | amount of houses to switch | depth | restarts)
 - cluster (followed by number of runs)
 
-Cluster algorithm will not produce a valid output.
+hillclimber greedy, restart_hillclimber greedy and cluster algorithm will not produce valid outputs.
 
 ### Structure
 
