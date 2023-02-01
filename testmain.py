@@ -1,13 +1,13 @@
 from code.read import read_data
 from code.classes.data import Data
+from code.classes.score import Score
 from code.visualisation.output import output_file
 from code.visualisation.grid import plot_grid
 from code.visualisation.histogram import plot_histogram
 from code.algorithms.cluster_algorithm import cluster_algorithm
 from sys import argv
 from code.algorithms.random_algorithm import random_algorithm
-from code.algorithms.distance_related_algorithm import start_distance
-from code.experiments.distance_related_exp import test_distance_district_1
+from code.algorithms.distance_related_algorithm import distance_algorithm
 import time
 
 """
@@ -23,11 +23,34 @@ start_time = time.time()
 if __name__ == "__main__":    
     # Read in the raw data
     raw_data: Data = read_data()
+    cluster_algorithm(raw_data.houses, raw_data.batteries)
+'''
+    # Create score object for all runs
+    final_score: Score = Score() 
+    
+    all_scores = []
 
-    # Run algorithm
-    scores = test_distance_district_1(raw_data.houses, raw_data.batteries)
-    #scores = start_distance(raw_data.houses, raw_data.batteries)    
-    #plot_histogram(scores.all_scores)
-    # Gives output file and plots grid of best scores
-    #output_file(scores.best_data.houses, scores.best_data.batteries)
-    #plot_grid(scores.best_data.houses, scores.best_data.batteries, scores.best_data.cables)
+    for i in range(10):
+        data: Data = distance_algorithm(raw_data.houses, raw_data.batteries)
+        data.add_cables()
+        score = data.cost_with_overlay()
+        #score = data.cables_cost_no_overlap()
+        all_scores.append(score)
+        final_score.add_score(score, data)
+
+
+    #print(raw_data.houses)
+    #print(raw_data.batteries)
+
+    print(all_scores)
+
+    #calculate average score, save dataset of best score
+    average_score = final_score.calculate_average_score()
+    data_best_score: Data = final_score.best_data
+
+    #data_best_score.overlay() --> DIT IS CODE VOOR DE OVERLAY UPDATE
+    print(final_score)
+
+    output_file(data_best_score.houses, data_best_score.batteries)
+    plot_grid(data_best_score.houses, data_best_score.batteries, data_best_score.cables)
+'''

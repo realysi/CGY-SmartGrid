@@ -1,7 +1,6 @@
 import math
 import random
 from ..classes.data import Data
-from ..classes.score import Score
 from copy import deepcopy
 
 """
@@ -79,8 +78,8 @@ def add_houses_bat(houses, batteries):
             if fits(battery, house):
                         subtract(battery, house)
 
-# Hill_climber function to shuffle houses.
-def shuffle(houses, batteries, change, capacity_border,amount_of_houses_to_remove):
+
+def shuffle(houses, batteries, change):
     # Get houses without a connected battery
     houses_without_battery = []
     for house_id in houses:
@@ -90,24 +89,19 @@ def shuffle(houses, batteries, change, capacity_border,amount_of_houses_to_remov
     # Get a battery to remove a house from
     batteries_with_space = []
     for battery_id in batteries:
-        if batteries[battery_id].capacity > capacity_border:
+        if batteries[battery_id].capacity > 1:
             batteries_with_space.append(battery_id)
     battery_id_to_shuffle = random.choice(batteries_with_space)
     # Finds house to remove
-    # Parameter for amount of houses we are going to remove
-    for house in range(amount_of_houses_to_remove):
-        house_to_remove = random.choice(batteries[battery_id_to_shuffle].to_houses)
-        batteries[battery_id_to_shuffle].remove_house(houses[house_to_remove])
-        houses_without_battery.append((houses[house_to_remove].id, houses[house_to_remove].max_output))
+    house_to_remove = random.choice(batteries[battery_id_to_shuffle].to_houses)
+    batteries[battery_id_to_shuffle].remove_house(houses[house_to_remove])
+    houses_without_battery.append((houses[house_to_remove].id, houses[house_to_remove].max_output))
     fit_houses(houses, batteries, houses_without_battery, change)
 
-# Tries to fit all the houses without a battery
+
 def fit_houses(houses, batteries, houses_without_battery, change):
     # Sort the houses on their output
     houses_without_battery.sort(key = lambda x: x[1])
-
-    # If we tried to fit the first house in the list for 20 times and no solution came 
-    # we switch the order of houses we want to fit first
     if change is False:
         houses_without_battery.reverse()
 
@@ -120,69 +114,25 @@ def fit_houses(houses, batteries, houses_without_battery, change):
                 continue
     return houses_without_battery
 
-# Counter for when we change the house_order for fitting houses
-def change_algorithm(counter, switch_sorting):
-    if counter < switch_sorting:
+def change_algorithm(counter):
+    if counter < 20:
         return False
     else:
         return True
 
-
-# First adds the houses in a greedy way, than shuffles
-def distance_algorithm(houses, batteries, switch_sorting, amount_of_houses_to_remove, capacity_border, final_score):
+        
+def distance_algorithm(houses, batteries):
     add_scores(houses, batteries)
     add_houses_bat(houses, batteries)
-
-    # deepcopy_data
     copy_houses = deepcopy(houses)
     copy_batteries = deepcopy(batteries)
-
-    # counter and runs
     counter = 0
-    switch = 0
     while mistakes(copy_houses):
-        change = change_algorithm(counter, switch_sorting)
+    #for i in range(45):
+        change = change_algorithm(counter)
         counter += 1
         if counter > 40:
             counter = 0
-        shuffle(copy_houses, copy_batteries, change, capacity_border, amount_of_houses_to_remove)
-        switch += 1
-    final_score.switch_per_run.append(switch)
+        shuffle(copy_houses, copy_batteries, change)
+    print(copy_houses, copy_batteries)
     return Data(copy_houses, copy_batteries)
-
-
-def start_distance(houses, batteries, parameters):
-    # Create score object for all runs
-    final_score: Score = Score() 
-
-    # If no parameters are given the standart parameters are uses.
-    if len(parameters) == 0:
-        parameters.append(20)   # Switch_sorting
-        parameters.append(1)    # Amount of houses to remove
-        parameters.append(1)    # Capacity border  
-        parameters.append(5)    # Amount of runs
-    
-    # Parameters
-    switch_sorting = parameters[0]
-    amount_of_houses_to_remove = parameters[1]
-    capacity_border = parameters[2]
-    amount_of_runs = parameters[3]
-
-
-    # Amount of runs
-    for run in range(amount_of_runs):
-        data = distance_algorithm(houses, batteries, switch_sorting, amount_of_houses_to_remove, capacity_border, final_score)
-        data.add_cables()
-        score = data.cost_with_overlay()
-        final_score.all_scores.append(score)
-        final_score.add_score(score, data)
-
-    # Calculate average score, save dataset of best score
-    final_score.calculate_average_score()
-
-
-    
-    print(final_score)
-    
-
-    return final_score

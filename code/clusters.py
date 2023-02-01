@@ -3,14 +3,14 @@ from typing import Dict, List
 
 """
 Cluster.py contains two function which together make clusters of houses which
-are relatively close to one another. A house cannot be part of multiple`clusters
+are relatively close to one another. A house cannot be part of multiple clusters
 at the same time. These cluster can be used in an algorithm to efficiently
 connect houses to batteries by sharing cables. 
 """
 
 def make_neighbours(houses: Dict[int, House]) -> Dict[int, list]:
     """
-    Returns a dict containing a houses (keys) and their neighbouring houses (values).
+    Returns a dict containing houses (keys) and their neighbouring houses (values).
     Manhattan distance is calculated between all houses.
     Only adds neighbouring houses with a distance smaller than 5 units to dict.
     """
@@ -29,7 +29,7 @@ def make_neighbours(houses: Dict[int, House]) -> Dict[int, list]:
             distance = abs(x_home - x_away) + abs(y_home - y_away)
             # Will not create a new key for a house if that house wat already part of a value
             # Maximum distance is also determined here
-            if distance < 5 and (away not in neighbours or home not in neighbours[away]):
+            if distance < 10 and (away not in neighbours or home not in neighbours[away]):
                 if home not in neighbours:
                     # If key not yet in dict, make empty list for the key
                     neighbours[home] = []

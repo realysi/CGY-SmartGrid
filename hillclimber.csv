@@ -1,2 +1,2 @@
-Depth,Cost,Algorithm,Base
-10,19143,hill climber,random
+Run,Depth,Cost,Algorithm,Base
+1,100,14958,hill climber,random
