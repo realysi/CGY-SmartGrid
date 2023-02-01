@@ -11,49 +11,86 @@ from code.classes.battery import Battery
 import random
 import copy
 
-def select_house_one(data: Data) -> House:
+def swaps(amount_of_houses):
+    pass
+
+def select_houses(data: Data, amount_of_houses: int) -> list[House]:
     """
-    Returns a house object.
-    Selects a random house from a random battery.
+    Returns list of houses from different batteries.
+    Selects the amount of houses given as argument. 
     """
+    house_choices = []
+    batteries_left = [1,2,3,4,5]
 
-    #Select a random battery
-    id_first_battery: int = random.randint(1,5)
-    first_battery: Battery = data.batteries[id_first_battery]
+    while len(house_choices) != amount_of_houses:
+        id_battery = random.choice(batteries_left) #--- select battery ---#
+        batteries_left.remove(id_battery)
+        battery = data.batteries[id_battery]
+        houses_in_battery = [] #--- Select house from battery---#
+        for house in battery.to_houses:
+            houses_in_battery.append(house)
+        id_house = random.choice(houses_in_battery)
+        house = data.houses[id_house]
 
-    #Add all houses (in this case house_id's) in the chosen first_battery to a list and pick a random house id
-    houses_in_first_battery: list = []
-    for house in first_battery.to_houses:
-        houses_in_first_battery.append(house)
-    id_randomhouse: int = random.choice(houses_in_first_battery)
-    first_house: House = data.houses[id_randomhouse] #first house
+        house_choices.append(house)
 
-    return first_house
+    return house_choices
 
-def select_house_two(data: Data, house_one_id) -> House:
+
+def switch_max(data: Data, chosen_houses:list[House]):
     """
-    Returns a house object.
-    Selects a random house from a random battery, which is different than the battery of select_house_one()
+    Switches max_outputs of all houses. Let's say we got 3 houses we want to swap each time.
+    Bat 1 gets capacity of house from bat 2, bat 2 from house of bat 3 and bat 3 from house of bat 1.
     """
-
-    #Select a random battery (except the one already chosen in function above)
-    while True: #this excludes already chosen battery
-        id_second_battery: int = random.randint(1,5)
-        id_first_battery: int = data.houses[house_one_id].to_battery
-        if id_second_battery == id_first_battery:
-            continue
-        else:
+    copy_house_one_output = 0
+    #--- loop through houses in list
+    for i in range(len(chosen_houses)):
+        house = chosen_houses[i]
+        data.batteries[house.to_battery].capacity += house.max_output #remove output from current house from the capacity
+        if i == 0:
+            copy_house_one_output = copy.deepcopy(house.max_output) #make copy since you gonna change this
+        elif i == len(chosen_houses) - 1 and len(chosen_houses) > 1: #last house in list
+            data.batteries[house.to_battery].capacity -= copy_house_one_output #subtract the buffer of houses[0]
             break
-    second_battery: Battery = data.batteries[id_second_battery]
 
-    # - add all houses (in this case house_id's) in the chosen first_battery to a list and pick a random house id
-    houses_in_second_battery: list = []
-    for house in second_battery.to_houses:
-        houses_in_second_battery.append(house)
-    id_second_randomhouse: int = random.choice(houses_in_second_battery)
-    second_house: House = data.houses[id_second_randomhouse] #first house
+        house_after = chosen_houses[i + 1]
+        data.batteries[house.to_battery].capacity -= house_after.max_output #--- remove output from battery and add output from next house
 
-    return second_house
+        
+def switch_bat(data: Data, chosen_houses:list[House]):
+
+    copy_house_one_battery = 0
+    #--- loop through houses in list
+    for i in range(len(chosen_houses)):
+        house = chosen_houses[i]
+        if i == 0:
+            copy_house_one_battery = copy.deepcopy(house.to_battery) #make copy since you gonna change this
+        elif i == len(chosen_houses) - 1 and len(chosen_houses) > 1: #last house in list
+            house.to_battery = copy_house_one_battery #switch batteries of house_one and house_two
+            break
+        
+        house_after = chosen_houses[i + 1]
+        house.to_battery = house_after.to_battery
+
+
+def switch_houses(data: Data, chosen_houses: list[House]):
+    length_houses = len(chosen_houses)
+    copy_house_one_id = 0
+    #--- loop through houses in list
+    for i in range(len(chosen_houses)):
+        house = chosen_houses[i]
+        battery_house_id = data.houses[house.id].to_battery
+        battery_house = data.batteries[battery_house_id]
+        battery_house.to_houses.remove(house.id)
+        if i == 0:
+            copy_house_one_id = copy.deepcopy(house.id) #make copy since you gonna change this
+        elif i == len(chosen_houses) - 1 and len(chosen_houses) > 1: #last house in list
+            data.batteries[house.to_battery].to_houses.append(copy_house_one_id)
+            break
+        
+        house_after = chosen_houses[i + 1]
+        data.batteries[house.to_battery].to_houses.append(house_after.id)
+        house.to_battery = house_after.to_battery
 
 
 def valid_switch(data: Data) -> bool:

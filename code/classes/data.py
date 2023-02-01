@@ -15,6 +15,9 @@ class Data():
         self.cost = 0
         self.score = 0
         self.total_cable_length = 0
+        self.base = ""
+        self.algorithm_used = ""
+        self.swaps = 0
 
     # Returns total cost of all cables for one solution
     def cables_cost_no_overlap(self) -> int:

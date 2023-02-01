@@ -44,13 +44,11 @@ if __name__ == "__main__":
     final_score: Score = Score() 
 
     #stukje van Yanick voor testen hillclimber algoritme
-    data = restart_hillclimber(raw_data.houses, raw_data.batteries)
-    #data: Data = hillclimber(raw_data.houses, raw_data.batteries)
-    #plot_grid(data.houses, data.batteries, data.cables) #creates outputfile which contains data of both dictionaries -> see output.txt
-    #for i in data.cables:
-        #print(f"ID: {data.cables[i].house.id}")
-        #print(f"BAT ID: {data.cables[i].battery.id} | Capacity: {data.cables[i].battery.capacity} | {data.cables[i].battery.to_houses}")
-        #print(f"{data.cables[i].segments}")
+    data = hillclimber_random(raw_data.houses, raw_data.batteries, 5)
+    #data = hillclimber_greedy(raw_data.houses, raw_data.batteries, 3)
+    #data = restart_hillclimber_random(raw_data.houses, raw_data.batteries, 3)
+    #data = restart_hillclimber_random(raw_data.houses, raw_data.batteries, 3)
+    #data = restart_hillclimber(raw_data.houses, raw_data.batteries, 3)
 
     print(f"SCORE: {data.cost}")
 
