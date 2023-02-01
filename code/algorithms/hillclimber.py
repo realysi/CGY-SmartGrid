@@ -80,9 +80,10 @@ def switch_bat(data: Data, chosen_houses:list[House]):
 
 
 def switch_houses(data: Data, chosen_houses: list[House]):
-    length_houses = len(chosen_houses)
+    """
+    Switches houses of the to_houses from the batteries.
+    """
     copy_house_one_id = 0
-    #--- loop through houses in list
     for i in range(len(chosen_houses)):
         house = chosen_houses[i]
         battery_house_id = data.houses[house.id].to_battery
