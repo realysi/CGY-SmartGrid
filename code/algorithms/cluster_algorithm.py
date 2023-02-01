@@ -136,8 +136,6 @@ def cluster_algorithm(houses, batteries) -> Data:
         middle = calc_middle(cluster, houses)
         closest_battery = closest_battery_to_cluster(middle, batteries)
         output = cluster_output(cluster, houses)
-        # The first house in the cluster will always be the closest to the battery
-        # Is this true?????
         main_house = closest_house_to_battery(cluster, closest_battery, batteries, houses)
         
         if batteries[closest_battery].capacity > output:
