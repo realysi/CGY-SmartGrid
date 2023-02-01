@@ -13,7 +13,6 @@ from .random_algorithm import random_algorithm
 from code.classes.data import Data
 from code.classes.house import House
 from code.classes.battery import Battery
-#from code.visualisation.hillclimber_views import sketch
 import random
 import copy
 
@@ -49,14 +48,13 @@ def switch_max(data: Data, chosen_houses:list[House]):
     Bat 1 gets capacity of house from bat 2, bat 2 from house of bat 3 and bat 3 from house of bat 1.
     """
     copy_house_one_output = 0
-    #--- loop through houses in list
     for i in range(len(chosen_houses)):
         house = chosen_houses[i]
-        data.batteries[house.to_battery].capacity += house.max_output #remove output from current house from the capacity
+        data.batteries[house.to_battery].capacity += house.max_output
         if i == 0:
-            copy_house_one_output = copy.deepcopy(house.max_output) #make copy since you gonna change this
-        elif i == len(chosen_houses) - 1 and len(chosen_houses) > 1: #last house in list
-            data.batteries[house.to_battery].capacity -= copy_house_one_output #subtract the buffer of houses[0]
+            copy_house_one_output = copy.deepcopy(house.max_output) 
+        elif i == len(chosen_houses) - 1 and len(chosen_houses) > 1: 
+            data.batteries[house.to_battery].capacity -= copy_house_one_output 
             break
 
         house_after = chosen_houses[i + 1]
@@ -64,15 +62,17 @@ def switch_max(data: Data, chosen_houses:list[House]):
 
         
 def switch_bat(data: Data, chosen_houses:list[House]):
-
+    """
+    Switches batteries of all houses. Let's say we got 3 houses we want to swap each time.
+    Bat 1 gets capacity of house from bat 2, bat 2 from house of bat 3 and bat 3 from house of bat 1.
+    """
     copy_house_one_battery = 0
-    #--- loop through houses in list
     for i in range(len(chosen_houses)):
         house = chosen_houses[i]
         if i == 0:
-            copy_house_one_battery = copy.deepcopy(house.to_battery) #make copy since you gonna change this
-        elif i == len(chosen_houses) - 1 and len(chosen_houses) > 1: #last house in list
-            house.to_battery = copy_house_one_battery #switch batteries of house_one and house_two
+            copy_house_one_battery = copy.deepcopy(house.to_battery) 
+        elif i == len(chosen_houses) - 1 and len(chosen_houses) > 1: 
+            house.to_battery = copy_house_one_battery 
             break
         
         house_after = chosen_houses[i + 1]
@@ -144,6 +144,11 @@ def runs(tries: int, limit) -> bool:
 
 
 def switch(data: Data, amount_of_houses, limit):
+    """
+    Returns edited data object or unedited data object if depth limit is met.
+    Adjusts the capacities, to_houses of the batteries since houses switch from battery.
+    Checks if none of the capacities is exceeded and if the edited data type results in a lower cost.
+    """
     while True:
         if runs(data.depth, limit):
             data.depth += 1
@@ -207,13 +212,15 @@ def restart_hillclimber(houses, batteries, amount_of_houses) -> dict[int, Data]:
         print(f"run: {total_hillclimbers}\t| cost: {data.cost}\t| depth : {data.depth}")
         results[total_hillclimbers + 1] = data
         total_hillclimbers += 1
-
-            
+        
     save_data(results)
-    print(results)
     return results
 
+
 def save_data(dictionary: dict[int, Data]):
+    """
+    Saves data to csv file
+    """
     fields = ["Run", "Depth", "Cost", "Algorithm", "Base"]
     filename = "hillclimber.csv"
 
