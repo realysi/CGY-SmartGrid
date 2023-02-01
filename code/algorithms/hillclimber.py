@@ -211,7 +211,6 @@ def restart_hillclimber(houses, batteries, amount_of_houses) -> dict[int, Data]:
             
     save_data(results)
     print(results)
-    #sketch(results)
     return results
 
 def save_data(dictionary: dict[int, Data]):
