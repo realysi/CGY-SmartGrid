@@ -1,13 +1,10 @@
 import csv
 from matplotlib import pyplot as plt
-from code.algorithms.random_algorithm import random_algorithm
 from code.algorithms.hillclimber import * #dit moet nog netter worden gemaakt ofc
 from code.classes.data import Data
 from code.classes.house import House
 from code.classes.battery import Battery
-from code.algorithms.distance_related_algorithm import distance_algorithm #, exp_greedy_algorithm
-import random
-import copy
+
 
 
 def open_temporary_data(filename: str):
