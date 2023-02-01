@@ -1,6 +1,7 @@
 import math
 import random
 from ..classes.data import Data
+from ..classes.score import Score
 from copy import deepcopy
 
 """
@@ -79,7 +80,7 @@ def add_houses_bat(houses, batteries):
                         subtract(battery, house)
 
 # Hill_climber function to shuffle houses.
-def shuffle(houses, batteries, change):
+def shuffle(houses, batteries, change, capacity_border,amount_of_houses_to_remove):
     # Get houses without a connected battery
     houses_without_battery = []
     for house_id in houses:
@@ -89,13 +90,15 @@ def shuffle(houses, batteries, change):
     # Get a battery to remove a house from
     batteries_with_space = []
     for battery_id in batteries:
-        if batteries[battery_id].capacity > 1:
+        if batteries[battery_id].capacity > capacity_border:
             batteries_with_space.append(battery_id)
     battery_id_to_shuffle = random.choice(batteries_with_space)
     # Finds house to remove
-    house_to_remove = random.choice(batteries[battery_id_to_shuffle].to_houses)
-    batteries[battery_id_to_shuffle].remove_house(houses[house_to_remove])
-    houses_without_battery.append((houses[house_to_remove].id, houses[house_to_remove].max_output))
+    # Parameter for amount of houses we are going to remove
+    for house in range(amount_of_houses_to_remove):
+        house_to_remove = random.choice(batteries[battery_id_to_shuffle].to_houses)
+        batteries[battery_id_to_shuffle].remove_house(houses[house_to_remove])
+        houses_without_battery.append((houses[house_to_remove].id, houses[house_to_remove].max_output))
     fit_houses(houses, batteries, houses_without_battery, change)
 
 # Tries to fit all the houses without a battery
@@ -118,26 +121,68 @@ def fit_houses(houses, batteries, houses_without_battery, change):
     return houses_without_battery
 
 # Counter for when we change the house_order for fitting houses
-def change_algorithm(counter):
-    if counter < 20:
+def change_algorithm(counter, switch_sorting):
+    if counter < switch_sorting:
         return False
     else:
         return True
 
-        
-def distance_algorithm(houses, batteries):
+
+# First adds the houses in a greedy way, than shuffles
+def distance_algorithm(houses, batteries, switch_sorting, amount_of_houses_to_remove, capacity_border, final_score):
     add_scores(houses, batteries)
     add_houses_bat(houses, batteries)
+
+    # deepcopy_data
     copy_houses = deepcopy(houses)
     copy_batteries = deepcopy(batteries)
+
+    # counter and runs
     counter = 0
-    runs = 0
+    switch = 0
     while mistakes(copy_houses):
-        change = change_algorithm(counter)
+        change = change_algorithm(counter, switch_sorting)
         counter += 1
         if counter > 40:
             counter = 0
-        shuffle(copy_houses, copy_batteries, change)
-        runs += 1
-    print(runs)
+        shuffle(copy_houses, copy_batteries, change, capacity_border, amount_of_houses_to_remove)
+        switch += 1
+    final_score.switch_per_run.append(switch)
     return Data(copy_houses, copy_batteries)
+
+
+def start_distance(houses, batteries, parameters):
+    # Create score object for all runs
+    final_score: Score = Score() 
+
+    # If no parameters are given the standart parameters are uses.
+    if len(parameters) == 0:
+        parameters.append(20)   # Switch_sorting
+        parameters.append(1)    # Amount of houses to remove
+        parameters.append(1)    # Capacity border  
+        parameters.append(5)    # Amount of runs
+    
+    # Parameters
+    switch_sorting = parameters[0]
+    amount_of_houses_to_remove = parameters[1]
+    capacity_border = parameters[2]
+    amount_of_runs = parameters[3]
+
+
+    # Amount of runs
+    for run in range(amount_of_runs):
+        data = distance_algorithm(houses, batteries, switch_sorting, amount_of_houses_to_remove, capacity_border, final_score)
+        data.add_cables()
+        score = data.cost_with_overlay()
+        final_score.all_scores.append(score)
+        final_score.add_score(score, data)
+
+    # Calculate average score, save dataset of best score
+    final_score.calculate_average_score()
+
+
+    
+    print(final_score)
+    
+
+    return final_score
