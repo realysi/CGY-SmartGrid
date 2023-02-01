@@ -148,6 +148,5 @@ def cluster_algorithm(houses, batteries) -> Data:
             connect_cluster(cluster, houses, main_house, closest_battery, batteries, data)
         left_over_houses(houses, batteries, data)
     if mistakes(houses):
-        shuffle(houses, batteries, True)
-        print(batteries)
+        shuffle(houses, batteries, True, 1, 1)
     return data
