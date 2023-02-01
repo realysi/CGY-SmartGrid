@@ -31,16 +31,20 @@ if __name__ == "__main__":
     if argv[3] == "random":
         #4 = runs
         if len(argv) == 5:
-            scores = test_random(raw_data.houses, raw_data.batteries)
+            scores = start_random(raw_data.houses, raw_data.batteries)
             data_best_score: Data = scores.best_data
+            output_file(data_best_score.houses, data_best_score.batteries)
+            plot_grid(data_best_score.houses, data_best_score.batteries, data_best_score.cables)
         else:
             print("Usage: --district (filenumber) 'algorithm' 'amount of runs'")
             raise SystemExit
     elif argv[3] == "distance":
         #4 = runs, 5 = houses to remove per shuffle, 6 = capacity border for the battery
         if len(argv) == 7:
-            scores = test_distance(raw_data.houses, raw_data.batteries)
+            scores = start_distance(raw_data.houses, raw_data.batteries)
             data_best_score: Data = scores.best_data
+            output_file(data_best_score.houses, data_best_score.batteries)
+            plot_grid(data_best_score.houses, data_best_score.batteries, data_best_score.cables)
         else:
             print("Usage: --district (filenumber) 'algorithm' 'amount of runs' 'amount_of_houses_to_remove' 'capacity_border'")
             raise SystemExit
@@ -48,19 +52,27 @@ if __name__ == "__main__":
         #3 = name, 4 = base, 5 = houses, 6 = depth
         if argv[4] == "random":
             data = hillclimber_random(raw_data.houses, raw_data.batteries, int(argv[5]), int(argv[6]))
+            output_file(data.houses, data.batteries)
+            plot_grid(data.houses, data.batteries, data.cables)
         elif argv[4] == "greedy":
-            data = hillclimber_greedy(raw_data.houses, raw_data.batteries, int(argv[5]), int(argv[6]))
+            data = hillclimber_greedy(raw_data.houses, raw_data.batteries, int(argv[5]), int(argv[6]))            
     elif argv[3] == "restart_hillclimber":
         #3 = name, 4 = base, 5 = houses, 6 = depth, 7=restarts
         if argv[4] == "random":
             data = restart_hillclimber_random(raw_data.houses, raw_data.batteries, int(argv[5]), int(argv[6]), int(argv[7]))
+            output_file(data.houses, data.batteries)
+            plot_grid(data.houses, data.batteries, data.cables)
         elif argv[4] == "greedy":
             data = restart_hillclimber_greedy(raw_data.houses, raw_data.batteries, int(argv[5]), int(argv[6]), int(argv[7]))
+            output_file(data.houses, data.batteries)
+            plot_grid(data.houses, data.batteries, data.cables)
     elif argv[3] == "cluster":
          #3 = name, 4 = runs
         if len(argv) == 5:
             for run in range(int(argv[4])):
                 data = cluster_algorithm(raw_data.houses, raw_data.batteries)
+                output_file(data.houses, data.batteries)
+                plot_grid(data.houses, data.batteries, data.cables)
         else:
             print("Usage: --district (filenumber) 'algorithm' 'amount of runs'")
             raise SystemExit
@@ -68,8 +80,3 @@ if __name__ == "__main__":
     else:
         print("Usage: --district (filenumber) 'algorithm' 'parameters'")
         raise SystemExit
-    
-
-    output_file(data_best_score.houses, data_best_score.batteries)
-    plot_histogram()
-    plot_grid(data.houses, data.batteries, data.cables)
