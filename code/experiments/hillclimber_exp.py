@@ -5,7 +5,6 @@ from code.algorithms.hillclimber import * #dit moet nog netter worden gemaakt of
 from code.classes.data import Data
 from code.classes.house import House
 from code.classes.battery import Battery
-from code.visualisation.hillclimber_views import sketch
 from code.algorithms.distance_related_algorithm import distance_algorithm #, exp_greedy_algorithm
 import random
 import copy
