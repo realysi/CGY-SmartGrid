@@ -129,10 +129,11 @@ The different algorithms to be entered are:
 
 - random (followed by number of runs)
 - distance (followed by: number of runs | amount of houses deleted per shuffle | capacity border)
-- hillclimber (followed by: number of runs | depth)
+- hillclimber (followed by: base algorithm (random/greedy) | amount of houses to switch | depth)
+- restart_hillclimber (followed by: base algorithm (random/greedy) | amount of houses to switch | depth | restarts)
 - cluster (followed by number of runs)
 
-Cluster algorithm will not produce a valid output.
+hillclimber greedy, restart_hillclimber greedy and cluster algorithm will not produce valid outputs.
 
 ### Structure
 
