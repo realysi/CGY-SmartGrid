@@ -170,7 +170,6 @@ def start_distance(houses, batteries):
 
     # Calculate average score, save dataset of best score
     final_score.calculate_average_score()
-    print(final_score.all_scores)
     print(final_score)
 
     return final_score
