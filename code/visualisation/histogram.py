@@ -3,8 +3,9 @@ import matplotlib.mlab as mlab
 import matplotlib.pyplot as plt
 
 
-def plot_histogram(scores, average_score):
+def plot_histogram(scores):
     num_bins = 10
+    all_scores = scores.all_scores
     # the histogram of the data
     bins = plt.hist(scores, num_bins, facecolor='blue', alpha=0.5)
 
