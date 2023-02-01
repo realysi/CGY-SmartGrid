@@ -10,7 +10,7 @@ from code.algorithms.random_algorithm import start_random
 from code.algorithms.distance_related_algorithm import start_distance
 from code.experiments.distance_related_exp import test_distance
 from code.experiments.random_exp import test_random
-from code.experiments.hillclimber_exp import hillclimber_random, hillclimber_greedy, restart_hillclimber_random, restart_hillclimber_greedy
+from code.experiments.hillclimber_exp import hillclimber_random, hillclimber_greedy, restart_hillclimber_random, restart_hillclimber_greedy, data_restart
 import time
 
 """
@@ -59,11 +59,13 @@ if __name__ == "__main__":
     elif argv[3] == "restart_hillclimber":
         #3 = name, 4 = base, 5 = houses, 6 = depth, 7=restarts
         if argv[4] == "random":
-            data = restart_hillclimber_random(raw_data.houses, raw_data.batteries, int(argv[5]), int(argv[6]), int(argv[7]))
+            data_dictionary = restart_hillclimber_random(raw_data.houses, raw_data.batteries, int(argv[5]), int(argv[6]), int(argv[7]))
+            data = data_restart(data_dictionary)
             output_file(data.houses, data.batteries)
             plot_grid(data.houses, data.batteries, data.cables)
         elif argv[4] == "greedy":
-            data = restart_hillclimber_greedy(raw_data.houses, raw_data.batteries, int(argv[5]), int(argv[6]), int(argv[7]))
+            data_dictionary = restart_hillclimber_greedy(raw_data.houses, raw_data.batteries, int(argv[5]), int(argv[6]), int(argv[7]))
+            data = data_restart(data_dictionary)
             output_file(data.houses, data.batteries)
             plot_grid(data.houses, data.batteries, data.cables)
     elif argv[3] == "cluster":

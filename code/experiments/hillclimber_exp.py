@@ -160,3 +160,13 @@ def restart_hillclimber_greedy(houses: dict[int, House], batteries: dict[int, Ba
             
     return results
 
+def data_restart(data: dict[int, Data]):
+    best_score = 1000000
+    data_object_best_score = 0
+    for data_object in data.values():
+        current_score =  data_object.cost
+        current_data_object = data_object
+        if current_score < best_score:
+            best_score = current_score
+            data_object_best_score: Data = current_data_object
+    return data_object_best_score
